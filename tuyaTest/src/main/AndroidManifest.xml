@@ -1,0 +1,95 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nextapp.tuyatest">
+
+    <!-- sdcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name=".TuyaSmartApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="TUYA_SMART_APPKEY"
+            android:value="d756fb5805591c7add3f"/>
+
+        <meta-data
+            android:name="TUYA_SMART_SECRET"
+            android:value="ggvrcbnfa6grg8ogoruyl0bjoj1qetbv"/>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService"/>
+        <!-- device location -->
+        <service android:name="com.tuya.smart.android.device.service.LocationService"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"/>
+
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".DeviceListActivity"/>
+        <activity android:name=".DevicePanelActivity"/>
+        <activity android:name=".APActivityTest"/>
+        <activity android:name=".ShareActivity"/>
+        <activity android:name=".RegisterWithPhoneActivity"/>
+        <activity android:name=".RegisterWithEmailActivity"/>
+        <activity android:name=".LoginWithPhoneActivity"/>
+        <activity android:name=".LoginWithEmailActivity"/>
+        <activity android:name=".FindPasswordEmailActivity"/>
+        <activity android:name=".FindPasswordPhoneActivity"/>
+        <activity android:name=".RegisterWithUIDActivity"/>
+        <activity android:name=".FindPasswordUidActivity"/>
+        <activity android:name=".LoginWithUidActivity"/>
+
+        <receiver android:name="com.tuya.smart.android.base.broadcast.NetworkBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.tuya.smart.android.hardware.service.GwBroadcastMonitorService"
+            android:exported="true"
+            android:label="UDPService"
+            android:process=":monitor">
+            <intent-filter>
+                <action android:name="tuya.intent.action.udp"/>
+
+                <category android:name="tuya"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.tuya.smart.android.hardware.service.GwTransferService"
+            android:exported="true"
+            android:label="TCPService"
+            android:process=":transfer">
+            <intent-filter>
+                <action android:name="tuya.intent.action.tcp"/>
+
+                <category android:name="tuya"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

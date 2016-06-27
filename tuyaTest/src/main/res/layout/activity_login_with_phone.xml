@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="输入手机号码"/>
+
+    <EditText
+        android:id="@+id/et_validate_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="请输入密码"/>
+
+    <EditText
+        android:id="@+id/et_country_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="国家码 默认86"/>
+
+    <Button
+        android:id="@+id/do_reset"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="登录"/>
+
+</LinearLayout>
