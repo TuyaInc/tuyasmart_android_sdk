@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_home">
+
+    <TextView android:id="@+id/tv_ssid"
+              style="@style/TextView.Normal"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/mg_40"
+              android:layout_margin="@dimen/mg_15"/>
+    <EditText android:id="@+id/et_password"
+              style="@style/EditText.Normal"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/mg_40"
+              android:layout_below="@+id/tv_ssid"
+              android:layout_marginLeft="@dimen/mg_15"
+              android:layout_marginRight="@dimen/mg_15"
+              android:hint="@string/please_input_wifi_password"
+              android:inputType="textPassword"/>
+    <TextView
+        android:id="@+id/demo_log"
+        style="@style/TextView.Normal"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/et_password"
+        android:layout_margin="@dimen/mg_15"
+        android:text=""/>
+
+    <LinearLayout
+        android:id="@+id/demo_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/demo_log">
+
+        <Button
+            android:id="@+id/btn_ez_start"
+            style="@style/Button.Normal"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/mg_15"
+            android:layout_weight="1"
+            android:text="@string/ec_start"/>
+
+        <Button
+            android:id="@+id/btn_ez_cancel"
+            style="@style/Button.Normal"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/mg_15"
+            android:layout_weight="1"
+            android:text="@string/ec_cancel"/>
+
+    </LinearLayout>
+</RelativeLayout>

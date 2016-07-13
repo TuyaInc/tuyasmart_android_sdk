@@ -28,6 +28,8 @@ public class APActivityTest extends Activity {
     EditText mEtPassword;
     @Bind(R.id.btn_config_now)
     Button mBtnConfigNow;
+//    @Bind(R.id.btn_config_udp)
+//    Button mBtnConfigUDP;
     @Bind(R.id.ap_config_text)
     TextView mApConfigText;
 
@@ -175,6 +177,7 @@ public class APActivityTest extends Activity {
                 showApText();
             }
         }).setContext(this));
+
         //要先连上SmartTuya 的设备。才能开始配置
         findViewById(R.id.btn_config_now).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,11 +192,34 @@ public class APActivityTest extends Activity {
                     //联接设备WiFi。
                     tuyaSmartApConnect.start();
                 }
-
             }
         });
-        tuyaSmartApConnect.cancel();
 
+//        // 配网协议3.0
+//        mBtnConfigUDP.setEnabled(false);
+//        tuyaSmartApConnect.prepare(new IPreparedListener() {
+//            @Override
+//            public void onCompletion() {
+//                Toast.makeText(APActivityTest.this, "token获取成功,请先切换网络,再点击按钮配网", Toast.LENGTH_LONG).show();
+//                L.d(TAG, "token获取成功");
+//                mBtnConfigUDP.setEnabled(true);
+//            }
+//
+//            @Override
+//            public void onFailure() {
+//                L.d(TAG, "token获取失败");
+//                mBtnConfigUDP.setEnabled(false);
+//            }
+//        });
+//
+//        findViewById(R.id.btn_config_udp).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                tuyaSmartApConnect.start();
+//            }
+//        });
+
+//        tuyaSmartApConnect.cancel();
     }
 
 

@@ -112,4 +112,19 @@
         <item name="colorAccent">@color/color_accent</item>
         <item name="android:lineSpacingExtra">@dimen/wh_4</item>
     </style>
+
+    <!-- 文本输入框 -->
+    <style name="EditText.Normal" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/bg_white_round</item>
+        <item name="android:textSize">@dimen/ts_16</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLength">64</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_orange</item>
+    </style>
 </resources>

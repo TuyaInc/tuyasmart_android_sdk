@@ -63,6 +63,7 @@
         <activity android:name=".LoginWithUidActivity"/>
         <activity android:name=".test.activity.DeviceTestActivity"/>
         <activity android:name=".test.activity.EditDpTestActivity"/>
+        <activity android:name=".EZActivityTest"/>
 
         <receiver android:name="com.tuya.smart.android.base.broadcast.NetworkBroadcastReceiver">
             <intent-filter>

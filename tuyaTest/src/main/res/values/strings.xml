@@ -9,8 +9,8 @@
     <string name="device_list">Device list</string>
     <string name="share_list">Share list</string>
     <string name="reNickName">ReNickName</string>
-    <string name="ec_start">Start ECConfig</string>
-    <string name="ec_cancel">Cancel ECConfig</string>
+    <string name="ec_start">Start EZConfig</string>
+    <string name="ec_cancel">Cancel EZConfig</string>
     <string name="remove_device">Remove Device</string>
     <string name="ap_start">Start APConfig</string>
     <string name="offline">Off-line</string>
@@ -610,5 +610,38 @@
     <string name="clear">Clear</string>
     <string name="please_input_dp_value">Please add Dp test\'s values</string>
     <string name="save_success">Save success</string>
+
+    <string name="get_validate_code">Get validate code</string>
+    <string name="input_validate_code">Input validate code</string>
+    <string name="register_phonenumber">Register with Phone</string>
+    <string name="register_email">Register with email</string>
+    <string name="register_uid">Register with Uid</string>
+    <string name="login_phonenumber">Login with phoneNumber</string>
+    <string name="login_email">Login with email</string>
+    <string name="login_uid">Login with uid</string>
+    <string name="find_pwd_phonenumber">Retrieve Phone\'s password</string>
+    <string name="find_pwd_email">Retrieve Email\'s password</string>
+    <string name="find_pwd_uid">Retrieve Uid\'s password</string>
+    <string name="validate_code_email">Get email validate code</string>
+    <string name="reset_password">Reset success</string>
+    <string name="default_country_code">CountryCode</string>
+    <string name="please_input_username">Please Input Uid Name</string>
+    <string name="username_email">Please Input Email</string>
+
+
+    <string name="add_share_success">Add Successs</string>
+    <string name="add_share_failure">Add Failure</string>
+    <string name="delete_share_success">Delete Success</string>
+    <string name="delete_share_failure">Delete Failure</string>
+    <string name="modify_share_success">Modify Success</string>
+    <string name="modify_share_failure">Modify Failure</string>
+    <string name="get_sharelist_success">Get List Success</string>
+    <string name="get_sharelist_failure">Get List Failure</string>
+    <string name="unit_success">Success</string>
+    <string name="unit_failure">Failure</string>
+    <string name="please_login">Please Login First</string>
+    <string name="cant_find_alarm_attr">未找到对应的定时属性</string>
+    <string name="get_share_list">Get Share List</string>
+    <string name="add_uid_share">Add Uid Share</string>
 
 </resources>

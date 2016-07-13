@@ -105,7 +105,7 @@ public class DevicePanelActivity extends Activity {
         mTuyaTimerManager = new TuyaTimerManager();
         mTvInfo = (TextView) findViewById(R.id.tv_info);
         mLVTimer = (ListView) findViewById(R.id.lv_timer);
-        ((TextView) findViewById(R.id.device_status)).setText("设备状态：" + (TuyaSmartDevice.getInstance().getGw(mGwId).isOnline() ? "在线 " : "离线 ") + (TuyaSmartDevice.getInstance().getGw(mGwId).getGwBean().getIsShare() ? "分享设备" : "管理设备"));
+        ((TextView) findViewById(R.id.device_status)).setText(R.string.device_state + (TuyaSmartDevice.getInstance().getGw(mGwId).isOnline() ? "inline " : "offline ") + (TuyaSmartDevice.getInstance().getGw(mGwId).getGwBean().getIsShare() ? "share device" : "manage device"));
 
         adapter = new TimerAdapter(this);
         mLVTimer.setAdapter(adapter);
@@ -117,7 +117,7 @@ public class DevicePanelActivity extends Activity {
                 if (timer != null && timerTask != null) {
                     onChooseTimerOver(timerTask.getTimerTaskStatus().getTimerName(), timer.getTimerId());
                 } else {
-                    Toast.makeText(DevicePanelActivity.this, "未找到对应的定时属性", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DevicePanelActivity.this, R.string.cant_find_alarm_attr, Toast.LENGTH_LONG).show();
                 }
                 mLVTimer.setVisibility(View.GONE);
             }
@@ -130,27 +130,27 @@ public class DevicePanelActivity extends Activity {
         mTuyaSmartPanel = new TuyaSmartPanel(mGwId, mDevId, new IDevicePanelCallback() {
             @Override
             public void onDpUpdate(String deviceId, String dp) {
-                Toast.makeText(DevicePanelActivity.this, "dp更新：" + dp, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, "dp refresh：" + dp, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onRemoved() {
-                Toast.makeText(DevicePanelActivity.this, "设备被移除", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, R.string.device_has_unbinded, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStatusChanged(boolean online) {
-                Toast.makeText(DevicePanelActivity.this, "设备：" + (online ? "online" : "offline"), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, "device：" + (online ? "online" : "offline"), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNetworkStatusChanged(boolean status) {
-                Toast.makeText(DevicePanelActivity.this, "网络：" + (status ? "online" : "offline"), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, "network：" + (status ? "online" : "offline"), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onGWRelationUpdate() {
-                Toast.makeText(DevicePanelActivity.this, "网关数据刷新: ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, "gw refresh: ", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -232,7 +232,7 @@ public class DevicePanelActivity extends Activity {
         /**
          * 发送控制指令。回调函数会通知指令是否下发成功。注意：下发不代表硬件会执行该命令。
          */
-        findViewById(R.id.command_submit).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_dev_list).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -251,12 +251,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaSmartPanel.send(mCommandText.getText().toString(), new IControlCallback() {
                     @Override
                     public void onError(String code, String error) {
-                        Toast.makeText(DevicePanelActivity.this, "指令下发失败" + code + error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.send_command + R.string.unit_success + code + error, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "指令下发成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.send_command + R.string.unit_failure, Toast.LENGTH_SHORT).show();
                     }
 
                 });
@@ -274,12 +274,12 @@ public class DevicePanelActivity extends Activity {
 
                     @Override
                     public void onError(String code, String error) {
-                        Toast.makeText(DevicePanelActivity.this, "移除失败: " + error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.remove_device + R.string.unit_failure + " : " + error, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "移除成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.remove_device + R.string.unit_success, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -312,7 +312,7 @@ public class DevicePanelActivity extends Activity {
             }
         });
 
-        mTuyaSmartPanel.renameGw("冲奶机", new IControlCallback() {
+        mTuyaSmartPanel.renameGw("milking machine", new IControlCallback() {
             @Override
             public void onError(String code, String error) {
 
@@ -332,20 +332,20 @@ public class DevicePanelActivity extends Activity {
                 mTuyaSmartPanel.getHardwareUpdateInfo(new IHardwareUpdateInfo() {
                     @Override
                     public void onError(String code, String error) {
-                        Toast.makeText(DevicePanelActivity.this, "检查更新错误：" + error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.version_check + " : " + error, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSuccess(HardwareUpgradeBean info) {
                         UpgradeInfoBean dev = info.getDev();
                         if (dev != null) {
-                            Toast.makeText(DevicePanelActivity.this, String.format("固件信息。新版本：%s，当前版本：%s，升级信息: %s", dev.getVersion(), dev.getCurrentVersion(), dev.getDesc()), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DevicePanelActivity.this, String.format(getString(R.string.firmware_upgrad_tips0), dev.getVersion(), dev.getCurrentVersion(), dev.getDesc()), Toast.LENGTH_SHORT).show();
                         }
                         UpgradeInfoBean gw = info.getGw();
                         //upgradeStatus - 0:无新版本 1:有新版本 2:在升级中
                         //upgradeType - 0:app提醒升级 2-app强制升级 3-检测升级
                         if (gw != null) {
-                            Toast.makeText(DevicePanelActivity.this, String.format("固件信息。新版本：%1$s,当前版本：%2$s,升级信息：%3$s,升级状态: %4$d,升级类型: %5$d", gw.getVersion(), gw.getCurrentVersion(), dev.getDesc(), gw.getUpgradeStatus(), gw.getUpgradeType()), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DevicePanelActivity.this, String.format(getString(R.string.firmware_upgrad_tips1), gw.getVersion(), gw.getCurrentVersion(), dev.getDesc(), gw.getUpgradeStatus(), gw.getUpgradeType()), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -376,12 +376,12 @@ public class DevicePanelActivity extends Activity {
         mTuyaSmartPanel.getDataPointStat(DataPointTypeEnum.DAY, startTime, number, dpId, new IGetDataPointStatCallback() {
             @Override
             public void onError(String errorCode, String errorMsg) {
-                Toast.makeText(DevicePanelActivity.this, "获取历史数据失败" + errorMsg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, R.string.get_history_data + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onSuccess(DataPointStatBean bean) {
-                Toast.makeText(DevicePanelActivity.this, "获取历史数据成功：", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DevicePanelActivity.this, R.string.get_history_data + R.string.unit_success, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -403,7 +403,7 @@ public class DevicePanelActivity extends Activity {
 
     private void showTimerChooseList(int id) {
         if (adapter.getCount() == 0) {
-            Toast.makeText(this, "无定时信息", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.no_timer_data, Toast.LENGTH_LONG).show();
         } else {
             mLVTimer.setVisibility(View.VISIBLE);
             mClickId = id;
@@ -416,12 +416,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaTimerManager.operateTimerInTask(taskName, mDevId, false, new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "控制定时任务中所有定时器的开关状态成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.control_timer_task_switch_status + R.string.unit_success, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "控制定时任务中所有定时器的开关状态失败 " + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.control_timer_task_switch_status + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -430,12 +430,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaTimerManager.operateTimer(taskName, mDevId, timeId, false, new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "控制定时器的开关状态成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.control_timer_switch_status + R.string.unit_success, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "控制定时器的开关状态失败 " + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.control_timer_switch_status + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -444,12 +444,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaTimerManager.removeTimer(taskName, mDevId, timeId, new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "删除定时成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.delete_timer + R.string.unit_success, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "删除定时失败" + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.delete_timer + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -458,12 +458,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaTimerManager.updateTimerStatus(taskName, mDevId, timeId, "0011001", "11:11", false, new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "更新定时器属性成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.update_timer + R.string.unit_success, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "更新定时器属性失败" + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.update_timer + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -478,7 +478,7 @@ public class DevicePanelActivity extends Activity {
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "获取定时任务下的定时 失败" + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.get_device_timer_status_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -491,12 +491,12 @@ public class DevicePanelActivity extends Activity {
                 mTuyaTimerManager.addTimerWithTask("task" + mTimerTaskCount, mDevId, "1111111", "2", times[mAddCounts], new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(DevicePanelActivity.this, "添加定时任务成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.add_alarm_timer + R.string.unit_success, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "添加定时任务失败 " + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.add_alarm_timer + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 mAddCounts++;
@@ -517,14 +517,14 @@ public class DevicePanelActivity extends Activity {
                                 info += status.toString();
                             }
                         } else {
-                            info = "获取设备的定时状态为空";
+                            info = getString(R.string.get_device_timer_status_null);
                         }
                         sendTextInfoMessage(info);
                     }
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "获取设备的定时状态失败 " + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.get_device_timer_status_failure + " : " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -547,7 +547,7 @@ public class DevicePanelActivity extends Activity {
 
                     @Override
                     public void onError(String errorCode, String errorMsg) {
-                        Toast.makeText(DevicePanelActivity.this, "获取设备下的定时 失败" + errorMsg, Toast.LENGTH_LONG).show();
+                        Toast.makeText(DevicePanelActivity.this, R.string.get_device_timer_status_failure + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
