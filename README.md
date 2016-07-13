@@ -12,6 +12,27 @@
 
 ---
 
+##TestDpData
+
+### Click the button of "Device list"
+
+![Screenshot](screenshots/main.png)
+
+### Click the item of device
+
+![Screenshot](screenshots/dev_list.png)
+
+### Click the button of "Start" which can start the dp value test.
+
+![Screenshot](screenshots/dp_test.png)
+
+### Click the button of  "Edit Test Value" which can edit the dp test.
+
+![Screenshot](screenshots/dp_test_value.png)
+
+### Click the button of "Add" which can add the test value.
+![Screenshot](screenshots/add_dp_test_value.png)
+
 
 ## 开发文档
 请参考:[涂鸦文档中心 - Android SDK使用说明](http://docs.tuya.com/develop/app-development/android-sdk/)
