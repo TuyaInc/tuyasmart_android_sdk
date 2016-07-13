@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.nextapp.tuyatest.test.activity.DeviceTestActivity;
+import com.nextapp.tuyatest.test.presenter.DeviceTestPresenter;
 import com.tuya.smart.android.base.TuyaSmartSdk;
 import com.tuya.smart.android.device.TuyaSmartDevice;
 import com.tuya.smart.android.device.bean.GwWrapperBean;
@@ -76,8 +78,8 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
                 if (gwWrapperBean != null) {
 //                    mDeviceListFragmentPresenter.onDeviceClick(gwWrapperBean);
 
-                    Intent intent = new Intent(DeviceListActivity.this, DevicePanelActivity.class);
-                    intent.putExtra("gwId", gwWrapperBean.getGwId());
+                    Intent intent = new Intent(DeviceListActivity.this, DeviceTestActivity.class);
+                    intent.putExtra(DeviceTestPresenter.INTENT_DEVICE_ID, gwWrapperBean.getGwId());
                     startActivity(intent);
                 }
             }

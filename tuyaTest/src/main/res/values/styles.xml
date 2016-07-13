@@ -5,4 +5,111 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- 普通文本 -->
+    <style name="TextView.Normal" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/ts_15</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- 普通的文本按钮 -->
+    <style name="Button.Normal" parent="android:Widget.Button">
+        <item name="android:layout_height">@dimen/wh_36</item>
+        <item name="android:minWidth">@dimen/wh_88</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/ts_18</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/button_orange</item>
+        <item name="android:textColor">@color/button_orange_text</item>
+    </style>
+
+    <!--横线-->
+    <style name="line_long">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_dip</item>
+        <item name="android:background">@color/list_line_color</item>
+    </style>
+    <style name="dialog_style" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        //进入时的动画
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+        //退出时的动画
+    </style>
+
+    <style name="dialog_alert" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="SampleTheme" parent="android:Theme">
+        <item name="numberPickerStyle">@style/NPWidget.Holo.NumberPicker</item>
+    </style>
+    <style name="NPWidget.Holo.NumberPicker" parent="NPWidget.NumberPicker">
+        <item name="solidColor">@android:color/transparent</item>
+        <item name="selectionDivider">@null</item>
+        <item name="selectionDividerHeight">1dip</item>
+        <item name="internalLayout">@layout/number_picker_with_selector_wheel</item>
+        <item name="internalMinWidth">64dip</item>
+        <item name="internalMaxHeight">180dip</item>
+    </style>
+
+    <style name="NPWidget.NumberPicker">
+        <item name="android:orientation">vertical</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">50dip</item>
+    </style>
+    <style name="NPWidget">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+    </style>
+
+    <!-- 设置项表单单项 -->
+    <style name="ListItem.ItemNormal" parent="android:Widget">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">@dimen/ts_12</item>
+        <item name="android:paddingBottom">@dimen/ts_12</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <!-- listview有分割线 -->
+    <style name="TY_List_Normal">
+        <item name="android:fadingEdge">none</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:divider">@color/line_color</item>
+        <item name="android:dividerHeight">@dimen/single_pix</item>
+        <item name="android:listDivider">@drawable/ty_color_line</item>
+        <item name="android:footerDividersEnabled">false</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:scrollbarThumbVertical">@drawable/ty_scrollbar_thumb</item>
+        <item name="android:scrollbarTrackVertical">@null</item>
+    </style>
+
+    <style name="Dialog.Alert.NoTitle" parent="@style/Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:lineSpacingExtra">@dimen/wh_4</item>
+    </style>
+
+    <style name="Dialog.Alert.Multichoice" parent="@style/Dialog.Alert">
+        <!--<item name="android:listChoiceIndicatorMultiple">@null</item>-->
+    </style>
+
+    <style name="Dialog.Alert.Singlechoice" parent="@style/Dialog.Alert">
+        <!--<item name="android:listChoiceIndicatorSingle">@null</item>-->
+    </style>
+
+    <style name="TY.Progress.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:lineSpacingExtra">@dimen/wh_4</item>
+    </style>
 </resources>

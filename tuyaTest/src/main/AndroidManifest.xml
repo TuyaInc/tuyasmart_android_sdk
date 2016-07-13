@@ -61,6 +61,8 @@
         <activity android:name=".RegisterWithUIDActivity"/>
         <activity android:name=".FindPasswordUidActivity"/>
         <activity android:name=".LoginWithUidActivity"/>
+        <activity android:name=".test.activity.DeviceTestActivity"/>
+        <activity android:name=".test.activity.EditDpTestActivity"/>
 
         <receiver android:name="com.tuya.smart.android.base.broadcast.NetworkBroadcastReceiver">
             <intent-filter>

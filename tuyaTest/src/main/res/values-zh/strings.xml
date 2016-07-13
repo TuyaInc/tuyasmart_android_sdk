@@ -529,4 +529,19 @@
     <string name="mobile_binding_notsamecountry">请输入和您登录的手机号码所属国家相同的号码</string>
     <string name="upgrade_now">开始更新</string>
     <string name="upgrade_cancel">停止更新</string>
+
+    <string name="start">开始</string>
+    <string name="look_test_value">编辑测试数据</string>
+    <string name="choose_dp">选择Dp</string>
+    <string name="choose_dp_value">选择DpId:%s的值</string>
+    <string name="ty_confirm">确认</string>
+    <string name="ty_cancel">取消</string>
+    <string name="ty_simple_confirm_title">提示</string>
+    <string name="dp_string_max_len">输入的最大长度是%d</string>
+    <string name="dp_value_max_min_len">Value的范围: [%1$d,%2$d]</string>
+    <string name="add">添加</string>
+    <string name="clear">清除</string>
+    <string name="please_input_dp_value">请添加dp数据</string>
+    <string name="save_success">保存成功</string>
+
 </resources>
