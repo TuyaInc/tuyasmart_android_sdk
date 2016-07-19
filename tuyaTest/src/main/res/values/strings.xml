@@ -458,7 +458,8 @@
     <string name="ty_share_empty_device">No shared device received</string>
     <string name="username_phone_is_null">Please type in name and phone number.</string>
     <string name="ty_enter_keyword_tip">6-20 characters for password, including character, numbers, symbols</string>
-
+    <string name="ty_share_default_info">Enter mobile number/E-mail</string>
+    <string name="ty_no_data">No data</string>
     <!-- EZ配置 -->
     <string name="ez_notSupport_5G">This app is supported only on 2.4GHz Wi-Fi channels</string>
     <string name="ez_notSupport_5G_change">Change</string>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fragment_bg_color">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/has_shared"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/shared_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/ty_common_margin"
+                android:layout_marginStart="@dimen/ty_common_margin"
+                android:layout_marginTop="@dimen/mg_24"
+                android:text="@string/ty_add_share_tab2_note"
+                android:textColor="#9B9B9B"
+                android:textSize="@dimen/ts_14" />
+
+            <ListView
+                android:id="@+id/list"
+                style="@style/list_view"
+                android:layout_below="@+id/shared_desc"
+                android:layout_marginTop="@dimen/mg_8"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        layout="@layout/ty_data_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

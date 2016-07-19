@@ -79,6 +79,23 @@
                   android:theme="@style/Splash.Theme"
                   android:windowSoftInputMode="adjustPan|stateHidden"
         />
+        <activity android:name=".activity.SharedActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.SharedEditReceivedMemberActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.SharedMemberAddActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.EditFriendActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+
         <activity android:name=".DeviceListActivity"/>
         <activity android:name=".DevicePanelActivity"/>
         <activity android:name=".APActivityTest"/>

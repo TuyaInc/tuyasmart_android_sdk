@@ -82,6 +82,7 @@
     <color name="list_bg_color">#ffffff</color>
     <color name="notice_font_color">#ff5800</color>
     <color name="notice_bg_color">#fff8d8</color>
+    <color name="edit_friend_text_tip">#B0B0B0</color>
 
     <color name="primary_button_font_color">#ffffff</color>
     <color name="primary_button_bg_color">#ff5800</color>

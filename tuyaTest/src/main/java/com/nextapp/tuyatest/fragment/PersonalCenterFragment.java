@@ -1,5 +1,6 @@
 package com.nextapp.tuyatest.fragment;
 
+import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.nextapp.tuyatest.R;
+import com.nextapp.tuyatest.activity.SharedActivity;
 import com.nextapp.tuyatest.presenter.PersonalCenterFragmentPresenter;
+import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.view.IPersonalCenterView;
 
 /**
@@ -57,6 +60,19 @@ public class PersonalCenterFragment extends BaseFragment implements IPersonalCen
         mToolBar = (Toolbar) mContentView.findViewById(R.id.toolbar_top_view);
         mUserName = (TextView) mContentView.findViewById(R.id.tv_username);
         mNickName = (TextView) mContentView.findViewById(R.id.tv_nickname);
+
+        mContentView.findViewById(R.id.rl_share).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoShareActivity();
+            }
+        });
+        mContentView.findViewById(R.id.rl_question).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoQuestionActivity();
+            }
+        });
         mContentView.findViewById(R.id.rl_edit_person).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +86,14 @@ public class PersonalCenterFragment extends BaseFragment implements IPersonalCen
             mContentView.findViewById(R.id.iv_head_photo).setBackgroundResource(portraitRes);
         }
         a.recycle();
+    }
+
+    private void gotoShareActivity() {
+        ActivityUtils.gotoActivity(getActivity(), SharedActivity.class, ActivityUtils.ANIMATE_FORWARD, false);
+    }
+
+    private void gotoQuestionActivity() {
+
     }
 
     private void initPresenter() {
