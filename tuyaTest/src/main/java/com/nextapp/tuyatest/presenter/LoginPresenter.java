@@ -111,4 +111,16 @@ public class LoginPresenter extends BasePresenter {
     public void onDestroy() {
         super.onDestroy();
     }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 0x01:
+                if (resultCode == Activity.RESULT_OK) {
+                    mCountryName = data.getStringExtra(CountryListActivity.COUNTRY_NAME);
+                    mCountryCode = data.getStringExtra(CountryListActivity.PHONE_CODE);
+                    mView.setCountry(mCountryName, mCountryCode);
+                }
+                break;
+        }
+    }
 }

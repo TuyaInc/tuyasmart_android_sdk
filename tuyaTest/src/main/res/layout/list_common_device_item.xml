@@ -46,19 +46,6 @@
         android:layout_marginRight="15dp"
         android:src="@drawable/arrow_more"/>
 
-    <TextView
-        android:id="@+id/iv_device_group_flag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@id/iv_device_arrow"
-        android:gravity="center"
-        android:text="@string/group_item_flag"
-        android:textColor="?attr/list_sub_color"
-        android:visibility="invisible"
-        />
-
     <View
         android:id="@+id/line_long"
         style="@style/line_long"

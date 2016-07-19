@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/fragment_bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view" />
+
+    <!--<View-->
+        <!--android:id="@id/line_long"-->
+        <!--style="@style/line_long"-->
+        <!--android:layout_marginTop="20dp"></View>-->
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_person"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginTop="@dimen/mg_20"
+        android:background="?attr/list_bg_color">
+
+        <ImageView
+            android:id="@+id/iv_head_photo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/ty_user_icon_default" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_head_photo"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/list_primary_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="?attr/list_secondary_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/arrow_more" />
+    </RelativeLayout>
+</LinearLayout>

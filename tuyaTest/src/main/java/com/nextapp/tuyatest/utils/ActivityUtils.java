@@ -5,6 +5,7 @@ import android.app.LauncherActivity;
 import android.content.Intent;
 
 import com.nextapp.tuyatest.R;
+import com.nextapp.tuyatest.activity.HomeActivity;
 
 
 /**
@@ -81,7 +82,8 @@ public class ActivityUtils {
     }
 
     public static void gotoHomeActivity(Activity context) {
-        Intent intent = new Intent();
-
+        Intent intent = new Intent(context, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(context, intent, ANIMATE_NONE, true);
     }
 }

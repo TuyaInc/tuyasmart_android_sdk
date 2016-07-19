@@ -8,21 +8,22 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.nextapp.tuyatest.LoginWithPhoneActivity;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.presenter.LoginPresenter;
+import com.nextapp.tuyatest.utils.ActivityUtils;
+import com.nextapp.tuyatest.utils.LoginHelper;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.ILoginView;
 import com.tuya.smart.android.common.utils.ValidatorUtil;
-import com.tuya.smart.android.device.utils.PreferencesUtil;
 import com.tuya.smart.android.mvp.bean.Result;
+import com.tuya.smart.android.user.TuyaSmartUserManager;
+import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -72,7 +73,7 @@ public class LoginActivity extends BaseActivity implements ILoginView, TextWatch
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_login_reg_onclick) {
-//                    AccountInputActivity.gotoAccountInputActivity(LoginActivity.this, AccountInputActivity.MODE_REGISTER, 0);
+                    AccountInputActivity.gotoAccountInputActivity(LoginActivity.this, AccountInputActivity.MODE_REGISTER, 0);
                 }
                 return false;
             }
@@ -209,6 +210,11 @@ public class LoginActivity extends BaseActivity implements ILoginView, TextWatch
     @Override
     public boolean needLogin() {
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        mLoginPresenter.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

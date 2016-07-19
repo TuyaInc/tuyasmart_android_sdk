@@ -28,9 +28,7 @@ public class HomePresenter extends BasePresenter {
     protected Activity mActivity;
 
     public static final int TAB_MY_DEVICE = 0;
-    public static final int TAB_ADD_DEVICE = 1;
-    public static final int TAB_PERSONAL_CENTER = 2;
-    public static final int TAB_SCENE = 3;
+    public static final int TAB_PERSONAL_CENTER = 1;
 
     protected int mCurrentTab = -1;
 
@@ -65,10 +63,6 @@ public class HomePresenter extends BasePresenter {
         showTab(TAB_PERSONAL_CENTER);
     }
 
-    public void showScene() {
-        showTab(TAB_SCENE);
-    }
-
     //我的设备
     public void showMyDevicePage() {
         showTab(TAB_MY_DEVICE);
@@ -91,7 +85,7 @@ public class HomePresenter extends BasePresenter {
     }
 
     public int getFragmentCount() {
-        return 3;
+        return 2;
     }
 
     public Fragment getFragment(int type) {
@@ -101,5 +95,13 @@ public class HomePresenter extends BasePresenter {
             return PersonalCenterFragment.newInstance();
         }
         return null;
+    }
+
+    public int getCurrentTab() {
+        return mCurrentTab;
+    }
+
+    public void setCurrentTab(int tab) {
+        mCurrentTab = tab;
     }
 }

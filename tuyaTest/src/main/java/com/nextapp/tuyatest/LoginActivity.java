@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.nextapp.tuyatest.utils.ActivityUtils;
+import com.nextapp.tuyatest.utils.LoginHelper;
 import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
@@ -58,6 +60,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login1);
         ButterKnife.bind(this);
         //判断是否登陆

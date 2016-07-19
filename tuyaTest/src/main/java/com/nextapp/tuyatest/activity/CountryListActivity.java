@@ -50,7 +50,7 @@ public class CountryListActivity extends BaseActivity implements TextWatcher {
         filterList = new ArrayList<ContactItemInterface>();
         contactList = CountryUtils.getSampleContactList();
         CountryAdpater adapter = new CountryAdpater(this, R.layout.country_list_item, contactList);
-        listview = (CountryListView) this.findViewById(R.id.listview);
+        listview = (CountryListView) findViewById(R.id.listview);
         listview.setFastScrollEnabled(true);
         listview.setAdapter(adapter);
 

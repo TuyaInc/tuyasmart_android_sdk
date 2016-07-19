@@ -408,52 +408,6 @@
     <string name="control_timer_switch_status">控制定时器的开关状态</string>
     <string name="control_timer_task_switch_status">控制定时任务中所有定时器的开关状态</string>
 
-    <!-- 涂鸦神灯 -->
-    <string name="lamp_close_failure">关灯失败</string>
-    <string name="lamp_close_tip">轻 触 灯 泡 关 闭</string>
-    <string name="lamp_color_light_max">亮</string>
-    <string name="lamp_color_light_min">暗</string>
-    <string name="lamp_color_mode">彩光模式</string>
-    <string name="lamp_color_saturation">彩光模式</string>
-    <string name="lamp_color_saturation_max">艳</string>
-    <string name="lamp_color_saturation_min">素</string>
-    <string name="lamp_color_temper_high">暖</string>
-    <string name="lamp_color_temper_low">冷</string>
-    <string name="lamp_get_dev_failure">获取灯在线状态失败</string>
-    <string name="lamp_no_online_device">设备已离线</string>
-    <string name="lamp_open_failure">开灯失败</string>
-    <string name="lamp_open_tip">轻 触 灯 泡 开 启</string>
-    <string name="lamp_operation_color">彩光</string>
-    <string name="lamp_operation_timing">定时</string>
-    <string name="lamp_operation_white">白光</string>
-    <string name="lamp_opertaion_scene">情景</string>
-    <string name="lamp_scene_leisure">休闲</string>
-    <string name="lamp_scene_meet">聚会</string>
-    <string name="lamp_scene_mode">情景模式</string>
-    <string name="lamp_scene_night">晚安</string>
-    <string name="lamp_scene_read">阅读</string>
-    <string name="lamp_timer_mode">定时</string>
-    <string name="lamp_white_mode">白光模式</string>
-    <string name="timer_remind">定时可能会存在30秒左右误差</string>
-
-    <!-- 群组 -->
-    <string name="group_add_default_name">%s 群组</string>
-    <string name="group_add_name_empty">群组名称不能为空</string>
-    <string name="group_add_no_devices_selected">请至少选择一个设备</string>
-    <string name="group_create">创建群组</string>
-    <string name="group_dismiss">解散群组</string>
-    <string name="group_dismiss_dialog_title">确定要解散该群组吗?</string>
-    <string name="group_dismiss_success">解散该群组成功</string>
-    <string name="group_edit_devices">管理群组设备</string>
-    <string name="group_group_list_empty">暂无可加入群组的设备</string>
-    <string name="group_item_flag">群组</string>
-    <string name="group_no_device">该群组下无设备</string>
-    <string name="group_no_device_dismiss">解散群组</string>
-    <string name="group_no_device_manage">管理群组</string>
-    <string name="group_no_online_device">该群组下无在线设备</string>
-    <string name="group_rename">修改群组名称</string>
-    <string name="group_rename_dialog_title">请输入群组名称</string>
-    <string name="group_title_select_device">选择设备</string>
 
     <!-- 共享 -->
     <string name="new_share">添加共享</string>
@@ -496,6 +450,7 @@
     <string name="ty_ec_find_add_device">添加</string>
     <string name="ty_ec_find_add_device_title">添加设备</string>
     <string name="ty_ez_add_progress">进度显示</string>
+    <string name="ty_enter_keyword_tip">密码必须为6-20个字符，包含字母、数字和符号</string>
     <string name="ty_ez_connecting_device_note2">路由器、手机和设备尽量靠近</string>
     <string name="ty_ez_connecting_device_title">尝试连接设备</string>
     <string name="ty_ez_connecting_devicei_note1">设备连接中</string>

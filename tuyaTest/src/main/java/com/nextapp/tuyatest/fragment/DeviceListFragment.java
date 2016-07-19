@@ -57,7 +57,7 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
         initView();
         initAdapter();
         initSwipeRefreshLayout();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return mContentView;
     }
 
     @Override
@@ -169,10 +169,6 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
         mNetWorkTip.setVisibility(View.GONE);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
     @Override
     public void onDestroyView() {

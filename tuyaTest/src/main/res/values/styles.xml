@@ -273,5 +273,11 @@
     <style name="Splash.Theme" parent="Default_Public_Theme">
         <item name="android:windowBackground">@drawable/ty_pre</item>
     </style>
+    <!-- 分割线1px -->
+    <style name="TY_SingleLine_Normal">
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
 
 </resources>

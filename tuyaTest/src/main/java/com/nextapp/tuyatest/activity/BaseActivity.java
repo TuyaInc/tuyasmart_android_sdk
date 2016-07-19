@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
@@ -38,7 +39,7 @@ import java.util.TimerTask;
 /**
  * Created by letian on 16/7/15.
  */
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
     private static final String TAG = "BaseActivity";
 
     protected Toolbar mToolBar;
