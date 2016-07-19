@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.IResetPasswordCallback;
+import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,10 +44,10 @@ public class FindPasswordUidActivity extends Activity {
 
     @OnClick(R.id.do_reset)
     public void resetPassword() {
-        TuyaSmartUserManager.getInstance().resetUidPassword(getCountryCode(), mEtUidNumber.getText().toString(), mEtUidPassword.getText().toString(), new IResetPasswordCallback() {
+        TuyaUser.getUserInstance().resetUidPassword(getCountryCode(), mEtUidNumber.getText().toString(), mEtUidPassword.getText().toString(), new IResetPasswordCallback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(FindPasswordUidActivity.this, "重置密码成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindPasswordUidActivity.this, R.string.reset_password, Toast.LENGTH_SHORT).show();
             }
 
             @Override

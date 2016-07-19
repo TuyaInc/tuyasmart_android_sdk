@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/fragment_bg_color">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/action_bar_layout"
+        >
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- 因为SwipeRefreshLayout 会强行把它的子view拉成满屏的高度 这里使用item的背景色实现列表背景色 listview直接设置透明-->
+            <ListView
+                android:id="@+id/lv_device_list"
+                android:background="@color/transparent"
+                style="@style/list_view"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/network_tip"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/action_bar_layout"
+        android:background="?attr/notice_bg_color"
+        android:gravity="center"
+        android:padding="@dimen/mg_3"
+        android:text="@string/network_time_out"
+        android:textColor="?attr/notice_font_color"
+        android:textSize="@dimen/ts_14"
+        android:visibility="gone"/>
+</RelativeLayout>
+
+

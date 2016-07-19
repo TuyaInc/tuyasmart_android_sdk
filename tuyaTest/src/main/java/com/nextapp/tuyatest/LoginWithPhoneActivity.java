@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.bean.User;
+import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,10 +34,10 @@ public class LoginWithPhoneActivity extends Activity {
         ButterKnife.bind(this);
     }
 
-    private String getCountryCode(){
-        final EditText countryCodeEt = (EditText)findViewById(R.id.et_country_code);
+    private String getCountryCode() {
+        final EditText countryCodeEt = (EditText) findViewById(R.id.et_country_code);
         String countryCode = countryCodeEt.getText().toString();
-        if(TextUtils.isEmpty(countryCode)){
+        if (TextUtils.isEmpty(countryCode)) {
             countryCode = "86";
         }
 
@@ -46,10 +46,10 @@ public class LoginWithPhoneActivity extends Activity {
 
     @OnClick(R.id.do_reset)
     public void onClickLogin() {
-        TuyaSmartUserManager.getInstance().loginWithPhonePassword(getCountryCode(), mEtPhoneNumber.getText().toString(), mEtValidateCode.getText().toString(), new ILoginCallback() {
+        TuyaUser.getUserInstance().loginWithPhonePassword(getCountryCode(), mEtPhoneNumber.getText().toString(), mEtValidateCode.getText().toString(), new ILoginCallback() {
             @Override
             public void onSuccess(User user) {
-                Toast.makeText(LoginWithPhoneActivity.this, "登录成功，用户名：" + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginWithPhoneActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + user.getUsername(), Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(LoginWithPhoneActivity.this, MainActivity.class));
                 LoginWithPhoneActivity.this.finish();
             }

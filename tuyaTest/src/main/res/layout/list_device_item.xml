@@ -26,6 +26,6 @@
         android:layout_marginRight="15dp"
         android:layout_weight="1"
         android:gravity="left"
-        android:text="设备名称" />
+        android:text="@string/device_name" />
 
 </LinearLayout>

@@ -6,9 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.IResetPasswordCallback;
 import com.tuya.smart.android.user.api.IValidateCallback;
+import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,10 +39,10 @@ public class FindPasswordEmailActivity extends Activity {
 
     @OnClick(R.id.do_get_validate_code)
     public void onClickGetCode() {
-        TuyaSmartUserManager.getInstance().getEmailValidateCode("86", mEtPhoneNumber.getText().toString(), new IValidateCallback() {
+        TuyaUser.getUserInstance().getEmailValidateCode("86", mEtPhoneNumber.getText().toString(), new IValidateCallback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(FindPasswordEmailActivity.this, "获取验证码成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindPasswordEmailActivity.this, R.string.get_validate_code + R.string.unit_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -55,10 +55,10 @@ public class FindPasswordEmailActivity extends Activity {
 
     @OnClick(R.id.do_reset)
     public void onClickFindPassword() {
-        TuyaSmartUserManager.getInstance().resetEmailPassword(mEtPhoneNumber.getText().toString(), mEtPhoneCode.getText().toString(), mEtPhonePassword.getText().toString(), new IResetPasswordCallback() {
+        TuyaUser.getUserInstance().resetEmailPassword("86", mEtPhoneNumber.getText().toString(), mEtPhoneCode.getText().toString(), mEtPhonePassword.getText().toString(), new IResetPasswordCallback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(FindPasswordEmailActivity.this, "找回密码成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindPasswordEmailActivity.this, R.string.login_find_password + R.string.unit_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override

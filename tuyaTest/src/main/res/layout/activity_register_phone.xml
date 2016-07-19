@@ -8,37 +8,37 @@
         android:id="@+id/et_phone_number"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:hint="输入手机号码"/>
+        android:hint="@string/user_phonenumber"/>
 
     <Button
         android:id="@+id/do_get_validate_code"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:text="获取验证码"/>
+        android:text="@string/get_validate_code"/>
 
     <EditText
         android:id="@+id/et_validate_code"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:hint="输入验证码"/>
+        android:hint="@string/input_validate_code"/>
 
     <EditText
         android:id="@+id/et_password_code"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:hint="输入密码"/>
+        android:hint="@string/input_password"/>
 
     <EditText
         android:id="@+id/et_country_code"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:hint="国家码 默认86"/>
+        android:hint="@string/default_country_code"/>
 
     <Button
         android:id="@+id/do_register"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:text="注册"/>
+        android:text="@string/ty_login_register"/>
 
 
 </LinearLayout>
