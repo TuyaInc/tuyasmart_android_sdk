@@ -29,7 +29,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/mg_10"
-        android:layout_toLeftOf="@+id/iv_device_group_flag"
         android:layout_toRightOf="@+id/iv_device_icon"
         android:ellipsize="end"
         android:gravity="start"

@@ -34,7 +34,7 @@ import java.util.List;
  */
 public class DeviceListFragment extends BaseFragment implements IDeviceListFragmentView {
 
-    private static DeviceListFragment mDeviceListFragment;
+    private volatile static DeviceListFragment mDeviceListFragment;
     private View mContentView;
     private DeviceListFragmentPresenter mDeviceListFragmentPresenter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -42,9 +42,13 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     private ListView mDevListView;
     private TextView mNetWorkTip;
 
-    public static synchronized Fragment newInstance() {
+    public static Fragment newInstance() {
         if (mDeviceListFragment == null) {
-            mDeviceListFragment = new DeviceListFragment();
+            synchronized (DeviceListFragment.class) {
+                if (mDeviceListFragment == null) {
+                    mDeviceListFragment = new DeviceListFragment();
+                }
+            }
         }
         return mDeviceListFragment;
     }
@@ -67,22 +71,15 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     }
 
     private void initSwipeRefreshLayout() {
-        TypedArray a = getActivity().obtainStyledAttributes(new int[]{R.attr.navbar_font_color});
-        int color = a.getColor(0, Color.TRANSPARENT);
-        a.recycle();
-
-        if (Color.TRANSPARENT == color) {
-            mSwipeRefreshLayout.setColorSchemeResources(
-                    R.color.color_primary);
-        } else {
-            mSwipeRefreshLayout.setColorSchemeColors(color);
-        }
+        mSwipeRefreshLayout.setColorSchemeColors(R.color.google_blue,
+                R.color.google_green,
+                R.color.google_red,
+                R.color.google_yellow);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-
             @Override
             public void onRefresh() {
                 if (NetworkUtil.isNetworkAvailable(getContext())) {
-                    mDeviceListFragmentPresenter.queryDevListFromServer();
+                    mDeviceListFragmentPresenter.getDataFromServer();
                 } else {
                     loadFinish();
                 }
@@ -91,38 +88,26 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     }
 
     private void initAdapter() {
-        mCommonDeviceAdapter = getCommonDeviceAdapter();
+        mCommonDeviceAdapter = new CommonDeviceAdapter(getActivity());
         mDevListView.setAdapter(mCommonDeviceAdapter);
         mDevListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                return mDeviceListFragmentPresenter.onDeviceLongClick(parent.getAdapter().getItem(position));
+                return mDeviceListFragmentPresenter.onDeviceLongClick((DeviceBean) parent.getAdapter().getItem(position));
             }
         });
         mDevListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                onItemClickDeal(parent, position);
+                mDeviceListFragmentPresenter.onDeviceClick((DeviceBean) parent.getAdapter().getItem(position));
             }
         });
-
-    }
-
-    protected CommonDeviceAdapter getCommonDeviceAdapter() {
-        return new CommonDeviceAdapter(getActivity(), R.layout.list_common_device_item, new ArrayList<DeviceBean>());
-    }
-
-    protected void onItemClickDeal(AdapterView<?> parent, int position) {
-        Object item = parent.getAdapter().getItem(position);
-        if (item == null) return;
-        mDeviceListFragmentPresenter.onDeviceClick(item);
     }
 
     @Override
     public void updateDeviceData(List<DeviceBean> myDevices) {
         if (mCommonDeviceAdapter != null) {
             mCommonDeviceAdapter.setData(myDevices);
-            mCommonDeviceAdapter.notifyDataSetChanged();
         }
     }
 
@@ -140,7 +125,6 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     protected void initPresenter() {
         mDeviceListFragmentPresenter = new DeviceListFragmentPresenter(this, this);
     }
-
 
     protected void initMenu() {
         setTitle(getString(R.string.home_my_device));
@@ -168,7 +152,6 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     public void hideNetWorkTipView() {
         mNetWorkTip.setVisibility(View.GONE);
     }
-
 
     @Override
     public void onDestroyView() {

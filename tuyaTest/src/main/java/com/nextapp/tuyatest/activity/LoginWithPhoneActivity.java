@@ -137,7 +137,7 @@ public class LoginWithPhoneActivity extends BaseActivity implements TextWatcher,
 
     @Override
     public boolean needLogin() {
-        return false;
+        return true;
     }
 
     @Override
@@ -246,4 +246,6 @@ public class LoginWithPhoneActivity extends BaseActivity implements TextWatcher,
             mLoginWithPhonePresenter.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+
 }

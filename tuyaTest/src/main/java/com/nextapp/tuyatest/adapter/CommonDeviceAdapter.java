@@ -2,6 +2,7 @@ package com.nextapp.tuyatest.adapter;
 
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,21 +23,26 @@ import java.util.List;
  * Created by letian on 16/7/18.
  */
 public class CommonDeviceAdapter extends BaseAdapter {
+    private final List<DeviceBean> mDevs;
+    private final LayoutInflater mInflater;
     private Context mContext;
 
-    public CommonDeviceAdapter(Context context, int list_common_device_item, List<DeviceBean> deviceBeens) {
+    public CommonDeviceAdapter(Context context) {
+        mDevs = new ArrayList<>();
         mContext = context;
+        mInflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return mDevs.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public DeviceBean getItem(int position) {
+        return mDevs.get(position);
     }
 
     @Override
@@ -46,18 +52,30 @@ public class CommonDeviceAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        DeviceViewHolder holder;
+        if (null == convertView) {
+            convertView = mInflater.inflate(R.layout.list_common_device_item, null);
+            holder = new DeviceViewHolder(convertView);
+            convertView.setTag(holder);
+        } else {
+            holder = (DeviceViewHolder) convertView.getTag();
+        }
+        holder.initData(mDevs.get(position));
+        return convertView;
     }
 
     public void setData(List<DeviceBean> myDevices) {
-
+        mDevs.clear();
+        if (myDevices != null) {
+            mDevs.addAll(myDevices);
+        }
+        notifyDataSetChanged();
     }
 
-    public class DeviceViewHolder extends ViewHolder<GwWrapperBean> {
+    public class DeviceViewHolder extends ViewHolder<DeviceBean> {
         public ImageView connect;
         public ImageView deviceIcon;
         public TextView device;
-
         public DeviceViewHolder(View contentView) {
             super(contentView);
             connect = (ImageView) contentView.findViewById(R.id.iv_device_list_dot);
@@ -66,18 +84,17 @@ public class CommonDeviceAdapter extends BaseAdapter {
         }
 
         @Override
-        public void initData(GwWrapperBean gwWrapperBean) {
-            GwBean gwBean = gwWrapperBean.getGwBean();
-            Picasso.with(mContext).load(gwWrapperBean.getGwBean().getIconUrl()).into(deviceIcon);
+        public void initData(DeviceBean deviceBean) {
+            Picasso.with(mContext).load(deviceBean.getIconUrl()).into(deviceIcon);
             final int resId;
-            if (gwWrapperBean.isOnline()) {
-                if (gwBean.getIsShare() != null && gwBean.getIsShare()) {
+            if (deviceBean.getIsOnline()) {
+                if (deviceBean.getIsShare() != null && deviceBean.getIsShare()) {
                     resId = R.drawable.ty_devicelist_share_green;
                 } else {
                     resId = R.drawable.ty_devicelist_dot_green;
                 }
             } else {
-                if (gwBean.getIsShare() != null && gwBean.getIsShare()) {
+                if (deviceBean.getIsShare() != null && deviceBean.getIsShare()) {
                     resId = R.drawable.ty_devicelist_share_gray;
                 } else {
                     resId = R.drawable.ty_devicelist_dot_gray;
