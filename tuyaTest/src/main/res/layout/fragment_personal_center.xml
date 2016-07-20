@@ -68,8 +68,7 @@
         android:id="@+id/menu_list_divider_start"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="?attr/list_line_color"
-        android:visibility="gone"/>
+        android:background="?attr/list_line_color"/>
     <RelativeLayout
         android:id="@+id/rl_share"
         android:layout_width="match_parent"
@@ -111,8 +110,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_marginLeft="16dp"
-        android:background="?attr/list_line_color"
-        android:visibility="gone"/>
+        android:background="?attr/list_line_color"/>
     <RelativeLayout
         android:id="@+id/rl_question"
         android:layout_width="match_parent"
@@ -153,6 +151,5 @@
         android:id="@+id/menu_list_divider_end"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="?attr/list_line_color"
-        android:visibility="gone"/>
+        android:background="?attr/list_line_color"/>
 </LinearLayout>

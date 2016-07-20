@@ -74,6 +74,7 @@
     <color name="navbar_font_color">#ff5800</color>
     <color name="navbar_bg_color">#FAFAFA</color>
     <color name="app_bg_color">#F2F2F2</color>
+    <color name="colorDark">#303030</color>
 
     <color name="list_primary_color">#303030</color>
     <color name="list_sub_color">#626262</color>

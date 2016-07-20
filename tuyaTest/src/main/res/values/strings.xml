@@ -483,6 +483,7 @@
     <string name="ty_ez_connecting_device_note2">Keep router, phone and device within\n valid
         distance
     </string>
+
     <string name="ty_ez_connecting_device_title">Try to connect device</string>
     <string name="ty_ez_connecting_devicei_note1">Device is connecting</string>
     <string name="ty_ez_current_no_wifi">Phone is not connecting Wi-Fi at present</string>
@@ -598,5 +599,6 @@
     <string name="cant_find_alarm_attr">未找到对应的定时属性</string>
     <string name="get_share_list">Get Share List</string>
     <string name="add_uid_share">Add Uid Share</string>
+    <string name="ty_logout_loading">Exiting, please wait&#046;&#046;&#046;</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.nextapp.tuyatest.test.event;
 
 import com.nextapp.tuyatest.event.DeviceListUpdateModel;
 import com.nextapp.tuyatest.event.FriendEventModel;
+import com.nextapp.tuyatest.event.PersonalInfoEventModel;
 import com.tuya.smart.android.base.event.BaseEventSender;
 import com.nextapp.tuyatest.test.presenter.SendAndBackData;
 import com.tuya.smart.android.user.bean.PersonBean;
@@ -49,4 +50,7 @@ public class EventSender extends BaseEventSender {
         send(new DeviceListUpdateModel());
     }
 
+    public static void personalInfoChanged() {
+        send(new PersonalInfoEventModel());
+    }
 }

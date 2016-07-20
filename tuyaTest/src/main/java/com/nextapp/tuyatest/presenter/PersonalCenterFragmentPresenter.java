@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.nextapp.tuyatest.activity.PersonalInfoActivity;
 import com.nextapp.tuyatest.event.PersonalInfoEvent;
 import com.nextapp.tuyatest.event.PersonalInfoEventModel;
 import com.nextapp.tuyatest.model.IPersonalCenterModel;
@@ -43,7 +44,7 @@ public class PersonalCenterFragmentPresenter extends BasePresenter implements Pe
     }
 
     public void gotoPersonalInfoActivity() {
-//        ActivityUtils.gotoActivity((Activity) mContext, PersonalInfoActivity.class, ActivityUtils.ANIMATE_FORWARD, false);
+        ActivityUtils.gotoActivity((Activity) mContext, PersonalInfoActivity.class, ActivityUtils.ANIMATE_FORWARD, false);
     }
 
     @Override

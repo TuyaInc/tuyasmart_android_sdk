@@ -551,5 +551,6 @@
     <string name="clear">清除</string>
     <string name="please_input_dp_value">请添加dp数据</string>
     <string name="save_success">保存成功</string>
+    <string name="ty_logout_loading">正在安全退出，请稍后…</string>
 
 </resources>

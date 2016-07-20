@@ -95,6 +95,10 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/Splash.Theme"
                   android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.PersonalInfoActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
 
         <activity android:name=".DeviceListActivity"/>
         <activity android:name=".DevicePanelActivity"/>
