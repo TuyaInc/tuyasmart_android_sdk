@@ -1,5 +1,6 @@
 package com.nextapp.tuyatest.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.nextapp.tuyatest.utils.ActivityUtils;
@@ -9,7 +10,7 @@ import com.tuya.smart.sdk.TuyaUser;
 /**
  * Created by letian on 16/7/19.
  */
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
