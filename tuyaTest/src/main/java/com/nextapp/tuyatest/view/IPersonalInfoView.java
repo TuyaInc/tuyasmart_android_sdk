@@ -11,5 +11,5 @@ public interface IPersonalInfoView extends IView {
 
     void reNickName(String nickName);
 
-    void onLogout(Result result);
+    void onLogout();
 }

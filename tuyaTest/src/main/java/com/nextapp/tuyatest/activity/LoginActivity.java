@@ -22,7 +22,6 @@ import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.ILoginView;
 import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.mvp.bean.Result;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;

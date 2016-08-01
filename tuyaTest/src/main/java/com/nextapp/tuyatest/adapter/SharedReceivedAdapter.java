@@ -29,24 +29,25 @@ public class SharedReceivedAdapter extends BaseAdapter {
 
     public SharedReceivedAdapter(Context context) {
         this.mContext = context;
+        mReceivedMembers = new ArrayList<>();
         this.mInflater = LayoutInflater.from(context);
     }
 
     public void setData(ArrayList<GroupReceivedMemberBean> groupMembers) {
-        this.mReceivedMembers = groupMembers;
+        mReceivedMembers.clear();
+        if (groupMembers != null) {
+            mReceivedMembers.addAll(groupMembers);
+        }
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        if (null == mReceivedMembers)
-            return 0;
         return mReceivedMembers.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        if (null == mReceivedMembers)
-            return null;
+    public GroupReceivedMemberBean getItem(int position) {
         return mReceivedMembers.get(position);
     }
 
@@ -71,7 +72,7 @@ public class SharedReceivedAdapter extends BaseAdapter {
         name.setText(person.getMname());
 
         String info = person.getMobile();
-        if(TextUtils.isEmpty(info)){
+        if (TextUtils.isEmpty(info)) {
             info = person.getUsername();
         }
         phone.setText(info);

@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.nextapp.tuyatest.R;
 import com.squareup.picasso.Picasso;
 import com.tuya.smart.android.base.ViewHolder;
-import com.tuya.smart.android.device.bean.GwBean;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;

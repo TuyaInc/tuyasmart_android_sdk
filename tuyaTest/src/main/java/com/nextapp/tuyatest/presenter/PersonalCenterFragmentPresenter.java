@@ -11,10 +11,8 @@ import com.nextapp.tuyatest.model.IPersonalCenterModel;
 import com.nextapp.tuyatest.model.PersonalCenterModel;
 import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.view.IPersonalCenterView;
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
-import com.tuya.smart.android.user.bean.User;
 
 
 /**
@@ -35,7 +33,7 @@ public class PersonalCenterFragmentPresenter extends BasePresenter implements Pe
     }
 
     private void initEventBus() {
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
     }
 
     public void setPersonalInfo() {
@@ -56,7 +54,7 @@ public class PersonalCenterFragmentPresenter extends BasePresenter implements Pe
     public void onDestroy() {
         super.onDestroy();
         mModel.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 
 

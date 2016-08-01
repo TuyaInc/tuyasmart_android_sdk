@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.presenter.PersonalInfoPresenter;
 import com.nextapp.tuyatest.test.utils.DialogUtil;
+import com.nextapp.tuyatest.utils.LoginHelper;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.view.IPersonalInfoView;
 import com.tuya.smart.android.mvp.bean.Result;
@@ -23,7 +24,6 @@ import butterknife.OnClick;
  * Created by letian on 15/6/15.
  */
 public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoView {
-
     private PersonalInfoPresenter mPersonalInfoPresenter;
 
     @Bind(R.id.tv_renickname)
@@ -38,20 +38,23 @@ public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoV
         setContentView(R.layout.activity_personal_info);
         ButterKnife.bind(this);
         initToolbar();
-        initView();
         initMenu();
         initPresenter();
         initData();
     }
 
-    private void initData() {
-        mPhoneView.setText(mPersonalInfoPresenter.getMobile());
-        mNickName.setText(mPersonalInfoPresenter.getNickName());
-    }
-
     private void initMenu() {
         setDisplayHomeAsUpEnabled();
         setTitle(getString(R.string.personal_center));
+    }
+
+    private void initPresenter() {
+        mPersonalInfoPresenter = new PersonalInfoPresenter(this, this);
+    }
+
+    private void initData() {
+        mPhoneView.setText(mPersonalInfoPresenter.getMobile());
+        mNickName.setText(mPersonalInfoPresenter.getNickName());
     }
 
     @OnClick(R.id.rl_renickname)
@@ -67,17 +70,6 @@ public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoV
 
             }
         });
-
-    }
-
-
-    private void initPresenter() {
-        mPersonalInfoPresenter = new PersonalInfoPresenter(this, this);
-    }
-
-    @Override
-    public void reNickName(String nickName) {
-        mNickName.setText(nickName);
     }
 
     @OnClick(R.id.rl_reset_login_pwd)
@@ -85,20 +77,21 @@ public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoV
         mPersonalInfoPresenter.resetPassword();
     }
 
-    private void initView() {
-        findViewById(R.id.btn_logout).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v.getId() == R.id.btn_logout) {
-                    logout();
-                }
-            }
-        });
-    }
-
+    @OnClick(R.id.btn_logout)
     public void logout() {
         ProgressUtil.showLoading(this, R.string.ty_logout_loading);
         mPersonalInfoPresenter.logout();
+    }
+
+    @Override
+    public void reNickName(String nickName) {
+        mNickName.setText(nickName);
+    }
+
+    @Override
+    public void onLogout() {
+        LoginHelper.reLogin(this, false);
+        ProgressUtil.hideLoading();
     }
 
     @Override
@@ -106,10 +99,5 @@ public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoV
         super.onDestroy();
         ButterKnife.unbind(this);
         mPersonalInfoPresenter.onDestroy();
-    }
-
-    @Override
-    public void onLogout(Result result) {
-        ProgressUtil.hideLoading();
     }
 }

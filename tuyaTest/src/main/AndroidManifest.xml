@@ -99,6 +99,36 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/Splash.Theme"
                   android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.ECBindActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"
+        />
+        <activity android:name=".activity.AddDeviceAPTipActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"
+        />
+        <activity android:name=".activity.SwitchActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.ECFailedActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.ECActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.AddDeviceTipActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.BrowserActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/Splash.Theme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
 
         <activity android:name=".DeviceListActivity"/>
         <activity android:name=".DevicePanelActivity"/>

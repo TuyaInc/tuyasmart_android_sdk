@@ -39,8 +39,6 @@ public class SharedReceivedFragment extends BaseFragment implements ISharedRecei
     TextView mNoShared;
     View mHasShared;
 
-    private ArrayList<GroupReceivedMemberBean> mReceivedMembers;
-
     private SharedReceivedAdapter mAdapter;
 
     private SharedReceivedPresenter mPresenter;
@@ -77,19 +75,16 @@ public class SharedReceivedFragment extends BaseFragment implements ISharedRecei
 
     private void initData() {
         mIsFirstIn = true;
-        mReceivedMembers = new ArrayList<>();
     }
 
     private void initSwipeRefreshLayout() {
         mSwipeContainer.setOnRefreshListener(this);
-
         mSwipeContainer.setColorSchemeResources(android.R.color.holo_red_light, android.R.color.holo_green_light,
                 android.R.color.holo_blue_light, android.R.color.holo_orange_light);
     }
 
     private void initAdapter() {
         mAdapter = new SharedReceivedAdapter(getActivity());
-        mAdapter.setData(mReceivedMembers);
         mReceivedList.setAdapter(mAdapter);
     }
 
@@ -98,25 +93,26 @@ public class SharedReceivedFragment extends BaseFragment implements ISharedRecei
     }
 
     private void initView() {
-        mSwipeContainer = (SwipeRefreshLayout)mContentView.findViewById(R.id.swipe_container);
-        mReceivedList = (ListView)mContentView.findViewById(R.id.list);
+        mSwipeContainer = (SwipeRefreshLayout) mContentView.findViewById(R.id.swipe_container);
+        mReceivedList = (ListView) mContentView.findViewById(R.id.list);
         mReceivedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mPresenter.gotoSharedEditReceivedMemberActivity(mReceivedMembers.get(position).getDevice(),
-                        mReceivedMembers.get(position).getUser(), position);
+                GroupReceivedMemberBean bean = mAdapter.getItem(position);
+                mPresenter.gotoSharedEditReceivedMemberActivity(bean.getDevice(),
+                        bean.getUser(), position);
             }
         });
         mReceivedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                mPresenter.onFriendLongClick(mReceivedMembers.get(position).getUser());
+                mPresenter.onFriendLongClick(mAdapter.getItem(position).getUser());
                 return true;
             }
         });
-        mNoShared = (TextView)mContentView.findViewById(R.id.tv_none_content);
+        mNoShared = (TextView) mContentView.findViewById(R.id.tv_none_content);
         mHasShared = mContentView.findViewById(R.id.has_shared);
-        WidgetUtils.checkNoneContentLayout(getActivity(),mContentView,getString(R.string.ty_share_empty_device));
+        WidgetUtils.checkNoneContentLayout(getActivity(), mContentView, getString(R.string.ty_share_empty_device));
     }
 
     private void initNoListText() {
@@ -168,15 +164,13 @@ public class SharedReceivedFragment extends BaseFragment implements ISharedRecei
 
     @Override
     public void updateList(ArrayList<GroupReceivedMemberBean> members) {
-        mReceivedMembers.clear();
-        mReceivedMembers.addAll(members);
-        mAdapter.notifyDataSetChanged();
+        mAdapter.setData(members);
         reloadBaseView();
     }
 
     @Override
     public void updateList(PersonBean person, int position) {
-        GroupReceivedMemberBean memberBean = mReceivedMembers.get(position);
+        GroupReceivedMemberBean memberBean = mAdapter.getItem(position);
         memberBean.setUser(person);
         mAdapter.notifyDataSetChanged();
         reloadBaseView();
@@ -184,13 +178,12 @@ public class SharedReceivedFragment extends BaseFragment implements ISharedRecei
 
     @Override
     public void reloadBaseView() {
-        int noSharedVisible = 0 >= mReceivedMembers.size() ? View.VISIBLE : View.GONE;
+        int count = mAdapter.getCount();
+        int noSharedVisible = 0 >= count ? View.VISIBLE : View.GONE;
         mNoShared.setVisibility(noSharedVisible);
         mContentView.findViewById(R.id.iv_none_data).setVisibility(noSharedVisible);
-        mHasShared.setVisibility(0 < mReceivedMembers.size() ? View.VISIBLE : View.GONE);
+        mHasShared.setVisibility(0 < count ? View.VISIBLE : View.GONE);
     }
-
-
 
 
     @Override

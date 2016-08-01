@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
 import com.tuya.smart.android.device.event.GwUpdateEventModel;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.sdk.TuyaUser;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
@@ -23,6 +24,7 @@ import java.util.List;
  * Created by mikeshou on 15/12/8.
  */
 public class DeviceListActivity extends Activity implements GwRelationEvent, GwUpdateEvent {
+    public static final String TAG = "DeviceListActivity";
 
     public SwipeRefreshLayout swipeRefreshLayout;
 
@@ -30,12 +32,14 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
 
     DeviceListAdapter mDevAdapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mDevListView = (ListView) findViewById(R.id.lv_device_list);
@@ -58,12 +62,13 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
 
         TuyaUser.getDeviceInstance().queryDevList();
 
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 
     private void initAdapter() {

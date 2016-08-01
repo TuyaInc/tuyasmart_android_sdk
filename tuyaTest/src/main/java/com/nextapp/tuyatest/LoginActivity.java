@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.utils.LoginHelper;
 import com.tuya.smart.android.common.utils.L;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.api.IValidateCallback;
 import com.tuya.smart.android.user.bean.User;
@@ -92,7 +91,7 @@ public class LoginActivity extends Activity {
                 TuyaUser.getUserInstance().loginWithPhone(getCountryCode(), phoneNumber.getText().toString(), code.getText().toString(), new ILoginCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        Toast.makeText(LoginActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaUser.getUserInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         LoginActivity.this.finish();
                     }

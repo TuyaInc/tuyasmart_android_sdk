@@ -8,7 +8,10 @@ import android.net.wifi.WifiManager;
 
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.activity.AddDeviceTipActivity;
+import com.nextapp.tuyatest.activity.BrowserActivity;
 import com.nextapp.tuyatest.activity.SharedActivity;
+import com.nextapp.tuyatest.activity.SwitchActivity;
+import com.nextapp.tuyatest.config.CommonConfig;
 import com.nextapp.tuyatest.event.DeviceListUpdateModel;
 import com.nextapp.tuyatest.event.DeviceUpdateEvent;
 import com.nextapp.tuyatest.fragment.DeviceListFragment;
@@ -17,7 +20,8 @@ import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.IDeviceListFragmentView;
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.android.device.TuyaSmartDevice;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.base.event.NetWorkStatusEvent;
 import com.tuya.smart.android.base.event.NetWorkStatusEventModel;
 import com.tuya.smart.android.device.event.DeviceListChangeEvent;
@@ -37,7 +41,7 @@ import java.util.List;
 /**
  * Created by letian on 15/6/1.
  */
-public class DeviceListFragmentPresenter extends BasePresenter implements GwRelationEvent, GwUpdateEvent, NetWorkStatusEvent, DeviceListChangeEvent, DeviceUpdateEvent {
+public class DeviceListFragmentPresenter extends BasePresenter implements GwRelationEvent, GwUpdateEvent, NetWorkStatusEvent, DeviceUpdateEvent {
 
     private static final String TAG = "DeviceListFragmentPresenter";
     private static final int WHAT_JUMP_GROUP_PAGE = 10212;
@@ -56,17 +60,14 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     }
 
     private void initEventBus() {
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
     }
 
     private void showDevIsNotOnlineTip(final DeviceBean deviceBean) {
         final boolean isShared = deviceBean.isShare;
-        DialogUtil.customDialog(mActivity,
-                mActivity.getString(R.string.title_device_offline),
-                mActivity.getString(R.string.content_device_offline),
+        DialogUtil.customDialog(mActivity, mActivity.getString(R.string.title_device_offline), mActivity.getString(R.string.content_device_offline),
                 mActivity.getString(isShared ? R.string.ty_offline_delete_share : R.string.cancel_connect),
-                mActivity.getString(R.string.right_button_device_offline),
-                mActivity.getString(R.string.left_button_device_offline), new DialogInterface.OnClickListener() {
+                mActivity.getString(R.string.right_button_device_offline), mActivity.getString(R.string.left_button_device_offline), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
@@ -90,13 +91,13 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
                                 break;
                             case DialogInterface.BUTTON_NEUTRAL:
 //                                //重置说明
-//                                Intent intent = new Intent(mActivity, BrowserActivity.class);
-//                                intent.putExtra(BrowserActivity.EXTRA_LOGIN, false);
-//                                intent.putExtra(BrowserActivity.EXTRA_REFRESH, true);
-//                                intent.putExtra(BrowserActivity.EXTRA_TOOLBAR, true);
-//                                intent.putExtra(BrowserActivity.EXTRA_TITLE, mActivity.getString(R.string.left_button_device_offline));
-//                                intent.putExtra(BrowserActivity.EXTRA_URI, CommonConfig.RESET_URL);
-//                                mActivity.startActivity(intent);
+                                Intent intent = new Intent(mActivity, BrowserActivity.class);
+                                intent.putExtra(BrowserActivity.EXTRA_LOGIN, false);
+                                intent.putExtra(BrowserActivity.EXTRA_REFRESH, true);
+                                intent.putExtra(BrowserActivity.EXTRA_TOOLBAR, true);
+                                intent.putExtra(BrowserActivity.EXTRA_TITLE, mActivity.getString(R.string.left_button_device_offline));
+                                intent.putExtra(BrowserActivity.EXTRA_URI, CommonConfig.RESET_URL);
+                                mActivity.startActivity(intent);
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 break;
@@ -119,6 +120,7 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
 
     public void gotoAddDevice() {
         ActivityUtils.gotoActivity(mActivity, AddDeviceTipActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
+//        ActivityUtils.gotoActivity(mActivity, SwitchActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
     }
 
     //添加设备
@@ -151,7 +153,7 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     }
 
     public boolean onDeviceLongClick(final DeviceBean deviceBean) {
-        if (deviceBean == null || deviceBean.getIsShare()) {
+        if (deviceBean.getIsShare()) {
             return false;
         }
         DialogUtil.simpleConfirmDialog(mActivity, mActivity.getString(R.string.device_confirm_remove), new DialogInterface.OnClickListener() {
@@ -201,11 +203,6 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
         updateLocalData();
     }
 
-    @Override
-    public void onEventMainThread(DeviceListChangeEventModel deviceListChangeEventModel) {
-        updateLocalData();
-    }
-
     private void updateLocalData() {
         updateDeviceData(TuyaUser.getDeviceInstance().getDevList());
     }
@@ -216,11 +213,24 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     }
 
     @Override
-    public void onEvent(NetWorkStatusEventModel netWorkStatusEventModel) {
+    public void onEvent(NetWorkStatusEventModel eventModel) {
+        netStatusCheck(eventModel.isAvailable());
+    }
 
+    public boolean netStatusCheck(boolean isNetOk) {
+        networkTip(isNetOk, R.string.ty_no_net_info);
+        return true;
+    }
+
+    private void networkTip(boolean networkok, int tipRes) {
+        if (networkok) {
+            mView.hideNetWorkTipView();
+        } else {
+            mView.showNetWorkTipView(tipRes);
+        }
     }
 
     public void onDestroy() {
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 }

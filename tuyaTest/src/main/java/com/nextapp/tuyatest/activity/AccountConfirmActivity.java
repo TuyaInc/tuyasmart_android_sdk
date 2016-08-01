@@ -250,6 +250,11 @@ public class AccountConfirmActivity extends BaseActivity implements TextWatcher,
     }
 
     @Override
+    public boolean needLogin() {
+        return true;
+    }
+
+    @Override
     public void setValidateTip(Spanned tip) {
         mTip.setText(tip);
     }

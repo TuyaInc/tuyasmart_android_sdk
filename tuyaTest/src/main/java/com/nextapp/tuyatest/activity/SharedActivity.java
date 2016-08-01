@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.fragment.SharedReceivedFragment;
 import com.nextapp.tuyatest.fragment.SharedSentFragment;
+import com.nextapp.tuyatest.utils.ViewUtils;
 import com.nextapp.tuyatest.widget.PagerSlidingTabStrip;
 import com.nextapp.tuyatest.widget.ScrollViewPager;
 
@@ -38,7 +39,6 @@ public class SharedActivity extends BaseActivity {
         mPager = (ScrollViewPager) findViewById(R.id.pager);
         initToolbar();
         initMenu();
-        initPresenter();
         initPagerView();
     }
 
@@ -55,26 +55,13 @@ public class SharedActivity extends BaseActivity {
         }
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
         mPager.setLocked(false);
         mPager.setOffscreenPageLimit(TABS_COUNT);
         mPager.setAdapter(adapter);
-
         mSlidingTab.setViewPager(mPager);
-        TypedArray a = obtainStyledAttributes(new int[]{
-                R.attr.navbar_font_color});
-        mSlidingTab.setSelectedColor(a.getColor(0, getResources().getColor(R.color.color_primary)));
+        mSlidingTab.setSelectedColor(ViewUtils.getColor(this, R.color.navbar_font_color));
         mSlidingTab.setAllCaps(false);
-        a.recycle();
         mPager.setCurrentItem(currentTab);
-    }
-
-    private void initPresenter() {
-
-    }
-
-    protected Fragment getSharedSentFragment() {
-        return SharedSentFragment.newInstance();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -87,7 +74,7 @@ public class SharedActivity extends BaseActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case TAB_SENT:
-                    return getSharedSentFragment();
+                    return SharedSentFragment.newInstance();
                 case TAB_RECEIVED:
                     return SharedReceivedFragment.newInstance();
                 default:

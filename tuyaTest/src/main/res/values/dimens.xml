@@ -28,6 +28,7 @@
     <dimen name="ts_16">16sp</dimen>
     <dimen name="ts_15">15sp</dimen>
     <dimen name="ts_14">14sp</dimen>
+    <dimen name="ts_13">13sp</dimen>
     <dimen name="ts_12">12sp</dimen>
     <dimen name="ts_11">11sp</dimen>
     <dimen name="ts_10">10sp</dimen>
@@ -43,10 +44,13 @@
     <dimen name="mg_108">108dp</dimen>
     <dimen name="mg_100">100dp</dimen>
     <dimen name="mg_90">90dp</dimen>
+    <dimen name="mg_88">88dp</dimen>
     <dimen name="mg_85">85dp</dimen>
     <dimen name="mg_80">80dp</dimen>
     <dimen name="mg_75">75dp</dimen>
     <dimen name="mg_70">70dp</dimen>
+    <dimen name="mg_68">68dp</dimen>
+    <dimen name="mg_66">66dp</dimen>
     <dimen name="mg_60">60dp</dimen>
     <dimen name="mg_50">50dp</dimen>
     <dimen name="mg_48">48dp</dimen>
@@ -55,6 +59,7 @@
     <dimen name="mg_36">36dp</dimen>
     <dimen name="mg_35">35dp</dimen>
     <dimen name="mg_30">30dp</dimen>
+    <dimen name="mg_28">28dp</dimen>
     <dimen name="mg_25">25dp</dimen>
     <dimen name="mg_24">24dp</dimen>
     <dimen name="mg_18">18dp</dimen>

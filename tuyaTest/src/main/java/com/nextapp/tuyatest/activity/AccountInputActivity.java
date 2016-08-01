@@ -36,7 +36,7 @@ public class AccountInputActivity extends BaseActivity implements TextWatcher, I
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(v.getId() == R.id.bt_next){
+            if (v.getId() == R.id.bt_next) {
                 if (mAccountType == AccountConfirmActivity.PLATFORM_PHONE
                         && mCountryName.getText().toString().contains("+86")
                         && mEtAccount.getText().length() != 11) {
@@ -45,16 +45,16 @@ public class AccountInputActivity extends BaseActivity implements TextWatcher, I
                 }
 
                 mPresenter.gotoNext(mAccountType);
-            }else if(v.getId() == R.id.country_name){
+            } else if (v.getId() == R.id.country_name) {
                 mPresenter.selectCountry();
             }
         }
     };
 
-    public static void gotoAccountInputActivity(Activity activity,int mode,int requestCode){
-        Intent intent = new Intent(activity,AccountInputActivity.class);
-        intent.putExtra(EXTRA_ACCOUNT_INPUT_MODE,mode);
-        ActivityUtils.startActivityForResult(activity,intent,requestCode,0,false);
+    public static void gotoAccountInputActivity(Activity activity, int mode, int requestCode) {
+        Intent intent = new Intent(activity, AccountInputActivity.class);
+        intent.putExtra(EXTRA_ACCOUNT_INPUT_MODE, mode);
+        ActivityUtils.startActivityForResult(activity, intent, requestCode, 0, false);
 
     }
 
@@ -71,29 +71,29 @@ public class AccountInputActivity extends BaseActivity implements TextWatcher, I
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mPresenter.onActivityResult(requestCode,resultCode,data);
+        mPresenter.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void initData(){
+    private void initData() {
         mMode = getIntent().getIntExtra(EXTRA_ACCOUNT_INPUT_MODE, MODE_REGISTER);
     }
 
-    private void initPresenter(){
-        mPresenter = new AccountInputPresenter(this,this);
+    private void initPresenter() {
+        mPresenter = new AccountInputPresenter(this, this);
     }
 
-    private void initView(){
-        mCountryName = (TextView) findViewById(R.id.country_name) ;
+    private void initView() {
+        mCountryName = (TextView) findViewById(R.id.country_name);
         mCountryName.setOnClickListener(mOnClickListener);
         mNextStepBtn = (Button) findViewById(R.id.bt_next);
         mNextStepBtn.setOnClickListener(mOnClickListener);
         mNextStepBtn.setEnabled(false);
-        mEtAccount = (EditText)findViewById(R.id.et_account);
+        mEtAccount = (EditText) findViewById(R.id.et_account);
         mEtAccount.addTextChangedListener(this);
     }
 
-    private void initTitle(){
-        switch (mMode){
+    private void initTitle() {
+        switch (mMode) {
             case MODE_REGISTER:
                 setTitle(R.string.ty_login_register);
                 break;
@@ -156,9 +156,14 @@ public class AccountInputActivity extends BaseActivity implements TextWatcher, I
     }
 
     @Override
+    public boolean needLogin() {
+        return true;
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(mPresenter != null){
+        if (mPresenter != null) {
             mPresenter.onDestroy();
         }
     }

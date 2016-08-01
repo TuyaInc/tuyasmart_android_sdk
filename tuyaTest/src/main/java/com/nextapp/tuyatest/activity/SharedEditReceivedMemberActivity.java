@@ -15,8 +15,8 @@ import com.nextapp.tuyatest.adapter.SharedThirdAdapter;
 import com.nextapp.tuyatest.presenter.SharedEditReceivedMemberPresenter;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.view.ISharedEditReceivedMemberView;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
 import com.tuya.smart.android.user.bean.PersonBean;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import java.util.List;
  * Created by leaf on 15/12/22.
  * 别人的共享
  */
-public class SharedEditReceivedMemberActivity extends BaseActivity implements ISharedEditReceivedMemberView, SwipeRefreshLayout.OnRefreshListener {
+public class SharedEditReceivedMemberActivity extends BaseActivity implements ISharedEditReceivedMemberView {
 
     private static final String TAG = "SharedOtherActivity";
 
@@ -35,10 +35,9 @@ public class SharedEditReceivedMemberActivity extends BaseActivity implements IS
 
     public static final String EXTRA_POSITION = "extra_position";
 
-    ListView mListView;
-    EditText mNumber;
-    EditText mName;
-
+    public ListView mListView;
+    public EditText mNumber;
+    public EditText mName;
     private PersonBean mPerson;
 
     protected ArrayList<String> mDeviceList;
@@ -84,15 +83,12 @@ public class SharedEditReceivedMemberActivity extends BaseActivity implements IS
         Intent intent = getIntent();
         mDeviceList = intent.getStringArrayListExtra(EXTRA_DEVICE_LIST);
         mPerson = JSONObject.parseObject(intent.getExtras().getString(EXTRA_PERSON), PersonBean.class);
-
         mPosition = intent.getIntExtra(EXTRA_POSITION, 0);
     }
 
     private void initAdapter() {
         mAdapter = getSharedThirdAdapter();
         mListView.setAdapter(mAdapter);
-        ProgressUtil.showLoading(this, R.string.loading);
-        mPresenter.list();
     }
 
     protected SharedThirdAdapter getSharedThirdAdapter() {
@@ -106,10 +102,9 @@ public class SharedEditReceivedMemberActivity extends BaseActivity implements IS
 
         if (null != mPerson) {
             String name = mPerson.getMobile();
-            if(TextUtils.isEmpty(name)){
+            if (TextUtils.isEmpty(name)) {
                 name = mPerson.getUsername();
             }
-
             mNumber.setText(name);
             mNumber.setEnabled(false);
             mName.setText(TextUtils.isEmpty(mPerson.getMname()) ?
@@ -119,39 +114,16 @@ public class SharedEditReceivedMemberActivity extends BaseActivity implements IS
     }
 
     @Override
-    public void onRefresh() {
-        mPresenter.list();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void updateList(List<GwWrapperBean> list) {
+    public void updateList(List<DeviceBean> list) {
         if (mAdapter != null && 0 < mDeviceList.size()) {
-            mAdapter.setData(getCurrentList(list));
-            mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    //给子类复写
-    protected List<Object> getCurrentList(List<GwWrapperBean> list) {
-        List<Object> currentList = new ArrayList<>();
-
-        for (Object o : list) {
-            if (currentList.size() == mDeviceList.size()) {
-                break;
+            ArrayList<DeviceBean> sharedList = new ArrayList<>();
+            for (DeviceBean deviceBean : list) {
+                if (mDeviceList.contains(deviceBean.getDevId())) {
+                    sharedList.add(deviceBean);
+                }
             }
-
-            if (o instanceof GwWrapperBean) {
-                if (mDeviceList.contains(((GwWrapperBean) o).getGwId()))
-                    currentList.add(o);
-            }
+            mAdapter.setData(sharedList);
         }
-
-        return currentList;
     }
 
     private void updateNickname() {

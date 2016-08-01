@@ -18,10 +18,8 @@ import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.IPersonalInfoView;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.bean.User;
-
-import java.util.HashMap;
+import com.tuya.smart.sdk.TuyaUser;
 
 /**
  * Created by letian on 15/6/16.
@@ -33,6 +31,7 @@ public class PersonalInfoPresenter extends BasePresenter {
     private IPersonalInfoView mView;
 
     public PersonalInfoPresenter(Activity activity, IPersonalInfoView view) {
+        super(activity);
         mActivity = activity;
         mView = view;
         mPersonalInfoModel = new PersonalInfoModel(mActivity, mHandler);
@@ -48,9 +47,6 @@ public class PersonalInfoPresenter extends BasePresenter {
     }
 
     private void saveNickName(String nickName) {
-        User user = TuyaSmartUserManager.getInstance().getUser();
-        user.setNickName(nickName);
-        TuyaSmartUserManager.getInstance().saveUser(user);
         EventSender.personalInfoChanged();
         ProgressUtil.hideLoading();
         mView.reNickName(nickName);
@@ -58,8 +54,7 @@ public class PersonalInfoPresenter extends BasePresenter {
 
     public void logout() {
         mPersonalInfoModel.logout();
-        mView.onLogout(null);
-        LoginHelper.reLogin(mActivity, false);
+        mView.onLogout();
     }
 
     public String getMobile() {
@@ -74,20 +69,7 @@ public class PersonalInfoPresenter extends BasePresenter {
 
     @Override
     public boolean handleMessage(Message msg) {
-        Result result = (Result) msg.obj;
         switch (msg.what) {
-            case PersonalInfoModel.WHAT_SETTING_LOGOUT_ERROR:
-                HashMap<String, String> config = new HashMap<>();
-                config.put("logout", "0");
-                config.put("msg", result.getError());
-
-                break;
-
-            case PersonalInfoModel.WHAT_SETTING_LOGOUT_SUCCESS:
-                HashMap<String, String> config1 = new HashMap<>();
-                config1.put("logout", "1");
-                break;
-
             case PersonalInfoModel.RENAME_NICKNAME_ERROR:
                 ToastUtil.showToast(mActivity, ((Result) msg.obj).error);
                 ProgressUtil.hideLoading();
@@ -101,7 +83,7 @@ public class PersonalInfoPresenter extends BasePresenter {
     }
 
     public void resetPassword() {
-        User user = TuyaSmartUserManager.getInstance().getUser();
+        User user = TuyaUser.getUserInstance().getUser();
         int accountType;
         String strAccount;
         if (!TextUtils.isEmpty(user.getMobile())) {

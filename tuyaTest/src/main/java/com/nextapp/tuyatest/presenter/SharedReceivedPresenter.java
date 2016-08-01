@@ -20,7 +20,7 @@ import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.FriendUpdateEvent;
 import com.nextapp.tuyatest.view.ISharedReceivedView;
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.android.user.bean.GroupReceivedMemberBean;
@@ -44,14 +44,14 @@ public class SharedReceivedPresenter extends BasePresenter implements FriendUpda
         mActivity = activity;
         mView = view;
         mModel = new SharedModel(activity, mHandler);
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         mModel.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 
     @Override

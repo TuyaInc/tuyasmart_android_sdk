@@ -18,15 +18,11 @@ import android.widget.TextView;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.adapter.CommonDeviceAdapter;
 import com.nextapp.tuyatest.presenter.DeviceListFragmentPresenter;
+import com.nextapp.tuyatest.utils.AnimationUtil;
 import com.nextapp.tuyatest.view.IDeviceListFragmentView;
 import com.tuya.smart.android.common.utils.NetworkUtil;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
 import com.tuya.smart.sdk.bean.DeviceBean;
-import com.tuya.smart.sdk.bean.GroupBean;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -41,6 +37,7 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     private CommonDeviceAdapter mCommonDeviceAdapter;
     private ListView mDevListView;
     private TextView mNetWorkTip;
+    private View mRlView;
 
     public static Fragment newInstance() {
         if (mDeviceListFragment == null) {
@@ -120,6 +117,7 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
         mSwipeRefreshLayout = (SwipeRefreshLayout) mContentView.findViewById(R.id.swipe_container);
         mNetWorkTip = (TextView) mContentView.findViewById(R.id.network_tip);
         mDevListView = (ListView) mContentView.findViewById(R.id.lv_device_list);
+        mRlView = mContentView.findViewById(R.id.rl_list);
     }
 
     protected void initPresenter() {
@@ -132,6 +130,11 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_add_device) {
+//                    if (mNetWorkTip.getVisibility() == View.VISIBLE) {
+//                        hideNetWorkTipView();
+//                    } else {
+//                        showNetWorkTipView(R.string.add);
+//                    }
                     mDeviceListFragmentPresenter.addDevice();
                 }
                 return false;
@@ -146,11 +149,17 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
 
     public void showNetWorkTipView(int tipRes) {
         mNetWorkTip.setText(tipRes);
-        mNetWorkTip.setVisibility(View.VISIBLE);
+        if (mNetWorkTip.getVisibility() != View.VISIBLE) {
+            AnimationUtil.translateView(mRlView, 0, 0, -mNetWorkTip.getHeight(), 0, 300, false, null);
+            mNetWorkTip.setVisibility(View.VISIBLE);
+        }
     }
 
     public void hideNetWorkTipView() {
-        mNetWorkTip.setVisibility(View.GONE);
+        if (mNetWorkTip.getVisibility() != View.GONE) {
+            AnimationUtil.translateView(mRlView, 0, 0, mNetWorkTip.getHeight(), 0, 300, false, null);
+            mNetWorkTip.setVisibility(View.GONE);
+        }
     }
 
     @Override

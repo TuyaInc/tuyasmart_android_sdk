@@ -3,9 +3,15 @@ package com.nextapp.tuyatest.utils;
 import android.app.Activity;
 import android.app.LauncherActivity;
 import android.content.Intent;
+import android.content.res.TypedArray;
 
 import com.nextapp.tuyatest.R;
+import com.nextapp.tuyatest.activity.AddDeviceAPTipActivity;
+import com.nextapp.tuyatest.activity.BrowserActivity;
 import com.nextapp.tuyatest.activity.HomeActivity;
+import com.nextapp.tuyatest.config.CommonConfig;
+import com.tuya.smart.android.common.utils.TuyaUtil;
+import com.tuya.smart.sdk.TuyaSdk;
 
 
 /**
@@ -86,4 +92,30 @@ public class ActivityUtils {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(context, intent, ANIMATE_NONE, true);
     }
+
+    public static void gotoAddDeviceHelpActivity(Activity activity, String title) {
+        Intent intent = new Intent(activity, BrowserActivity.class);
+        intent.putExtra(BrowserActivity.EXTRA_LOGIN, false);
+        intent.putExtra(BrowserActivity.EXTRA_REFRESH, true);
+        intent.putExtra(BrowserActivity.EXTRA_TOOLBAR, true);
+        intent.putExtra(BrowserActivity.EXTRA_TITLE, title);
+
+        TypedArray a = activity.obtainStyledAttributes(new int[]{
+                R.attr.is_add_device_help_get_from_native});
+        boolean isAddDeviceHelpAsset = a.getBoolean(0, false);
+        if (isAddDeviceHelpAsset) {
+            boolean isChinese = TuyaUtil.isZh(TuyaSdk.getApplication());
+            if (isChinese) {
+                intent.putExtra(BrowserActivity.EXTRA_URI, "file:///android_asset/add_device_help_cn.html");
+            } else {
+                intent.putExtra(BrowserActivity.EXTRA_URI, "file:///android_asset/add_device_help_en.html");
+            }
+        } else {
+            intent.putExtra(BrowserActivity.EXTRA_URI, CommonConfig.RESET_URL);
+        }
+        a.recycle();
+
+        activity.startActivity(intent);
+    }
+
 }

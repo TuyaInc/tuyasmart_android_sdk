@@ -12,24 +12,24 @@ import com.nextapp.tuyatest.utils.CommonUtil;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.ISharedEditReceivedMemberView;
-import com.tuya.smart.android.base.TuyaSmartSdk;
-import com.tuya.smart.android.device.TuyaSmartDevice;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
-import com.tuya.smart.android.device.event.GwRelationEvent;
-import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
-import com.tuya.smart.android.device.event.GwUpdateEvent;
-import com.tuya.smart.android.device.event.GwUpdateEventModel;
+import com.tuya.smart.sdk.TuyaActivator;
+import com.tuya.smart.sdk.TuyaDevice;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.android.user.bean.PersonBean;
+import com.tuya.smart.sdk.TuyaUser;
+import com.tuya.smart.sdk.bean.DeviceBean;
+import com.tuya.smart.sdk.builder.ActivatorBuilder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by leaf on 15/12/21.
  * 收到的共享
  */
-public class SharedEditReceivedMemberPresenter extends BasePresenter implements GwUpdateEvent,GwRelationEvent {
+public class SharedEditReceivedMemberPresenter extends BasePresenter {
     private static final String TAG = "SharedEditReceivedMemberPresenter";
 
     private Activity mActivity;
@@ -42,24 +42,13 @@ public class SharedEditReceivedMemberPresenter extends BasePresenter implements 
         this.mActivity = activity;
         this.mView = view;
         this.mModel = new SharedModel(activity, mHandler);
-        TuyaSmartSdk.getEventBus().register(this);
-    }
-
-    @Override
-    public void onEventMainThread(GwUpdateEventModel gwUpdateEventModel) {
         updateList();
     }
 
-    @Override
-    public void onEventMainThread(GwRelationUpdateEventModel gwRelationUpdateEventModel) {
-        updateList();
-    }
-
-    private void updateList(){
-        ArrayList<GwWrapperBean> data = TuyaSmartDevice.getInstance().getGws();
+    private void updateList() {
+        List<DeviceBean> data = TuyaUser.getDeviceInstance().getDevList();
         if (data != null) {
             mView.updateList(data);
-            ProgressUtil.hideLoading();
         } else {
             ToastUtil.showToast(mActivity, R.string.system_error);
         }
@@ -68,11 +57,6 @@ public class SharedEditReceivedMemberPresenter extends BasePresenter implements 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
-    }
-
-    public void list() {
-        TuyaSmartDevice.getInstance().queryGwList();
     }
 
     public void updateNickname(PersonBean person, String nickname, int position) {
@@ -94,7 +78,6 @@ public class SharedEditReceivedMemberPresenter extends BasePresenter implements 
 
     @Override
     public boolean handleMessage(Message msg) {
-        ProgressUtil.hideLoading();
         switch (msg.what) {
             case SharedModel.WHAT_UPDATE_NICKNAME_SUCCESS:
                 EventSender.friendUpdate(mPerson, mPosition, FriendEventModel.OP_EDIT_THIRD);

@@ -457,7 +457,9 @@
     <string name="ty_share_edit_alias">Remark</string>
     <string name="ty_share_empty_device">No shared device received</string>
     <string name="username_phone_is_null">Please type in name and phone number.</string>
-    <string name="ty_enter_keyword_tip">6-20 characters for password, including character, numbers, symbols</string>
+    <string name="ty_enter_keyword_tip">6-20 characters for password, including character, numbers,
+        symbols
+    </string>
     <string name="ty_share_default_info">Enter mobile number/E-mail</string>
     <string name="ty_no_data">No data</string>
     <!-- EZ配置 -->
@@ -600,5 +602,14 @@
     <string name="get_share_list">Get Share List</string>
     <string name="add_uid_share">Add Uid Share</string>
     <string name="ty_logout_loading">Exiting, please wait&#046;&#046;&#046;</string>
-
+    <string name="ty_add_device_ap_info">Power on and confirm instructor light slowly flashing
+    </string>
+    <string name="ty_add_device_btn_info">Instructor light is on other status</string>
+    <string name="ty_add_device_ez_btn_info">Instructor light is quickly flashing</string>
+    <string name="ty_add_device_ez_failure_ap_tip">Unstable network, please confirm instructor light
+        slowly flashing
+    </string>
+    <string name="ty_add_device_ez_info">Power on and confirm instructor light quickly flashing
+    </string>
+    <string name="ty_add_device_guide_info">Tap here to add devices</string>
 </resources>

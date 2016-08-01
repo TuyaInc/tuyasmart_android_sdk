@@ -353,6 +353,11 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+
+    protected boolean isPause() {
+        return mIsPaused;
+    }
+
     protected void hideIMM() {
         if (getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

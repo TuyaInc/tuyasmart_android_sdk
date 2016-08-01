@@ -12,6 +12,9 @@
     <color name="line_color">#ffdbdbdb</color>
     <color name="hint">#ffb3b3b3</color>
     <color name="line">#dbdbdb</color>
+    <color name="colorNormal">#626262</color>
+    <color name="edit_exit_title">#FF9B9B9B</color>
+    <color name="colorHighlight">#FF5800</color>
 
     <color name="color_primary_dark">#e54000</color>
     <color name="color_accent">#ffffa748</color>
@@ -27,12 +30,17 @@
     <color name="black_85">#D9000000</color>
     <color name="black_80">#cc000000</color>
     <color name="black_65">#333333</color>
+    <color name="color_626262">#626262</color>
     <color name="black_60">#9f000000</color>
     <color name="black_50">#80000000</color>
     <color name="black_30">#4C000000</color>
     <color name="black_40">#40444e</color>
     <color name="black_10">#3e4043</color>
+    <color name="color_d0e1fd">#d0e1fd</color>
+    <color name="color_979797">#979797</color>
 
+    <color name="at_add_device_success">@color/black_80</color>
+    <color name="at_circleprogress_bg">#4c1CC9F4</color>
     <color name="gray">#ffaaaaaa</color>
     <color name="gray_5">#f4f4f2</color>
     <color name="gray_10">#4c4c4c</color>
@@ -92,4 +100,7 @@
     <color name="secondary_button_bg_color">#ffffff</color>
     <color name="color_CC4600">#cc4600</color>
     <color name="color_bdbdbd">#bdbdbd</color>
+    <color name="color_303030">#303030</color>
+    <color name="switch_on_color">#2A87D6</color>
+    <color name="switch_off_color">#303030</color>
 </resources>

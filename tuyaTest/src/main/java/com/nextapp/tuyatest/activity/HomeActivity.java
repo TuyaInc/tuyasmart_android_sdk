@@ -41,7 +41,6 @@ public class HomeActivity extends BaseActivity implements IHomeView {
     private int mFuncBarTextSelectColor = Color.RED;
     private HomeFragmentAdapter mHomeFragmentAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

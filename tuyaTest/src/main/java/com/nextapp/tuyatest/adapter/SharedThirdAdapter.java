@@ -11,8 +11,9 @@ import android.widget.TextView;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.widget.ViewHolder;
 import com.squareup.picasso.Picasso;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,28 +26,29 @@ public class SharedThirdAdapter extends BaseAdapter {
 
     protected final LayoutInflater mInflater;
     protected final Context mContext;
-    protected List<Object> mBeans;
+    protected List<DeviceBean> mBeans;
 
     public SharedThirdAdapter(Context context) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
+        mBeans = new ArrayList<>();
     }
 
-    public void setData(List<Object> beans) {
-        this.mBeans = beans;
+    public void setData(List<DeviceBean> beans) {
+        mBeans.clear();
+        if (beans != null) {
+            mBeans.addAll(beans);
+        }
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        if (null == mBeans)
-            return 0;
         return mBeans.size();
     }
 
     @Override
-    public Object getItem(int position) {
-        if (null == mBeans)
-            return null;
+    public DeviceBean getItem(int position) {
         return mBeans.get(position);
     }
 
@@ -65,14 +67,9 @@ public class SharedThirdAdapter extends BaseAdapter {
         View line = ViewHolder.get(convertView, R.id.line);
         View bottomLine = ViewHolder.get(convertView, R.id.bottom_line);
 
-        Object o = mBeans.get(position);
-
-        if (o instanceof GwWrapperBean) {
-            GwWrapperBean gw = (GwWrapperBean) o;
-            name.setText(gw.getGwBean().getName());
-            Picasso.with(mContext).load(gw.getGwBean().getIconUrl()).into(icon);
-        }
-
+        DeviceBean deviceBean = mBeans.get(position);
+        name.setText(deviceBean.getName());
+        Picasso.with(mContext).load(deviceBean.getIconUrl()).into(icon);
         line.setVisibility(mBeans.size() == position + 1 ? View.GONE : View.VISIBLE);
         bottomLine.setVisibility(mBeans.size() == position + 1 ? View.VISIBLE : View.GONE);
         return convertView;

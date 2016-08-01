@@ -1,6 +1,6 @@
 package com.nextapp.tuyatest.view;
 
-import com.tuya.smart.android.device.bean.GwWrapperBean;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  * 共享
  */
 public interface ISharedEditReceivedMemberView {
-    void updateList(List<GwWrapperBean> list);
+    void updateList(List<DeviceBean> list);
 }

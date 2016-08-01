@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.test.activity.EditDpTestActivity;
 import com.nextapp.tuyatest.test.event.DpSendDataEvent;
@@ -58,7 +58,7 @@ public class DeviceTestPresenter extends BasePresenter implements DpSendDataEven
     }
 
     private void initEventBus() {
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
     }
 
     private void initDevicePanel() {
@@ -216,6 +216,6 @@ public class DeviceTestPresenter extends BasePresenter implements DpSendDataEven
     @Override
     public void onDestroy() {
         super.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 }

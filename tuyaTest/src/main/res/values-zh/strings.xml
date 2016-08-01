@@ -552,5 +552,11 @@
     <string name="please_input_dp_value">请添加dp数据</string>
     <string name="save_success">保存成功</string>
     <string name="ty_logout_loading">正在安全退出，请稍后…</string>
-
+    <string name="ty_add_device_ap_btn_info">指示灯慢速闪烁中</string>
+    <string name="ty_add_device_ap_info">接通电源，确认指示灯处于慢闪状态</string>
+    <string name="ty_add_device_btn_info">指示灯处于其他状态</string>
+    <string name="ty_add_device_ez_btn_info">指示灯快速闪烁中</string>
+    <string name="ty_add_device_ez_failure_ap_tip">当前网络不稳定，请确认指示灯处于慢闪状态</string>
+    <string name="ty_add_device_ez_info">接通电源，确认指示灯处于快闪状态</string>
+    <string name="ty_add_device_guide_info">添加设备请点击这里</string>
 </resources>
