@@ -9,15 +9,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartShare;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.IAddShareCallback;
-import com.tuya.smart.android.user.api.IModifyShareCallback;
-import com.tuya.smart.android.user.api.IQueryGroupReceiveCallback;
-import com.tuya.smart.android.user.api.IQueryShareCallback;
-import com.tuya.smart.android.user.api.IRemoveShareCallback;
 import com.tuya.smart.android.user.bean.GroupReceivedMemberBean;
 import com.tuya.smart.android.user.bean.PersonBean;
+import com.tuya.smart.sdk.TuyaMember;
+import com.tuya.smart.sdk.api.share.IAddMemberCallback;
+import com.tuya.smart.sdk.api.share.IModifyMemberNameCallback;
+import com.tuya.smart.sdk.api.share.IQueryMemberListCallback;
+import com.tuya.smart.sdk.api.share.IQueryReceiveMemberListCallback;
+import com.tuya.smart.sdk.api.share.IRemoveMemberCallback;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class ShareActivity extends Activity {
     TextView mTvAddUidShare;
     @Bind(R.id.lv_share_list)
     ListView mLvShareList;
-    private TuyaSmartShare tuyaSmartShare;
+    private TuyaMember mTuyaMember;
     private ListView mShareListView;
     private ShareListAdapter shareListAdapter;
     private Context mActivity;
@@ -50,7 +50,7 @@ public class ShareActivity extends Activity {
         setContentView(R.layout.activity_share);
         ButterKnife.bind(this);
         mShareListView = (ListView) findViewById(R.id.lv_share_list);
-        tuyaSmartShare = new TuyaSmartShare(this);
+        mTuyaMember = new TuyaMember(this);
         mActivity = this;
 
         findViewById(R.id.tv_add_share).setOnClickListener(new View.OnClickListener() {
@@ -62,98 +62,94 @@ public class ShareActivity extends Activity {
         findViewById(R.id.tv_get_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean login = TuyaSmartUserManager.getInstance().isLogin();
-                if (login) {
-//                    queryMemberShare();
-                    queryShare();
-                }
+                queryShare();
             }
         });
     }
 
     public void addShare() {
 
-        tuyaSmartShare.addShare("86", "18888888888", "小林", "父亲", new IAddShareCallback() {
+        mTuyaMember.addMember("86", "18888888888", "Xiao Lin", "Father", new IAddMemberCallback() {
             @Override
-            public void onSuccess(Integer a) {
-                Toast.makeText(mActivity, "添加分享成功", Toast.LENGTH_SHORT).show();
+            public void onSuccess(Integer shareId) {
+                Toast.makeText(mActivity, R.string.add_share_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String code, String error) {
-                Toast.makeText(mActivity, "添加分享失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.add_share_failure, Toast.LENGTH_SHORT).show();
             }
         });
-//        tuyaSmartShare.modifyShareName(123, "小张", new IModifyShareCallback() {
-//            @Override
-//            public void onSuccess() {
-//                Toast.makeText(mActivity, "修改分享名称成功", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onError(String code, String error) {
-//                Toast.makeText(mActivity, "修改分享名称失败", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        mTuyaMember.modifyMemberName(123, "小张", new IModifyMemberNameCallback() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(mActivity, "修改分享名称成功", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(String code, String error) {
+                Toast.makeText(mActivity, "修改分享名称失败", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @OnClick(R.id.tv_add_uid_share)
     public void addUidMember() {
-        tuyaSmartShare.addUidMember("1111", "name", "朋友", new IAddShareCallback() {
+        mTuyaMember.addUidMember("1111", "name", "Friend", new IAddShareCallback() {
             @Override
             public void onSuccess(Integer shareId) {
-                Toast.makeText(mActivity, "添加UID分享成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.add_share_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String code, String error) {
-                Toast.makeText(mActivity, "添加UID分享失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.add_share_failure, Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     public void removeShare(int id) {
-        tuyaSmartShare.removeShare(id, new IRemoveShareCallback() {
+        mTuyaMember.removeMember(id, new IRemoveMemberCallback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(mActivity, "删除分享成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.delete_share_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String code, String error) {
-                Toast.makeText(mActivity, "删除分享失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.delete_share_failure, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void modifyShare(int id) {
-
-        tuyaSmartShare.modifyGroupMemberName(id, "小张", new IModifyShareCallback() {
+        mTuyaMember.modifyReceiveMemberName(id, "Xiao Zhang", new IModifyMemberNameCallback() {
             @Override
             public void onSuccess() {
-                Toast.makeText(mActivity, "修改分享成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.modify_share_success, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(String code, String error) {
-                Toast.makeText(mActivity, "修改分享失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.modify_share_failure, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void queryShare() {
-        tuyaSmartShare.queryShare(new IQueryShareCallback() {
+        mTuyaMember.queryMemberList(new IQueryMemberListCallback() {
             @Override
             public void onSuccess(ArrayList<PersonBean> bizResult) {
                 if (bizResult != null) {
-                    Toast.makeText(mActivity, "获取分享列表成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity, R.string.get_sharelist_success, Toast.LENGTH_SHORT).show();
                     shareListAdapter.setData(bizResult);
                 }
             }
 
             @Override
             public void onError(String code, String error) {
-                Toast.makeText(mActivity, "获取分享列表失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.get_sharelist_failure, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -175,7 +171,7 @@ public class ShareActivity extends Activity {
     }
 
     public void queryMemberShare() {
-        tuyaSmartShare.queryGroupReceiveMember(new IQueryGroupReceiveCallback() {
+        mTuyaMember.queryReceiveMemberList(new IQueryReceiveMemberListCallback() {
             @Override
             public void onError(String code, String error) {
                 Toast.makeText(mActivity, error, Toast.LENGTH_SHORT).show();
@@ -183,7 +179,7 @@ public class ShareActivity extends Activity {
 
             @Override
             public void onSuccess(ArrayList<GroupReceivedMemberBean> bizResult) {
-                Toast.makeText(mActivity, "获取分享列表成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, R.string.get_sharelist_success, Toast.LENGTH_SHORT).show();
             }
         });
     }

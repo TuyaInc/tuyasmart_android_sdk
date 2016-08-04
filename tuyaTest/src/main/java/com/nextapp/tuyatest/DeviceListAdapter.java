@@ -4,21 +4,21 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+
 import com.tuya.smart.android.base.BaseListArrayAdapter;
 import com.tuya.smart.android.base.ViewHolder;
-import com.tuya.smart.android.device.bean.GwBean;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.List;
 
 /**
  * Created by letian on 15/2/25.
  */
-public class DeviceListAdapter extends BaseListArrayAdapter<GwWrapperBean> {
+public class DeviceListAdapter extends BaseListArrayAdapter<DeviceBean> {
 
     private static final String TAG = "DeviceListAdapter";
 
-    public DeviceListAdapter(Context context, int resource, List<GwWrapperBean> data) {
+    public DeviceListAdapter(Context context, int resource, List<DeviceBean> data) {
         super(context, resource, data);
     }
 
@@ -28,11 +28,11 @@ public class DeviceListAdapter extends BaseListArrayAdapter<GwWrapperBean> {
     }
 
     @Override
-    protected void bindView(ViewHolder viewHolder, GwWrapperBean data) {
+    protected void bindView(ViewHolder viewHolder, DeviceBean data) {
         viewHolder.initData(data);
     }
 
-    public class InnerViewHolder extends ViewHolder<GwWrapperBean> {
+    public class InnerViewHolder extends ViewHolder<DeviceBean> {
         public TextView tv_device;
         public TextView tv_device_status;
 
@@ -43,10 +43,9 @@ public class DeviceListAdapter extends BaseListArrayAdapter<GwWrapperBean> {
         }
 
         @Override
-        public void initData(GwWrapperBean gwWrapperBean) {
-            GwBean gwBean = gwWrapperBean.getGwBean();
-            tv_device.setText(gwBean.getName());
-            tv_device_status.setText(gwWrapperBean.isIntranetControl() ? getString(R.string.IntranetControl) : (gwWrapperBean.isCloudOnline() ? getString(R.string.OnlineControl) : getString(R.string.offline)));
+        public void initData(DeviceBean deviceBean) {
+            tv_device.setText(deviceBean.getName());
+            tv_device_status.setText(deviceBean.getIsOnline() ? getString(R.string.OnlineControl) : getString(R.string.offline));
         }
     }
 

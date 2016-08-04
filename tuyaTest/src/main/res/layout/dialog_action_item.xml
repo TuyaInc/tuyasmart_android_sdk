@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wh_48"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textColor="@color/bottom_dialog_title_color"
+        android:textSize="@dimen/ts_11"></TextView>
+
+    <View style="@style/line_long"></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_np"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/mg_10"
+        android:paddingTop="@dimen/mg_10">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <!--android:layout_toRightOf="@id/np_hour"-->
+            <com.tuya.smart.android.demo.test.widget.NumberPicker
+                android:id="@+id/np_choose"
+                internalLayout="@layout/number_picker_with_selector_wheel"
+                android:layout_width="200dp"
+                android:layout_height="108dp"
+                android:layout_marginLeft="@dimen/mg_10"
+                android:background="@null"
+                android:theme="@style/SampleTheme"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/wh_36"
+            android:layout_centerVertical="true">
+
+            <View
+                style="@style/line_long"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/mg_15"
+                android:layout_marginRight="@dimen/mg_15"
+                android:background="@color/line_grey"></View>
+
+            <View
+                style="@style/line_long"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/mg_15"
+                android:layout_marginRight="@dimen/mg_15"
+                android:background="@color/line_grey"></View>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wh_6"
+        android:background="#d6d6de"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wh_48"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/ts_15"/>
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/ts_15"></TextView>
+
+    </LinearLayout>
+</LinearLayout>

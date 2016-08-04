@@ -10,16 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.base.BuildConfig;
-import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.android.common.utils.Base64;
+import com.tuya.smart.android.common.utils.HexUtil;
 import com.tuya.smart.android.common.utils.L;
-import com.tuya.smart.android.common.utils.NetworkUtil;
-import com.tuya.smart.android.network.Business;
-import com.tuya.smart.android.network.TuyaSmartNetWork;
 import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.api.IValidateCallback;
 import com.tuya.smart.android.user.bean.User;
+import com.tuya.smart.sdk.TuyaSdk;
+import com.tuya.smart.sdk.TuyaUser;
+import com.tuya.smart.sdk.api.INeedLoginListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -64,35 +64,24 @@ public class LoginActivity extends Activity {
         ButterKnife.bind(this);
 
         /**
-         * 开启debug模式 日志输出 默认开启
+         * RAW型数据 加解密算法
          */
-        TuyaSmartSdk.setDebugMode(true);
+        byte[] bytes = Base64.encodeBase64(HexUtil.hexStringToBytes("0067452301"));
+        String encodedData = new String(bytes);
+        String decodeData = HexUtil.bytesToHexString(Base64.decodeBase64(encodedData.getBytes()));
 
-        //设置线上发布渠道
-        TuyaSmartSdk.setTtid("android");
-
-        /**
-         * 初始化网络请求
-         * TuyaSmartNetWork.RegionConfig.AY国内接口 AZ国外接口
-         */
-        TuyaSmartNetWork.initialize(this, TuyaSmartSdk.getAppkey(), TuyaSmartSdk.getAppSecret(),"android");
-
-        //
-        //
-        boolean networkAvailable = NetworkUtil.isNetworkAvailable(this);
-        L.d(TAG, "network: " + networkAvailable);
         //判断是否登陆
-        if (TuyaSmartUserManager.getInstance().isLogin()) {
+        if (TuyaUser.getUserInstance().isLogin()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
             return;
         }
 
         //登陆session失效回调的监听
-        TuyaSmartNetWork.setOnNeedLoginListener(new Business.OnNeedLoginListener() {
+        TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
             @Override
             public void onNeedLogin(Context context) {
-                TuyaSmartUserManager.getInstance().removeUser();
+                L.d(TAG, "login session out of date");
             }
         });
 
@@ -106,10 +95,10 @@ public class LoginActivity extends Activity {
                  * 登录接口。用户登录的时候调用
                  */
                 //86是指国内.
-                TuyaSmartUserManager.getInstance().loginWithPhone(getCountryCode(), phoneNumber.getText().toString(), code.getText().toString(), new ILoginCallback() {
+                TuyaUser.getUserInstance().loginWithPhone(getCountryCode(), phoneNumber.getText().toString(), code.getText().toString(), new ILoginCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        Toast.makeText(LoginActivity.this, "登录成功，用户名：" + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         LoginActivity.this.finish();
                     }
@@ -127,7 +116,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                TuyaSmartUserManager.getInstance().getValidateCode(getCountryCode(), phoneNumber.getText().toString(), new IValidateCallback() {
+                TuyaUser.getUserInstance().getValidateCode(getCountryCode(), phoneNumber.getText().toString(), new IValidateCallback() {
                     @Override
                     public void onSuccess() {
 

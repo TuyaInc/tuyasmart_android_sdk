@@ -2,15 +2,18 @@ package com.nextapp.tuyatest;
 
 import android.app.Application;
 
-import com.tuya.smart.android.base.TuyaSmartSdk;
-import com.tuya.smart.android.common.utils.L;
+import com.tuya.smart.sdk.TuyaSdk;
 
 public class TuyaSmartApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        TuyaSmartSdk.init(this);
-        L.setLogSwitcher(true);
+
+        /**
+         * 初始化sdk
+         */
+        TuyaSdk.init(this);
+        TuyaSdk.setDebugMode(true);
     }
 }

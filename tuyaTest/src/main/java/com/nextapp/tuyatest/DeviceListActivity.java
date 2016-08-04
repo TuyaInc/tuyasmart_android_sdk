@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.tuya.smart.android.base.TuyaSmartSdk;
-import com.tuya.smart.android.device.TuyaSmartDevice;
-import com.tuya.smart.android.device.bean.GwWrapperBean;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
 import com.tuya.smart.android.device.event.GwUpdateEventModel;
+import com.tuya.smart.sdk.TuyaSdk;
+import com.tuya.smart.sdk.TuyaUser;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_list);
 
-        TuyaSmartSdk.getEventBus().register(this);
+        TuyaSdk.getEventBus().register(this);
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mDevListView = (ListView) findViewById(R.id.lv_device_list);
@@ -48,7 +48,7 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
 
             @Override
             public void onRefresh() {
-                TuyaSmartDevice.getInstance().queryGwList();
+                TuyaUser.getDeviceInstance().queryDevList();
             }
         });
 
@@ -56,28 +56,26 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
 
         loadStart();
 
-        TuyaSmartDevice.getInstance().queryGwList();
+        TuyaUser.getDeviceInstance().queryDevList();
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        TuyaSmartSdk.getEventBus().unregister(this);
+        TuyaSdk.getEventBus().unregister(this);
     }
 
     private void initAdapter() {
-        mDevAdapter = new DeviceListAdapter(this, R.layout.list_device_item, new ArrayList<GwWrapperBean>());
+        mDevAdapter = new DeviceListAdapter(this, R.layout.list_device_item, new ArrayList<DeviceBean>());
         mDevListView.setAdapter(mDevAdapter);
         mDevListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                GwWrapperBean gwWrapperBean = (GwWrapperBean) parent.getAdapter().getItem(position);
-                if (gwWrapperBean != null) {
-//                    mDeviceListFragmentPresenter.onDeviceClick(gwWrapperBean);
-
+                DeviceBean deviceBean = (DeviceBean) parent.getAdapter().getItem(position);
+                if (deviceBean != null) {
                     Intent intent = new Intent(DeviceListActivity.this, DevicePanelActivity.class);
-                    intent.putExtra("gwId", gwWrapperBean.getGwId());
+                    intent.putExtra("gwId", deviceBean.getDevId());
                     startActivity(intent);
                 }
             }
@@ -101,20 +99,20 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
         swipeRefreshLayout.setRefreshing(false);
     }
 
-    public void updateData(List<GwWrapperBean> gwWrapperBeans) {
+    public void updateData(List<DeviceBean> deviceBeen) {
         if (mDevAdapter != null) {
-            mDevAdapter.setData(gwWrapperBeans);
+            mDevAdapter.setData(deviceBeen);
         }
         loadFinish();
     }
 
     @Override
     public void onEventMainThread(GwRelationUpdateEventModel event) {
-        updateData(TuyaSmartDevice.getInstance().getGws());
+        updateData(TuyaUser.getDeviceInstance().getDevList());
     }
 
     @Override
     public void onEventMainThread(GwUpdateEventModel event) {
-        updateData(TuyaSmartDevice.getInstance().getGws());
+        updateData(TuyaUser.getDeviceInstance().getDevList());
     }
 }

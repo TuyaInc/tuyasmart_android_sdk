@@ -28,15 +28,14 @@
 
         <meta-data
             android:name="TUYA_SMART_APPKEY"
-            android:value="d756fb5805591c7add3f"/>
+            android:value=""/>
 
         <meta-data
             android:name="TUYA_SMART_SECRET"
-            android:value="ggvrcbnfa6grg8ogoruyl0bjoj1qetbv"/>
+            android:value=""/>
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
-        <!-- device location -->
-        <service android:name="com.tuya.smart.android.device.service.LocationService"/>
+        <activity android:name=".EZActivityTest"/>
 
         <activity
             android:name=".MainActivity"

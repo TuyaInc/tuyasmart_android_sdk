@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.IRegisterCallback;
 import com.tuya.smart.android.user.bean.User;
+import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,10 +33,10 @@ public class RegisterWithUIDActivity extends Activity {
         ButterKnife.bind(this);
     }
 
-    private String getCountryCode(){
-        final EditText countryCodeEt = (EditText)findViewById(R.id.et_country_code);
+    private String getCountryCode() {
+        final EditText countryCodeEt = (EditText) findViewById(R.id.et_country_code);
         String countryCode = countryCodeEt.getText().toString();
-        if(TextUtils.isEmpty(countryCode)){
+        if (TextUtils.isEmpty(countryCode)) {
             countryCode = "86";
         }
 
@@ -45,11 +45,11 @@ public class RegisterWithUIDActivity extends Activity {
 
     @OnClick(R.id.do_register)
     public void onClickRegister() {
-        TuyaSmartUserManager.getInstance().registerAccountWithUid(getCountryCode(), mEtUid.getText().toString(),
+        TuyaUser.getUserInstance().registerAccountWithUid(getCountryCode(), mEtUid.getText().toString(),
                 mEtPasswordCode.getText().toString(), new IRegisterCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        Toast.makeText(RegisterWithUIDActivity.this, "UID注册成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterWithUIDActivity.this, getString(R.string.ty_login_register) + getString(R.string.unit_success), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
