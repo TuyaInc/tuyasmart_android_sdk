@@ -188,7 +188,7 @@
     <string name="add_new_user_tip">添加新成员使用智能设备</string>
     <string name="add_next_device">再添加一个</string>
     <string name="ap_mode">热点模式</string>
-    <string name="app_name">涂鸦智能</string>
+    <string name="app_name">涂鸦测试</string>
     <string name="bind_device_cancel">否</string>
     <string name="bind_device_confirm">是</string>
     <string name="bind_device_failure"><![CDATA[<font color="#FF5800">查看可能失败的原因</font>]]></string>
@@ -270,7 +270,9 @@
     <string name="firmware_upgrade_update">新版更新</string>
     <string name="firmware_upgrading">固件正在升级中，请勿切断设备电源</string>
     <string name="firmware_upgrad_tips0">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s</string>
-    <string name="firmware_upgrad_tips1">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s,升级状态: %4$d,升级类型: %5$d</string>
+    <string name="firmware_upgrad_tips1">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s,升级状态: %4$d,升级类型:
+        %5$d
+    </string>
     <string name="friday">星期五</string>
     <string name="friend">共享设备</string>
     <string name="get_the_latest_ui_version">正在获取最新ui界面</string>
@@ -559,4 +561,5 @@
     <string name="ty_add_device_ez_failure_ap_tip">当前网络不稳定，请确认指示灯处于慢闪状态</string>
     <string name="ty_add_device_ez_info">接通电源，确认指示灯处于快闪状态</string>
     <string name="ty_add_device_guide_info">添加设备请点击这里</string>
+    <string name="format_error">格式错误</string>
 </resources>

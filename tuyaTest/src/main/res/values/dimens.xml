@@ -130,4 +130,6 @@
     <dimen name="phone_button_margin_top">20dp</dimen>
     <dimen name="phone_button_padding_left">15dp</dimen>
     <dimen name="verification_phone_button_margin_top">10dp</dimen>
+    <dimen name="three_grid_unit">24dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
 </resources>

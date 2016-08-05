@@ -254,7 +254,7 @@ public class BaseActivity extends AppCompatActivity {
                 }
             }, 2000);
         } else {
-//            LoginHelper.exit(this);
+            LoginHelper.exit(this);
         }
     }
 

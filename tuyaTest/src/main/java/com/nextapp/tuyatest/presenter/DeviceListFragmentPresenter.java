@@ -9,8 +9,8 @@ import android.net.wifi.WifiManager;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.activity.AddDeviceTipActivity;
 import com.nextapp.tuyatest.activity.BrowserActivity;
+import com.nextapp.tuyatest.activity.DeviceCommonActivity;
 import com.nextapp.tuyatest.activity.SharedActivity;
-import com.nextapp.tuyatest.activity.SwitchActivity;
 import com.nextapp.tuyatest.config.CommonConfig;
 import com.nextapp.tuyatest.event.DeviceListUpdateModel;
 import com.nextapp.tuyatest.event.DeviceUpdateEvent;
@@ -20,12 +20,9 @@ import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.IDeviceListFragmentView;
-import com.tuya.smart.android.device.TuyaSmartDevice;
 import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.base.event.NetWorkStatusEvent;
 import com.tuya.smart.android.base.event.NetWorkStatusEventModel;
-import com.tuya.smart.android.device.event.DeviceListChangeEvent;
-import com.tuya.smart.android.device.event.DeviceListChangeEventModel;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
@@ -112,6 +109,13 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
             ToastUtil.showToast(mActivity, R.string.no_device_found);
             return;
         }
+        gotoDeviceCommonActivity(devBean);
+    }
+
+    private void gotoDeviceCommonActivity(DeviceBean devBean) {
+        Intent intent = new Intent(mActivity, DeviceCommonActivity.class);
+        intent.putExtra(DeviceCommonPresenter.INTENT_DEVID, devBean.getDevId());
+        mActivity.startActivity(intent);
     }
 
     public void getDataFromServer() {

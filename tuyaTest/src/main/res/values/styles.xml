@@ -269,7 +269,11 @@
         <item name="is_add_device_help_get_from_native">false</item>
         <item name="is_scene_support">true</item>
     </style>
-
+    <style name="ToolrTheme" parent="Default_Public_Theme">
+        <item name="status_font_color">@color/white</item>
+        <item name="status_bg_color">@color/color_ff5800</item>
+        <item name="app_bg_color">@color/color_ff5800</item>
+    </style>
     <style name="Splash.Theme" parent="Default_Public_Theme">
         <item name="android:windowBackground">@drawable/ty_pre</item>
     </style>
@@ -280,4 +284,5 @@
         <item name="android:background">@color/line_color</item>
     </style>
 
+    <color name="color_ff5800">#ff5800</color>
 </resources>

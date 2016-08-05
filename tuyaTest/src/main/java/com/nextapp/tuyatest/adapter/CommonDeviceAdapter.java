@@ -74,6 +74,7 @@ public class CommonDeviceAdapter extends BaseAdapter {
         public ImageView connect;
         public ImageView deviceIcon;
         public TextView device;
+
         public DeviceViewHolder(View contentView) {
             super(contentView);
             connect = (ImageView) contentView.findViewById(R.id.iv_device_list_dot);
@@ -99,6 +100,7 @@ public class CommonDeviceAdapter extends BaseAdapter {
                 }
             }
             connect.setImageResource(resId);
+            device.setText(deviceBean.getName());
         }
     }
 }

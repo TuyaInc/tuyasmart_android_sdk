@@ -612,4 +612,5 @@
     <string name="ty_add_device_ez_info">Power on and confirm instructor light quickly flashing
     </string>
     <string name="ty_add_device_guide_info">Tap here to add devices</string>
+    <string name="format_error">Format Error</string>
 </resources>

@@ -26,7 +26,6 @@ public class SwitchPresenter extends BasePresenter implements IDevListener {
     private final ISwitchView mView;
     private final Context mContext;
     private final ITuyaDevice mDevice;
-    private boolean mOpen;
     private SwitchBean mSwitchBean;
 
     public SwitchPresenter(Context context, ISwitchView view) {
@@ -61,6 +60,9 @@ public class SwitchPresenter extends BasePresenter implements IDevListener {
     @Override
     public void onDpUpdate(String devId, String dps) {
         JSONObject jsonObject = JSONObject.parseObject(dps);
+        Boolean open = (Boolean) jsonObject.get(SwitchBean.SWITCH_DPID);
+        if (open) mView.showOpenView();
+        else mView.showCloseView();
     }
 
     @Override

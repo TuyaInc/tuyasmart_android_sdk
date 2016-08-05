@@ -52,7 +52,7 @@ public class FirmwareUpgradeModel extends BaseModel implements IFirmwareUpgradeM
 
     @Override
     public void setUpgradeDeviceUpdateAction(IFirmwareUpgradeListener listener) {
-        mTuyaDevice.registerHardwareUpgradeListener(listener);
+        mTuyaDevice.setHardwareUpgradeListener(listener);
     }
 
     @Override

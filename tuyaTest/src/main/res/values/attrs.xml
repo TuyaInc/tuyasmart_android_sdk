@@ -281,4 +281,10 @@
         <attr name="bar_pointer_halo_radius" format="dimension"/>
         <attr name="bar_orientation_horizontal" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="NiceSpinner">
+        <attr name="arrowTint" format="color" />
+        <attr name="hideArrow" format="boolean" />
+        <attr name="backgroundSelector" format="integer"/>
+        <attr name="textTint" format="color"/>
+    </declare-styleable>
 </resources>
