@@ -129,6 +129,26 @@
             android:layout_marginRight="@dimen/mg_15"
             android:background="@color/color_979797"/>
     </FrameLayout>
+    <FrameLayout android:id="@+id/fl_bitmap"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_bitmap_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="@dimen/mg_48"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <EditText
+            android:id="@+id/et_bitmap_value"
+            style="@style/EditText.Normal"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/mg_48"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"
+            android:inputType="number"/>
+    </FrameLayout>
     <View style="@style/line_long"/>
 
     <TextView style="@style/TextView.Normal"

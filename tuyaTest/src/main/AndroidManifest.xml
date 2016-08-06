@@ -138,6 +138,14 @@
                   android:screenOrientation="portrait"
                   android:theme="@style/ToolrTheme"
                   android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".test.activity.DeviceTestActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/ToolrTheme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".test.activity.EditDpTestActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/ToolrTheme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".DeviceListActivity"/>
         <activity android:name=".DevicePanelActivity"/>
         <activity android:name=".APActivityTest"/>
@@ -151,6 +159,11 @@
         <activity android:name=".RegisterWithUIDActivity"/>
         <activity android:name=".FindPasswordUidActivity"/>
         <activity android:name=".LoginWithUidActivity"/>
+        <activity android:name=".test.activity.DpTestSetUpActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/ToolrTheme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"
+        />
         <receiver android:name="com.tuya.smart.android.base.broadcast.NetworkBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>

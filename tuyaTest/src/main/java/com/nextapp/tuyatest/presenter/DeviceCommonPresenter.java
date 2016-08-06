@@ -9,7 +9,10 @@ import android.text.TextUtils;
 import com.nextapp.tuyatest.R;
 import com.nextapp.tuyatest.activity.DpSendActivity;
 import com.nextapp.tuyatest.presenter.firmware.FirmwareUpgradePresenter;
+import com.nextapp.tuyatest.test.activity.DeviceTestActivity;
+import com.nextapp.tuyatest.test.presenter.DeviceTestPresenter;
 import com.nextapp.tuyatest.test.utils.DialogUtil;
+import com.nextapp.tuyatest.utils.ActivityUtils;
 import com.nextapp.tuyatest.utils.ProgressUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.IDeviceCommonView;
@@ -20,6 +23,8 @@ import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.sdk.TuyaDevice;
 import com.tuya.smart.sdk.TuyaUser;
 import com.tuya.smart.sdk.bean.DeviceBean;
+
+import junit.framework.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -189,5 +194,11 @@ public class DeviceCommonPresenter extends BasePresenter {
     public void onDestroy() {
         super.onDestroy();
         mFirmwareUpgradePresenter.onDestroy();
+    }
+
+    public void testMode() {
+        Intent intent = new Intent(mContext, DeviceTestActivity.class);
+        intent.putExtra(DeviceTestPresenter.INTENT_DEVICE_ID, mDevId);
+        ActivityUtils.startActivity((Activity) mContext, intent, ActivityUtils.ANIMATE_FORWARD, true);
     }
 }

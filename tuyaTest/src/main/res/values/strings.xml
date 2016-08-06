@@ -613,4 +613,17 @@
     </string>
     <string name="ty_add_device_guide_info">Tap here to add devices</string>
     <string name="format_error">Format Error</string>
+    <string name="ty_test_mode">Test Mode</string>
+    <string name="ty_dp_test">Dp Test</string>
+    <string name="edit_dp_test">Edit Dp Test</string>
+    <string name="ty_dp_test_title">Setup</string>
+    <string name="ty_dp_test_set_interval">发送命令时间间隔(ms)：</string>
+    <string name="ty_dp_test_show_command_window">显示Log窗口</string>
+    <string name="ty_dp_test_needpool">轮询发送数据</string>
+    <string name="ty_dp_test_show_report">显示数据统计信息</string>
+    <string name="ty_dp_test_lan_send">局域网命令发送</string>
+    <string name="ty_dp_test_cloud_send">云端发送数据</string>
+    <string name="ty_dp_test_log_window">日志输出窗口</string>
+    <string name="ty_dp_test_log_report">测试结果输出</string>
+    <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
 </resources>

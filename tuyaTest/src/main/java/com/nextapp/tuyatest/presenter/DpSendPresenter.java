@@ -10,8 +10,7 @@ import com.nextapp.tuyatest.test.utils.SchemaMapper;
 import com.nextapp.tuyatest.test.utils.SchemaUtil;
 import com.nextapp.tuyatest.utils.ToastUtil;
 import com.nextapp.tuyatest.view.IDpSendView;
-import com.tuya.smart.android.common.utils.FileUtil;
-import com.tuya.smart.android.common.utils.HexUtil;
+import com.tuya.smart.android.device.bean.BitmapSchemaBean;
 import com.tuya.smart.android.device.bean.BoolSchemaBean;
 import com.tuya.smart.android.device.bean.EnumSchemaBean;
 import com.tuya.smart.android.device.bean.SchemaBean;
@@ -88,6 +87,8 @@ public class DpSendPresenter extends BasePresenter implements IDevListener {
                 mView.showStringView((String) mDev.getDps().get(mSchemaBean.getId()));
             } else if (TextUtils.equals(schemaType, ValueSchemaBean.type)) {
                 mView.showValueView((Integer) mDev.getDps().get(mSchemaBean.getId()));
+            } else if (TextUtils.equals(schemaType, BitmapSchemaBean.type)) {
+                mView.showBitmapView((Integer) mDev.getDps().get(mSchemaBean.getId()));
             }
         } else if (mSchemaBean.getType().equals(DataTypeEnum.RAW.getType())) {
             //raw | file 类型
@@ -159,12 +160,7 @@ public class DpSendPresenter extends BasePresenter implements IDevListener {
         if (mSchemaBean.getType().equals(DataTypeEnum.OBJ.getType())) {
             //obj 类型
             String schemaType = mSchemaBean.getSchemaType();
-            if (TextUtils.equals(schemaType, EnumSchemaBean.type)) {
-                String enumValue = mView.getEnumValue();
-                if (SchemaUtil.checkEnumValue(mSchemaBean, enumValue)) {
-                    sendDpValue(enumValue);
-                } else mView.showFormatErrorTip();
-            } else if (TextUtils.equals(schemaType, StringSchemaBean.type)) {
+            if (TextUtils.equals(schemaType, StringSchemaBean.type)) {
                 String strValue = mView.getStrValue();
                 if (SchemaUtil.checkStrValue(mSchemaBean, strValue)) {
                     sendDpValue(strValue);
@@ -174,6 +170,13 @@ public class DpSendPresenter extends BasePresenter implements IDevListener {
                 if (SchemaUtil.checkValue(mSchemaBean, value)) {
                     sendDpValue(Integer.valueOf(value));
                 } else mView.showFormatErrorTip();
+            } else if (TextUtils.equals(schemaType, BitmapSchemaBean.type)) {
+                String value = mView.getBitmapValue();
+                if (SchemaUtil.checkBitmapValue(mSchemaBean, value)) {
+                    sendDpValue(Integer.valueOf(value));
+                } else {
+                    mView.showFormatErrorTip();
+                }
             }
         } else if (mSchemaBean.getType().equals(DataTypeEnum.RAW.getType())) {
             //raw | file 类型

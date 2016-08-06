@@ -63,6 +63,9 @@ public class DeviceCommonActivity extends BaseActivity implements IDeviceCommonV
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.action_test_mode:
+                        mPresenter.testMode();
+                        break;
                     case R.id.action_rename:
                         mPresenter.renameDevice();
                         break;

@@ -76,7 +76,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void checkLogin() {
-        if (!needLogin() && !TuyaUser.getUserInstance().isLogin()) {
+        if (needLogin() && !TuyaUser.getUserInstance().isLogin()) {
             LoginHelper.reLogin(this);
         }
     }
@@ -334,7 +334,7 @@ public class BaseActivity extends AppCompatActivity {
      * 默认所有界面都需要判断是否登录状态。
      */
     public boolean needLogin() {
-        return false;
+        return true;
     }
 
     public boolean isContainFragment() {

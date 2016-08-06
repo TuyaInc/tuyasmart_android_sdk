@@ -208,7 +208,7 @@ public class LoginActivity extends BaseActivity implements ILoginView, TextWatch
 
     @Override
     public boolean needLogin() {
-        return true;
+        return false;
     }
 
     @Override

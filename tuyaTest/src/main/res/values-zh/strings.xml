@@ -562,4 +562,9 @@
     <string name="ty_add_device_ez_info">接通电源，确认指示灯处于快闪状态</string>
     <string name="ty_add_device_guide_info">添加设备请点击这里</string>
     <string name="format_error">格式错误</string>
+    <string name="ty_test_mode">测试模式</string>
+    <string name="ty_dp_test">数据测试</string>
+    <string name="edit_dp_test">编辑测试数据</string>
+    <string name="ty_dp_test_title">数据测试设置</string>
+
 </resources>

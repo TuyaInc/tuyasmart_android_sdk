@@ -1,6 +1,7 @@
 package com.nextapp.tuyatest.test.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tuya.smart.android.device.bean.BitmapSchemaBean;
 import com.tuya.smart.android.device.bean.BoolSchemaBean;
 import com.tuya.smart.android.device.bean.EnumSchemaBean;
 import com.tuya.smart.android.device.bean.StringSchemaBean;
@@ -30,4 +31,7 @@ public class SchemaMapper {
         return JSONObject.parseObject(data, ValueSchemaBean.class);
     }
 
+    public static BitmapSchemaBean toBitmapSchema(String data) {
+        return JSONObject.parseObject(data, BitmapSchemaBean.class);
+    }
 }

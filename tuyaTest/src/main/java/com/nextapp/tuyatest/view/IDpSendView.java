@@ -27,4 +27,8 @@ public interface IDpSendView {
     String getRAWValue();
 
     void showFormatErrorTip();
+
+    String getBitmapValue();
+
+    void showBitmapView(int bitmap);
 }

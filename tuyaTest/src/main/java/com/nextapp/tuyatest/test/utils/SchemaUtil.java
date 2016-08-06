@@ -3,6 +3,7 @@ package com.nextapp.tuyatest.test.utils;
 import android.text.TextUtils;
 
 import com.tuya.smart.android.common.utils.HexUtil;
+import com.tuya.smart.android.device.bean.BitmapSchemaBean;
 import com.tuya.smart.android.device.bean.EnumSchemaBean;
 import com.tuya.smart.android.device.bean.SchemaBean;
 import com.tuya.smart.android.device.bean.StringSchemaBean;
@@ -38,5 +39,16 @@ public class SchemaUtil {
         int max = valueSchemaBean.getMax();
         int min = valueSchemaBean.getMin();
         return v <= max && v >= min;
+    }
+
+    public static boolean checkBitmapValue(SchemaBean schemaBean, String value) {
+        BitmapSchemaBean schema = SchemaMapper.toBitmapSchema(schemaBean.getProperty());
+        int bitmap;
+        try {
+            bitmap = Integer.valueOf(value);
+        } catch (Exception e) {
+            return false;
+        }
+        return bitmap >= 0 && bitmap < (1 << schema.getMaxlen());
     }
 }

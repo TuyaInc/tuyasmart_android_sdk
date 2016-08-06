@@ -46,6 +46,8 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
     public View mValueView;
     @Bind(R.id.fl_enum)
     public View mEnumView;
+    @Bind(R.id.fl_bitmap)
+    public View mBitmapView;
 
     @Bind(R.id.sb_boolean)
     public SwitchButton mBoolSBView;
@@ -88,6 +90,12 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
 
     @Bind(R.id.tv_enum_name)
     public TextView mEnumTVView;
+
+    @Bind(R.id.tv_bitmap_name)
+    public TextView mBitmapTVView;
+
+    @Bind(R.id.et_bitmap_value)
+    public EditText mBitampETView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +140,10 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
 
     }
 
+    protected void setDisplayHomeAsUpEnabled() {
+        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back_white, null);
+    }
+
     private void initTitle() {
         setTitle(mPresenter.getTitle());
     }
@@ -146,7 +158,6 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
         mBoolSBView.setCheckedNoEvent(value);
         mBoolTVView.setText(mPresenter.getName());
     }
-
 
     @Override
     public void showStringView(String value) {
@@ -172,8 +183,12 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
         setViewVisible(mSendView);
     }
 
-    protected void setDisplayHomeAsUpEnabled() {
-        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back_white, null);
+    @Override
+    public void showBitmapView(int bitmap) {
+        setViewVisible(mBitmapView);
+        mBitampETView.setText(String.valueOf(bitmap));
+        mBitmapTVView.setText(mPresenter.getName());
+        setViewVisible(mSendView);
     }
 
     @Override
@@ -225,6 +240,11 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
         ToastUtil.showToast(this, R.string.format_error);
     }
 
+    @Override
+    public String getBitmapValue() {
+        return mBitampETView.getText().toString();
+    }
+
     public void scroll2Bottom() {
         // 内层高度超过外层
         int offset = testLog.getMeasuredHeight()
@@ -234,7 +254,6 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
         }
         testScroll.scrollTo(0, offset);
     }
-
 
     @Override
     protected void onDestroy() {

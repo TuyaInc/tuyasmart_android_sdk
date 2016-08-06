@@ -137,7 +137,7 @@ public class LoginWithPhoneActivity extends BaseActivity implements TextWatcher,
 
     @Override
     public boolean needLogin() {
-        return true;
+        return false;
     }
 
     @Override

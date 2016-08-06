@@ -157,7 +157,7 @@ public class AccountInputActivity extends BaseActivity implements TextWatcher, I
 
     @Override
     public boolean needLogin() {
-        return true;
+        return false;
     }
 
     @Override
