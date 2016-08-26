@@ -6,7 +6,7 @@
               android:background="@color/white"
               android:orientation="vertical">
 
-    <com.nextapp.tuyatest.widget.circleprogress.CircleProgressView
+    <com.tuya.smart.android.demo.widget.circleprogress.CircleProgressView
         android:id="@+id/circleView"
         android:layout_width="88dp"
         android:layout_height="88dp"

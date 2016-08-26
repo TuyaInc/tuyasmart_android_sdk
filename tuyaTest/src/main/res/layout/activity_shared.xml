@@ -16,7 +16,7 @@
         android:layout_marginTop="@dimen/toolbar_height"
         android:background="@color/white">
 
-        <com.nextapp.tuyatest.widget.PagerSlidingTabStrip
+        <com.tuya.smart.android.demo.widget.PagerSlidingTabStrip
             android:id="@+id/pager_sliding_tab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,7 +34,7 @@
 
     </FrameLayout>
 
-    <com.nextapp.tuyatest.widget.ScrollViewPager
+    <com.tuya.smart.android.demo.widget.ScrollViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
