@@ -28,6 +28,7 @@
     <string name="env_wrong_tip">The device is online, while App is running under preview
         environment. Thus not controllable
     </string>
+    <string name="ty_loading">Loading…</string>
     <string name="every_week_five">Every Friday</string>
     <string name="every_week_four">Every Thursday</string>
     <string name="every_week_one">Every Monday</string>
@@ -434,54 +435,6 @@
     <string name="wpa_must_with_eghit_characters">WPA passphrase length must be minimum 8
         characters
     </string>
-
-    <!-- 涂鸦神灯 -->
-    <string name="lamp_close_failure">Failed to turn off</string>
-    <string name="lamp_close_tip">Touch OFF</string>
-    <string name="lamp_color_light_max">Bright</string>
-    <string name="lamp_color_light_min">Dim</string>
-    <string name="lamp_color_mode">Color mode</string>
-    <string name="lamp_color_saturation">Color mode</string>
-    <string name="lamp_color_saturation_max">Colorful</string>
-    <string name="lamp_color_saturation_min">Plain</string>
-    <string name="lamp_color_temper_high">Warm</string>
-    <string name="lamp_color_temper_low">Cold</string>
-    <string name="lamp_get_dev_failure">Failed to retrieve light status</string>
-    <string name="lamp_no_online_device">Device is offline</string>
-    <string name="lamp_open_failure">Failed to turn on</string>
-    <string name="lamp_open_tip">Touch ON</string>
-    <string name="lamp_operation_color">Color</string>
-    <string name="lamp_operation_timing">Timer</string>
-    <string name="lamp_operation_white">White</string>
-    <string name="lamp_opertaion_scene">Scene</string>
-    <string name="lamp_scene_leisure">Relax</string>
-    <string name="lamp_scene_meet">Party</string>
-    <string name="lamp_scene_mode">Scene mode</string>
-    <string name="lamp_scene_night">Night</string>
-    <string name="lamp_scene_read">Reading</string>
-    <string name="lamp_timer_mode">Timer</string>
-    <string name="lamp_white_mode">White mode</string>
-    <string name="timer_remind">Timer accuracy is -/+ 30 seconds</string>
-
-    <!-- 群组 -->
-    <string name="group_add_default_name">%s Group</string>
-    <string name="group_add_name_empty">Group name can\'t be empty</string>
-    <string name="group_add_no_devices_selected">Please select one device at least</string>
-    <string name="group_create">Create group</string>
-    <string name="group_dismiss">Ungroup</string>
-    <string name="group_dismiss_dialog_title">Sure to ungroup devices?</string>
-    <string name="group_dismiss_success">Ungroup successfully</string>
-    <string name="group_edit_devices">Manage group devices</string>
-    <string name="group_group_list_empty">No device in the group</string>
-    <string name="group_item_flag">Group</string>
-    <string name="group_no_device">No devices in group</string>
-    <string name="group_no_device_dismiss">Ungroup</string>
-    <string name="group_no_device_manage">Manage group</string>
-    <string name="group_no_online_device">No connected devices in group</string>
-    <string name="group_rename">Edit group name</string>
-    <string name="group_rename_dialog_title">Enter group name</string>
-    <string name="group_title_select_device">Select device</string>
-
     <!-- 共享 -->
     <string name="new_share">Add Sharing</string>
     <string name="shared_title">My Sharings</string>
@@ -504,7 +457,11 @@
     <string name="ty_share_edit_alias">Remark</string>
     <string name="ty_share_empty_device">No shared device received</string>
     <string name="username_phone_is_null">Please type in name and phone number.</string>
-
+    <string name="ty_enter_keyword_tip">6-20 characters for password, including character, numbers,
+        symbols
+    </string>
+    <string name="ty_share_default_info">Enter mobile number/E-mail</string>
+    <string name="ty_no_data">No data</string>
     <!-- EZ配置 -->
     <string name="ez_notSupport_5G">This app is supported only on 2.4GHz Wi-Fi channels</string>
     <string name="ez_notSupport_5G_change">Change</string>
@@ -528,6 +485,7 @@
     <string name="ty_ez_connecting_device_note2">Keep router, phone and device within\n valid
         distance
     </string>
+
     <string name="ty_ez_connecting_device_title">Try to connect device</string>
     <string name="ty_ez_connecting_devicei_note1">Device is connecting</string>
     <string name="ty_ez_current_no_wifi">Phone is not connecting Wi-Fi at present</string>
@@ -643,5 +601,29 @@
     <string name="cant_find_alarm_attr">未找到对应的定时属性</string>
     <string name="get_share_list">Get Share List</string>
     <string name="add_uid_share">Add Uid Share</string>
-
+    <string name="ty_logout_loading">Exiting, please wait&#046;&#046;&#046;</string>
+    <string name="ty_add_device_ap_info">Power on and confirm instructor light slowly flashing
+    </string>
+    <string name="ty_add_device_btn_info">Instructor light is on other status</string>
+    <string name="ty_add_device_ez_btn_info">Instructor light is quickly flashing</string>
+    <string name="ty_add_device_ez_failure_ap_tip">Unstable network, please confirm instructor light
+        slowly flashing
+    </string>
+    <string name="ty_add_device_ez_info">Power on and confirm instructor light quickly flashing
+    </string>
+    <string name="ty_add_device_guide_info">Tap here to add devices</string>
+    <string name="format_error">Format Error</string>
+    <string name="ty_test_mode">Test Mode</string>
+    <string name="ty_dp_test">Dp Test</string>
+    <string name="edit_dp_test">Edit Dp Test</string>
+    <string name="ty_dp_test_title">Setup</string>
+    <string name="ty_dp_test_set_interval">发送命令时间间隔(ms)：</string>
+    <string name="ty_dp_test_show_command_window">显示Log窗口</string>
+    <string name="ty_dp_test_needpool">轮询发送数据</string>
+    <string name="ty_dp_test_show_report">显示数据统计信息</string>
+    <string name="ty_dp_test_lan_send">局域网命令发送</string>
+    <string name="ty_dp_test_cloud_send">云端发送数据</string>
+    <string name="ty_dp_test_log_window">日志输出窗口</string>
+    <string name="ty_dp_test_log_report">测试结果输出</string>
+    <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
 </resources>

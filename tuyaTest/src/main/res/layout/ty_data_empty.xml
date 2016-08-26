@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_background_tip"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_marginTop="60dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_none_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ty_nolist_logo"/>
+
+    <TextView
+        android:id="@+id/tv_none_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/iv_none_data"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/ty_no_data"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/ts_16"/>
+
+    <TextView
+        android:id="@+id/tv_empty_func"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:textColor="@color/text_color2"
+        android:background="@drawable/btn_add_share_none_bg"
+        android:layout_below="@id/tv_none_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"/>
+</RelativeLayout>

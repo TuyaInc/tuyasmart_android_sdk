@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_test_mode"
+        android:title="@string/ty_test_mode"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_rename"
+        android:title="@string/rename_device"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_check_update"
+        android:title="@string/check_update"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_resume_factory_reset"
+        android:title="@string/ty_control_panel_factory_reset"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_unconnect"
+        android:title="@string/cancel_connect"
+        app:showAsAction="never"/>
+
+
+    <item
+        android:id="@+id/action_close"
+        android:title="@string/action_close"
+        app:showAsAction="never"/>
+</menu>

@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/background_home"
-                android:orientation="vertical">
-
-    <TextView android:id="@+id/test_mode"
-              style="@style/TextView.Normal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_home"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+
+    <TextView style="@style/TextView.Normal"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Dp Test"
-    />
+              android:layout_gravity="center_vertical|center"
+              android:layout_marginTop="@dimen/mg_5"
+              android:gravity="center"
+              android:text="@string/ty_dp_test_log_window"/>
     <ScrollView
         android:id="@+id/test_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/test_action"
-        android:layout_below="@+id/test_mode">
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginRight="@dimen/mg_15"
+        android:layout_marginTop="@dimen/mg_5"
+        android:background="@color/black">
 
         <TextView
             android:id="@+id/test_log"
             style="@style/TextView.Normal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
         />
     </ScrollView>
+    <TextView style="@style/TextView.Normal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical|center"
+              android:layout_marginTop="@dimen/mg_5"
+              android:gravity="center"
+              android:text="@string/ty_dp_test_log_report"/>
+    <ScrollView
+        android:id="@+id/sl_test_report"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginRight="@dimen/mg_15"
+        android:layout_marginTop="@dimen/mg_5"
+        android:background="@color/black">
 
+        <TextView
+            android:id="@+id/test_report"
+            style="@style/TextView.Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+        />
+    </ScrollView>
     <LinearLayout
         android:id="@+id/test_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/mg_15"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginRight="@dimen/mg_15"
+        android:layout_marginTop="@dimen/mg_15"
         android:orientation="horizontal">
 
         <Button
@@ -39,17 +71,6 @@
             style="@style/Button.Normal"
             android:layout_weight="1"
             android:text="@string/start"/>
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0"/>
-
-        <Button android:id="@+id/btn_edit_test"
-                style="@style/Button.Normal"
-                android:layout_weight="1"
-                android:text="@string/look_test_value"
-        />
 
         <View
             android:layout_width="10dp"
@@ -63,4 +84,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

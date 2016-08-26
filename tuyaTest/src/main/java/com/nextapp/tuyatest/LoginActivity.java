@@ -10,10 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.common.utils.Base64;
-import com.tuya.smart.android.common.utils.HexUtil;
+import com.nextapp.tuyatest.utils.ActivityUtils;
+import com.nextapp.tuyatest.utils.LoginHelper;
 import com.tuya.smart.android.common.utils.L;
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.api.IValidateCallback;
 import com.tuya.smart.android.user.bean.User;
@@ -60,16 +59,9 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
+        setContentView(R.layout.activity_login1);
         ButterKnife.bind(this);
-
-        /**
-         * RAW型数据 加解密算法
-         */
-        byte[] bytes = Base64.encodeBase64(HexUtil.hexStringToBytes("0067452301"));
-        String encodedData = new String(bytes);
-        String decodeData = HexUtil.bytesToHexString(Base64.decodeBase64(encodedData.getBytes()));
-
         //判断是否登陆
         if (TuyaUser.getUserInstance().isLogin()) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -77,6 +69,7 @@ public class LoginActivity extends Activity {
             return;
         }
 
+        startActivity(new Intent(this, com.nextapp.tuyatest.activity.LoginActivity.class));
         //登陆session失效回调的监听
         TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
             @Override
@@ -98,7 +91,7 @@ public class LoginActivity extends Activity {
                 TuyaUser.getUserInstance().loginWithPhone(getCountryCode(), phoneNumber.getText().toString(), code.getText().toString(), new ILoginCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        Toast.makeText(LoginActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaUser.getUserInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         LoginActivity.this.finish();
                     }

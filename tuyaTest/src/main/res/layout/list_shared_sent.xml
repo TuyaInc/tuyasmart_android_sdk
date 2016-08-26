@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <View
+        android:id="@+id/top_line"
+        style="@style/line_long" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginLeft="@dimen/ty_common_margin"
+            android:layout_marginStart="@dimen/ty_common_margin"
+            android:gravity="center"
+            android:textColor="#303030"
+            android:textSize="@dimen/ts_16" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:textColor="#9B9B9B"
+            android:drawableRight="@drawable/arrow_more"
+            android:drawablePadding="@dimen/mg_10"
+            android:textSize="@dimen/ts_14" />
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/line"
+        style="@style/line_long"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/ty_common_margin"
+        android:layout_marginStart="@dimen/ty_common_margin" />
+
+    <View
+        android:id="@+id/bottom_line"
+        style="@style/line_long"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

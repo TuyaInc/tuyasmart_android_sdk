@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.tuya.smart.android.user.TuyaSmartUserManager;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.bean.User;
+import com.tuya.smart.sdk.TuyaUser;
 import com.tuya.smart.sdk.TuyaUser;
 
 import butterknife.Bind;
@@ -40,7 +40,7 @@ public class LoginWithEmailActivity extends Activity {
         TuyaUser.getUserInstance().loginWithEmail("86", mEtEmailNumber.getText().toString(), mEtValidateCode.getText().toString(), new ILoginCallback() {
             @Override
             public void onSuccess(User user) {
-                Toast.makeText(LoginWithEmailActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaSmartUserManager.getInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginWithEmailActivity.this, getString(R.string.login) + getString(R.string.unit_success) + " : " + TuyaUser.getUserInstance().getUser().getUsername(), Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(LoginWithEmailActivity.this, MainActivity.class));
                 LoginWithEmailActivity.this.finish();
             }

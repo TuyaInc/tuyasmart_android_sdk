@@ -1,9 +1,76 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Black">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">?attr/status_bg_color</item>
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">?attr/status_bg_color</item>
+        <!-- colorAccent is used as the default value for colorControlActivated,
+             which is used to tint widgets -->
+        <item name="colorAccent">@color/color_accent</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
+
+
+        <item name="android:windowContentOverlay">@android:color/transparent</item>
+
+        <item name="android:windowFullscreen">false</item>
+
+        <!-- You can also set colorControlNormal, colorControlActivated
+           colorControlHighlight, and colorSwitchThumbNormal. -->
+        <!--<item name="actionButtonStyle">@color/colorMenu</item>-->
+        <!--<item name="android:actionButtonStyle">@color/colorMenu</item>-->
+        <item name="android:colorBackgroundCacheHint">@android:color/transparent</item>
+
+        <item name="android:popupBackground">@color/color_primary</item>
+
+        <item name="android:windowAnimationStyle">@style/noAnimation</item>
+
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="actionMenuTextAppearance">@style/toolbar_action_text</item>
+        <item name="actionModeBackground">@color/color_primary</item>
+
+        <item name="colorSwitchThumbNormal">@color/gray</item>
+        <item name="android:colorForeground">@color/gray_70</item>
+
+        <item name="actionMenuTextColor">?attr/status_font_color</item>
     </style>
+    <style name="noAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="edit_text_input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/edit_height</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColorHint">?attr/list_secondary_color</item>
+        <item name="android:textColor">?attr/list_primary_color</item>
+
+    </style>
+
+    <style name="toolbar_action_text" parent="android:TextAppearance.Holo.Widget.ActionBar.Menu">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="AppTheme" parent="AppTheme.Base"></style>
 
     <!-- 普通文本 -->
     <style name="TextView.Normal" parent="android:Widget.TextView">
@@ -12,7 +79,13 @@
         <item name="android:lineSpacingExtra">4dp</item>
         <item name="android:ellipsize">end</item>
     </style>
-
+    <!-- 普通加载 -->
+    <style name="ProgressBar.Normal" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:minWidth">23dp</item>
+        <item name="android:maxWidth">23dp</item>
+        <item name="android:minHeight">23dp</item>
+        <item name="android:maxHeight">23dp</item>
+    </style>
     <!-- 普通的文本按钮 -->
     <style name="Button.Normal" parent="android:Widget.Button">
         <item name="android:layout_height">@dimen/wh_36</item>
@@ -25,6 +98,18 @@
         <item name="android:background">@drawable/button_orange</item>
         <item name="android:textColor">@color/button_orange_text</item>
     </style>
+
+    <!-- list view-->
+    <style name="list_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/list_bg_color</item>
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+    </style>
+
 
     <!--横线-->
     <style name="line_long">
@@ -148,4 +233,56 @@
         <item name="android:maxLength">64</item>
         <item name="android:textCursorDrawable">@drawable/cursor_orange</item>
     </style>
+
+    <style name="Default_Public_Theme" parent="AppTheme">
+        <item name="status_font_color">@color/status_font_color</item>
+        <item name="status_bg_color">@color/status_bg_color</item>
+        <item name="status_system_bg_color">@color/status_system_bg_color</item>
+        <item name="navbar_font_color">@color/navbar_font_color</item>
+        <item name="navbar_bg_color">@color/navbar_bg_color</item>
+        <item name="app_bg_color">@color/app_bg_color</item>
+        <item name="fragment_bg_color">@color/app_bg_color</item>
+
+        <item name="list_primary_color">@color/list_primary_color</item>
+        <item name="list_sub_color">@color/list_sub_color</item>
+        <item name="list_secondary_color">@color/list_secondary_color</item>
+        <item name="list_line_color">@color/list_line_color</item>
+        <item name="list_bg_color">@color/list_bg_color</item>
+        <item name="notice_font_color">@color/notice_font_color</item>
+        <item name="notice_bg_color">@color/notice_bg_color</item>
+
+        <item name="primary_button_font_color">@color/primary_button_font_color</item>
+        <item name="primary_button_bg_color">@color/primary_button_bg_color</item>
+        <item name="secondary_button_font_color">@color/secondary_button_font_color</item>
+        <item name="secondary_button_bg_color">@color/secondary_button_bg_color</item>
+
+        <item name="app_name">@string/app_name</item>
+        <item name="login_flow">0</item>
+        <item name="package_mode">0</item>
+
+        <item name="bg_normal_text_bt">@drawable/bg_text_bts</item>
+
+        <item name="language_mode">0</item>
+        <item name="android:windowBackground">@color/status_bg_color</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="actionBarSize">@dimen/abc_action_bar_default_height_material</item>
+        <item name="is_add_device_help_get_from_native">false</item>
+        <item name="is_scene_support">true</item>
+    </style>
+    <style name="ToolrTheme" parent="Default_Public_Theme">
+        <item name="status_font_color">@color/white</item>
+        <item name="status_bg_color">@color/color_ff5800</item>
+        <item name="app_bg_color">@color/color_ff5800</item>
+    </style>
+    <style name="Splash.Theme" parent="Default_Public_Theme">
+        <item name="android:windowBackground">@drawable/ty_pre</item>
+    </style>
+    <!-- 分割线1px -->
+    <style name="TY_SingleLine_Normal">
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+
+    <color name="color_ff5800">#ff5800</color>
 </resources>

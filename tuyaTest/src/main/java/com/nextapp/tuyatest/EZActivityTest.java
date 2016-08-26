@@ -11,11 +11,9 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.device.api.response.GwDevResp;
 import com.tuya.smart.sdk.TuyaActivator;
 import com.tuya.smart.sdk.api.ITuyaActivator;
-import com.tuya.smart.sdk.api.ITuyaActivatorGetToken;
 import com.tuya.smart.sdk.api.ITuyaSmartActivatorListener;
 import com.tuya.smart.sdk.builder.ActivatorBuilder;
 import com.tuya.smart.sdk.enums.ActivatorModelEnum;
@@ -28,7 +26,6 @@ import butterknife.OnClick;
  * Created by letian on 16/7/13.
  */
 public class EZActivityTest extends Activity {
-    private static final String TAG = "EZActivityTest ggg";
     @Bind(R.id.demo_log)
     public TextView mDemoLogTextView;
 
@@ -80,41 +77,27 @@ public class EZActivityTest extends Activity {
     @OnClick(R.id.btn_ez_start)
     public void onClickStartConfig() {
         mDemoLogTextView.setText("");
-        TuyaActivator.getInstance().getActivatorToken(new ITuyaActivatorGetToken() {
-            @Override
-            public void onSuccess(String token) {
-                mITuyaActivator = TuyaActivator.getInstance().newActivator(new ActivatorBuilder().setActivatorModel(ActivatorModelEnum.TY_EZ)
-                        .setPassword(mPassword.getText().toString())
-                        .setSsid(mSSid.getText().toString())
-                        .setToken(token)
-                        .setContext(EZActivityTest.this)
-                        .setListener(new ITuyaSmartActivatorListener() {
-                            @Override
-                            public void onError(String errorCode, String errorMsg) {
-                                mDemoLogTextView.append("onActiveError: " + errorCode + " \n");
-                                L.d(TAG, "errorCode: " + errorCode);
-                            }
+        mITuyaActivator = TuyaActivator.getInstance().newActivator(new ActivatorBuilder().setActivatorModel(ActivatorModelEnum.TY_EZ)
+                .setPassword(mPassword.getText().toString())
+                .setSsid(mSSid.getText().toString())
+                .setContext(this)
+                .setListener(new ITuyaSmartActivatorListener() {
+                    @Override
+                    public void onError(String errorCode, String errorMsg) {
+                        mDemoLogTextView.append("onActiveError: " + errorCode + " \n");
+                    }
 
-                            @Override
-                            public void onActiveSuccess(GwDevResp devResp) {
-                                mDemoLogTextView.append("onActiveSuccess: " + devResp.getGwId() + " \n");
-                            }
+                    @Override
+                    public void onActiveSuccess(GwDevResp devResp) {
+                        mDemoLogTextView.append("onActiveSuccess: " + devResp.getGwId() + " \n");
+                    }
 
-                            @Override
-                            public void onStep(String step, Object data) {
-                                mDemoLogTextView.append("Step:" + step + "\n");
-                            }
-                        }));
-                L.d(TAG, "startConfig");
-                mITuyaActivator.start();
-            }
-
-            @Override
-            public void onFailure(String errorCode, String errorMsg) {
-
-            }
-        });
-
+                    @Override
+                    public void onStep(String step, Object data) {
+                        mDemoLogTextView.append("Step:" + step + "\n");
+                    }
+                }));
+        mITuyaActivator.start();
         mDemoLogTextView.append("onConfigStart\n");
 
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
@@ -23,12 +24,15 @@ import java.util.List;
  * Created by mikeshou on 15/12/8.
  */
 public class DeviceListActivity extends Activity implements GwRelationEvent, GwUpdateEvent {
+    public static final String TAG = "DeviceListActivity";
 
     public SwipeRefreshLayout swipeRefreshLayout;
 
     public ListView mDevListView;
 
     DeviceListAdapter mDevAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,7 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
 
         TuyaUser.getDeviceInstance().queryDevList();
 
+
     }
 
     @Override
@@ -76,6 +81,9 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
                 if (deviceBean != null) {
                     Intent intent = new Intent(DeviceListActivity.this, DevicePanelActivity.class);
                     intent.putExtra("gwId", deviceBean.getDevId());
+
+//                    Intent intent = new Intent(DeviceListActivity.this, DeviceTestActivity.class);
+//                    intent.putExtra(DeviceTestPresenter.INTENT_DEVICE_ID, deviceBean.getDevId());
                     startActivity(intent);
                 }
             }

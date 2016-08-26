@@ -27,6 +27,7 @@
     <string name="every_week_four">每周四</string>
     <string name="every_week_one">每周一</string>
     <string name="every_week_seven">每周日</string>
+    <string name="ty_loading">加载中…</string>
     <string name="every_week_six">每周六</string>
     <string name="every_week_three">每周三</string>
     <string name="every_week_two">每周二</string>
@@ -187,7 +188,7 @@
     <string name="add_new_user_tip">添加新成员使用智能设备</string>
     <string name="add_next_device">再添加一个</string>
     <string name="ap_mode">热点模式</string>
-    <string name="app_name">涂鸦智能</string>
+    <string name="app_name">涂鸦测试</string>
     <string name="bind_device_cancel">否</string>
     <string name="bind_device_confirm">是</string>
     <string name="bind_device_failure"><![CDATA[<font color="#FF5800">查看可能失败的原因</font>]]></string>
@@ -269,7 +270,9 @@
     <string name="firmware_upgrade_update">新版更新</string>
     <string name="firmware_upgrading">固件正在升级中，请勿切断设备电源</string>
     <string name="firmware_upgrad_tips0">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s</string>
-    <string name="firmware_upgrad_tips1">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s,升级状态: %4$d,升级类型: %5$d</string>
+    <string name="firmware_upgrad_tips1">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s,升级状态: %4$d,升级类型:
+        %5$d
+    </string>
     <string name="friday">星期五</string>
     <string name="friend">共享设备</string>
     <string name="get_the_latest_ui_version">正在获取最新ui界面</string>
@@ -407,52 +410,6 @@
     <string name="control_timer_switch_status">控制定时器的开关状态</string>
     <string name="control_timer_task_switch_status">控制定时任务中所有定时器的开关状态</string>
 
-    <!-- 涂鸦神灯 -->
-    <string name="lamp_close_failure">关灯失败</string>
-    <string name="lamp_close_tip">轻 触 灯 泡 关 闭</string>
-    <string name="lamp_color_light_max">亮</string>
-    <string name="lamp_color_light_min">暗</string>
-    <string name="lamp_color_mode">彩光模式</string>
-    <string name="lamp_color_saturation">彩光模式</string>
-    <string name="lamp_color_saturation_max">艳</string>
-    <string name="lamp_color_saturation_min">素</string>
-    <string name="lamp_color_temper_high">暖</string>
-    <string name="lamp_color_temper_low">冷</string>
-    <string name="lamp_get_dev_failure">获取灯在线状态失败</string>
-    <string name="lamp_no_online_device">设备已离线</string>
-    <string name="lamp_open_failure">开灯失败</string>
-    <string name="lamp_open_tip">轻 触 灯 泡 开 启</string>
-    <string name="lamp_operation_color">彩光</string>
-    <string name="lamp_operation_timing">定时</string>
-    <string name="lamp_operation_white">白光</string>
-    <string name="lamp_opertaion_scene">情景</string>
-    <string name="lamp_scene_leisure">休闲</string>
-    <string name="lamp_scene_meet">聚会</string>
-    <string name="lamp_scene_mode">情景模式</string>
-    <string name="lamp_scene_night">晚安</string>
-    <string name="lamp_scene_read">阅读</string>
-    <string name="lamp_timer_mode">定时</string>
-    <string name="lamp_white_mode">白光模式</string>
-    <string name="timer_remind">定时可能会存在30秒左右误差</string>
-
-    <!-- 群组 -->
-    <string name="group_add_default_name">%s 群组</string>
-    <string name="group_add_name_empty">群组名称不能为空</string>
-    <string name="group_add_no_devices_selected">请至少选择一个设备</string>
-    <string name="group_create">创建群组</string>
-    <string name="group_dismiss">解散群组</string>
-    <string name="group_dismiss_dialog_title">确定要解散该群组吗?</string>
-    <string name="group_dismiss_success">解散该群组成功</string>
-    <string name="group_edit_devices">管理群组设备</string>
-    <string name="group_group_list_empty">暂无可加入群组的设备</string>
-    <string name="group_item_flag">群组</string>
-    <string name="group_no_device">该群组下无设备</string>
-    <string name="group_no_device_dismiss">解散群组</string>
-    <string name="group_no_device_manage">管理群组</string>
-    <string name="group_no_online_device">该群组下无在线设备</string>
-    <string name="group_rename">修改群组名称</string>
-    <string name="group_rename_dialog_title">请输入群组名称</string>
-    <string name="group_title_select_device">选择设备</string>
 
     <!-- 共享 -->
     <string name="new_share">添加共享</string>
@@ -478,6 +435,8 @@
     <string name="ty_share_edit_alias">备注</string>
     <string name="ty_share_empty_device">暂未收到任何人的设备共享</string>
     <string name="username_phone_is_null">用户名和手机号码不能为空</string>
+    <string name="ty_share_default_info">输入手机号/邮箱</string>
+    <string name="ty_no_data">暂无数据</string>
 
     <!-- EZ配置 -->
     <string name="ez_notSupport_5G">仅支持2.4G Wi-Fi 网络</string>
@@ -495,6 +454,7 @@
     <string name="ty_ec_find_add_device">添加</string>
     <string name="ty_ec_find_add_device_title">添加设备</string>
     <string name="ty_ez_add_progress">进度显示</string>
+    <string name="ty_enter_keyword_tip">密码必须为6-20个字符，包含字母、数字和符号</string>
     <string name="ty_ez_connecting_device_note2">路由器、手机和设备尽量靠近</string>
     <string name="ty_ez_connecting_device_title">尝试连接设备</string>
     <string name="ty_ez_connecting_devicei_note1">设备连接中</string>
@@ -593,5 +553,18 @@
     <string name="clear">清除</string>
     <string name="please_input_dp_value">请添加dp数据</string>
     <string name="save_success">保存成功</string>
+    <string name="ty_logout_loading">正在安全退出，请稍后…</string>
+    <string name="ty_add_device_ap_btn_info">指示灯慢速闪烁中</string>
+    <string name="ty_add_device_ap_info">接通电源，确认指示灯处于慢闪状态</string>
+    <string name="ty_add_device_btn_info">指示灯处于其他状态</string>
+    <string name="ty_add_device_ez_btn_info">指示灯快速闪烁中</string>
+    <string name="ty_add_device_ez_failure_ap_tip">当前网络不稳定，请确认指示灯处于慢闪状态</string>
+    <string name="ty_add_device_ez_info">接通电源，确认指示灯处于快闪状态</string>
+    <string name="ty_add_device_guide_info">添加设备请点击这里</string>
+    <string name="format_error">格式错误</string>
+    <string name="ty_test_mode">测试模式</string>
+    <string name="ty_dp_test">数据测试</string>
+    <string name="edit_dp_test">编辑测试数据</string>
+    <string name="ty_dp_test_title">数据测试设置</string>
 
 </resources>

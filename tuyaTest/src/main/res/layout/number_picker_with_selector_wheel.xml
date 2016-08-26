@@ -20,7 +20,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <view android:id="@+id/np__numberpicker_input"
-          class="com.tuya.smart.android.demo.test.widget.NumberPicker$CustomEditText"
+          class="com.nextapp.tuyatest.test.widget.NumberPicker$CustomEditText"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:background="@null"

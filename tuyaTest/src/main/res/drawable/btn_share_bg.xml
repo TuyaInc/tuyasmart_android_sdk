@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <corners android:radius="@dimen/mg_2" />
+    <solid android:color="@color/background_home" />
+
+    <stroke
+        android:width="1px"
+        android:color="@color/color_979797" />
+
+
+</shape>
