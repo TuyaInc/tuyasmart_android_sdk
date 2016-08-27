@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.widget.ViewHolder;
-import com.squareup.picasso.Picasso;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;

@@ -21,14 +21,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.app.Constant;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.demo.utils.LoginHelper;
 import com.tuya.smart.android.demo.utils.ToastUtil;
-import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.sdk.TuyaUser;
 
 import java.util.Timer;

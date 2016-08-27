@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 import com.tuya.smart.android.demo.R;
 
 import java.util.Collections;

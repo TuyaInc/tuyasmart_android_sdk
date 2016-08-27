@@ -29,7 +29,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-
 import com.tuya.smart.android.demo.R;
 
 import java.text.DecimalFormat;

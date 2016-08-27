@@ -16,6 +16,7 @@ import com.tuya.smart.android.demo.test.view.IDpTestSetUpView;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by letian on 16/8/6.
@@ -43,6 +44,7 @@ public class DpTestSetUpActivity extends BaseActivity implements IDpTestSetUpVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dp_test_set_up);
+        ButterKnife.bind(this);
         initToolbar();
         initTitle();
         initMenu();
@@ -53,7 +55,7 @@ public class DpTestSetUpActivity extends BaseActivity implements IDpTestSetUpVie
 
     private void initView() {
         mBean = mPresenter.getTestSetUpData();
-        mTimeInterval.setText(mBean.getTimeInterval());
+        mTimeInterval.setText(String.valueOf(mBean.getTimeInterval()));
         mShowLogSBView.setChecked(mBean.isShowLogWindow());
         mShowTestReportSBView.setChecked(mBean.isShowTestReport());
         mNeedPoolSBView.setChecked(mBean.isNeedPool());

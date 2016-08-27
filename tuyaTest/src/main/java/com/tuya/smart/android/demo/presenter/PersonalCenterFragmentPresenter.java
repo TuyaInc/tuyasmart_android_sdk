@@ -10,8 +10,8 @@ import com.tuya.smart.android.demo.model.IPersonalCenterModel;
 import com.tuya.smart.android.demo.model.PersonalCenterModel;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.view.IPersonalCenterView;
-import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
+import com.tuya.smart.sdk.TuyaSdk;
 
 
 /**

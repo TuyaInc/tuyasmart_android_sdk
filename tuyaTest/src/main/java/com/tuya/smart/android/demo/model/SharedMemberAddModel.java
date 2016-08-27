@@ -3,8 +3,8 @@ package com.tuya.smart.android.demo.model;
 
 import android.content.Context;
 
-import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.common.utils.SafeHandler;
+import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.mvp.model.BaseModel;
 
 import java.util.ArrayList;

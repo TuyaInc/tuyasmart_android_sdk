@@ -12,6 +12,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 
+import com.tuya.smart.android.common.utils.NetworkUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.ECActivity;
 import com.tuya.smart.android.demo.activity.ECBindActivity;
@@ -19,7 +20,6 @@ import com.tuya.smart.android.demo.test.utils.DialogUtil;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.IECView;
-import com.tuya.smart.android.common.utils.NetworkUtil;
 import com.tuya.smart.android.device.utils.WiFiUtil;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 

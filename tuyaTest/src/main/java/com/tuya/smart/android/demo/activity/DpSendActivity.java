@@ -12,11 +12,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.kyleduo.switchbutton.SwitchButton;
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.presenter.DpSendPresenter;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.IDpSendView;
-import com.tuya.smart.android.common.utils.L;
 
 import java.util.Set;
 

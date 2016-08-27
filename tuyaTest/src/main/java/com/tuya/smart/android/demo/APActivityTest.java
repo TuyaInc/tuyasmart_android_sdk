@@ -1,18 +1,20 @@
 package com.tuya.smart.android.demo;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.device.TuyaSmartApConnect;
 import com.tuya.smart.android.device.api.response.GwDevResp;
 import com.tuya.smart.android.device.link.APConfigBuilder;
 import com.tuya.smart.android.device.link.IApConnectListener;
+import com.tuya.smart.android.device.link.IPreparedListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

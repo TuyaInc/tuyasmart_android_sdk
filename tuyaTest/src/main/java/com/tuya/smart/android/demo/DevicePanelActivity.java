@@ -16,23 +16,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONObject;
-import com.tuya.smart.android.demo.R;
-import com.tuya.smart.android.common.utils.Base64;
-import com.tuya.smart.android.common.utils.HexUtil;
 import com.tuya.smart.android.common.utils.StringUtils;
 import com.tuya.smart.android.device.TuyaSmartDevice;
-import com.tuya.smart.android.device.TuyaSmartPanel;
-import com.tuya.smart.android.device.api.IDevicePanelCallback;
 import com.tuya.smart.android.device.api.IGetDataPointStatCallback;
-import com.tuya.smart.android.device.api.IHardwareUpdateAction;
 import com.tuya.smart.android.device.api.IHardwareUpdateInfo;
 import com.tuya.smart.android.device.bean.DataPointStatBean;
 import com.tuya.smart.android.device.bean.HardwareUpgradeBean;
 import com.tuya.smart.android.device.bean.UpgradeInfoBean;
 import com.tuya.smart.android.device.enums.DataPointTypeEnum;
 import com.tuya.smart.android.hardware.model.IControlCallback;
+import com.tuya.smart.sdk.TuyaDevice;
 import com.tuya.smart.sdk.TuyaTimerManager;
+import com.tuya.smart.sdk.api.IFirmwareUpgradeListener;
 import com.tuya.smart.sdk.api.IGetAllTimerWithDevIdCallback;
 import com.tuya.smart.sdk.api.IGetDeviceTimerStatusCallback;
 import com.tuya.smart.sdk.api.IGetTimerWithTaskCallback;
@@ -40,9 +35,9 @@ import com.tuya.smart.sdk.api.IResultStatusCallback;
 import com.tuya.smart.sdk.bean.Timer;
 import com.tuya.smart.sdk.bean.TimerTask;
 import com.tuya.smart.sdk.bean.TimerTaskStatus;
+import com.tuya.smart.sdk.enums.FirmwareUpgradeEnum;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -77,7 +72,7 @@ public class DevicePanelActivity extends Activity {
     Button mDeleteDevice;
     @Bind(R.id.get_history_data)
     Button mGetHistoryData;
-    private TuyaSmartPanel mTuyaSmartPanel;
+    private TuyaDevice mTuyaDevice;
     private TextView mTvInfo;
     private ListView mLVTimer;
 
@@ -128,106 +123,32 @@ public class DevicePanelActivity extends Activity {
          *
          * 初始化设备之前，请确保已经连接mqtt，否则无法获取到服务端返回信息
          */
-        mTuyaSmartPanel = new TuyaSmartPanel(mGwId, mDevId, new IDevicePanelCallback() {
-            @Override
-            public void onDpUpdate(String deviceId, String dp) {
-                Toast.makeText(DevicePanelActivity.this, "dp refresh：" + dp, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onRemoved() {
-                Toast.makeText(DevicePanelActivity.this, R.string.device_has_unbinded, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onStatusChanged(boolean online) {
-                Toast.makeText(DevicePanelActivity.this, "device：" + (online ? "online" : "offline"), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNetworkStatusChanged(boolean status) {
-                Toast.makeText(DevicePanelActivity.this, "network：" + (status ? "online" : "offline"), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onGWRelationUpdate() {
-                Toast.makeText(DevicePanelActivity.this, "gw refresh: ", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onDevInfoUpdate(String deviceId) {
-
-            }
-
-        });
+        mTuyaDevice = new TuyaDevice(mDevId);
         /**
          * 设置固件升级监听
          * 共享的设备会收到相应的监听
          */
 
-        mTuyaSmartPanel.setHardwareUpdateAction(new IHardwareUpdateAction() {
+        mTuyaDevice.setHardwareUpgradeListener(new IFirmwareUpgradeListener() {
             @Override
-            public void onError(String code, String error) {
-                //固件升级失败
-            }
-
-            @Override
-            public void sendUpgradeCommandSuccess() {
-                //固件升级命令发送成功
-            }
-
-            @Override
-            public void onReady() {
-                //固件升级准备成功
-            }
-
-            @Override
-            public void onUpdating() {
-                //固件升级中
-            }
-
-            @Override
-            public void onUpdated() {
+            public void onSuccess(FirmwareUpgradeEnum firmwareUpgradeEnum) {
                 //固件升级成功
+                //FirmwareUpgradeEnum 固件类型:（网关或者设备）
             }
 
             @Override
-            public void onProgress(int progress) {
-                //固件升级进度:progress
+            public void onFailure(FirmwareUpgradeEnum firmwareUpgradeEnum, String code, String error) {
+                //固件升级失败
+                //FirmwareUpgradeEnum 固件类型:（网关或者设备）
+            }
+
+            @Override
+            public void onProgress(FirmwareUpgradeEnum firmwareUpgradeEnum, int progress) {
+                //FirmwareUpgradeEnum 固件类型:（网关或者设备）
+                //固件升级进度
             }
         });
 
-        mTuyaSmartPanel.setHardwareUpdateGWAction(new IHardwareUpdateAction() {
-            @Override
-            public void onError(String code, String error) {
-                //网关固件升级失败
-            }
-
-            @Override
-            public void sendUpgradeCommandSuccess() {
-                //网关固件升级命令发送成功
-            }
-
-            @Override
-            public void onReady() {
-                //网关固件升级准备成功
-            }
-
-            @Override
-            public void onUpdating() {
-                //网关固件升级中
-            }
-
-            @Override
-            public void onUpdated() {
-                //网关固件升级成功
-            }
-
-            @Override
-            public void onProgress(int progress) {
-                //网关固件升级进度:progress
-            }
-        });
 
         final EditText editText = (EditText) findViewById(R.id.command_text);
         /**
@@ -238,18 +159,9 @@ public class DevicePanelActivity extends Activity {
             public void onClick(View v) {
 
                 /**
-                 * RAW型数据 发送示例
+                 * 注意：RAW型数据 以十六进制，偶数位的显示发送。
                  */
-                byte[] bytes = Base64.encodeBase64(HexUtil.hexStringToBytes("0067452301"));
-                String command = new String(bytes);
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("1", command);
-                try {
-                    System.out.println(JSONObject.toJSONString(hashMap));
-                } catch (Exception ignored) {
-                }
-//                JSONObject.toJSONString(hashMap)
-                mTuyaSmartPanel.send(mCommandText.getText().toString(), new IControlCallback() {
+                mTuyaDevice.publishDps(mCommandText.getText().toString(), new IControlCallback() {
                     @Override
                     public void onError(String code, String error) {
                         Toast.makeText(DevicePanelActivity.this, R.string.send_command + R.string.unit_success + code + error, Toast.LENGTH_SHORT).show();
@@ -294,10 +206,10 @@ public class DevicePanelActivity extends Activity {
         findViewById(R.id.update_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTuyaSmartPanel.startHardwareUpdate();
-//                开始网关升级
-                //        mTuyaSmartPanel.startHardwareGWUpdate();
-
+                //升级设备
+                mTuyaDevice.upgradeFirmware(FirmwareUpgradeEnum.TY_DEV);
+                //升级网关
+//                mTuyaDevice.upgradeFirmware(FirmwareUpgradeEnum.TY_GW);
             }
         });
 
@@ -307,30 +219,29 @@ public class DevicePanelActivity extends Activity {
         findViewById(R.id.update_end).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTuyaSmartPanel.stopHardwareUpdate();
-                //                取消网关升级
-                // mTuyaSmartPanel.startHardwareGWUpdate();
+                //取消固件升级监听
+                mTuyaDevice.stopHardwareUpgrade();
             }
         });
 
-        mTuyaSmartPanel.renameGw("milking machine", new IControlCallback() {
-            @Override
-            public void onError(String code, String error) {
-
-            }
-
-            @Override
-            public void onSuccess() {
-
-            }
-        });
+//        mTuyaDevice.renameDevice("milking machine", new IControlCallback() {
+//            @Override
+//            public void onError(String code, String error) {
+//
+//            }
+//
+//            @Override
+//            public void onSuccess() {
+//
+//            }
+//        });
         /**
          * 获得硬件的固件升级信息
          */
         findViewById(R.id.check_updage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTuyaSmartPanel.getHardwareUpdateInfo(new IHardwareUpdateInfo() {
+                mTuyaDevice.getFirmwareUpgradeInfo(new IHardwareUpdateInfo() {
                     @Override
                     public void onError(String code, String error) {
                         Toast.makeText(DevicePanelActivity.this, R.string.version_check + " : " + error, Toast.LENGTH_SHORT).show();
@@ -374,7 +285,7 @@ public class DevicePanelActivity extends Activity {
         long startTime = System.currentTimeMillis(); //startTime起始时间
         int number = 12;//往前获取历史数据结果值的个数 ，最大是50
         String dpId = "1";
-        mTuyaSmartPanel.getDataPointStat(DataPointTypeEnum.DAY, startTime, number, dpId, new IGetDataPointStatCallback() {
+        mTuyaDevice.getDataPointStat(DataPointTypeEnum.DAY, startTime, number, dpId, new IGetDataPointStatCallback() {
             @Override
             public void onError(String errorCode, String errorMsg) {
                 Toast.makeText(DevicePanelActivity.this, R.string.get_history_data + R.string.unit_failure + " : " + errorMsg, Toast.LENGTH_SHORT).show();
@@ -558,7 +469,7 @@ public class DevicePanelActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mTuyaSmartPanel.onDestroy();
+        mTuyaDevice.onDestroy();
     }
 
     class TimerAdapter extends BaseAdapter {

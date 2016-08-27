@@ -4,12 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.bean.CountryViewBean;
 import com.tuya.smart.android.demo.widget.contact.ContactItemInterface;
 import com.tuya.smart.android.demo.widget.contact.ContactListAdapter;
-import com.tuya.smart.android.common.utils.L;
 
 import java.util.List;
 

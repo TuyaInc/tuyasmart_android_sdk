@@ -13,12 +13,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.tuya.smart.android.common.utils.NetworkUtil;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.activity.BaseActivity;
+import com.tuya.smart.android.demo.activity.CommonDebugActivity;
+import com.tuya.smart.android.demo.activity.GroupListActivity;
 import com.tuya.smart.android.demo.adapter.CommonDeviceAdapter;
 import com.tuya.smart.android.demo.presenter.DeviceListFragmentPresenter;
+import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.AnimationUtil;
 import com.tuya.smart.android.demo.view.IDeviceListFragmentView;
-import com.tuya.smart.android.common.utils.NetworkUtil;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.List;
@@ -36,6 +40,8 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     private ListView mDevListView;
     private TextView mNetWorkTip;
     private View mRlView;
+    private View mAddDevView;
+    private View mBackgroundView;
 
     public static Fragment newInstance() {
         if (mDeviceListFragment == null) {
@@ -66,10 +72,10 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     }
 
     private void initSwipeRefreshLayout() {
-        mSwipeRefreshLayout.setColorSchemeColors(R.color.google_blue,
-                R.color.google_green,
-                R.color.google_red,
-                R.color.google_yellow);
+        mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.google_blue),
+                getResources().getColor(R.color.google_green),
+                getResources().getColor(R.color.google_red),
+                getResources().getColor(R.color.google_yellow));
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -116,6 +122,14 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
         mNetWorkTip = (TextView) mContentView.findViewById(R.id.network_tip);
         mDevListView = (ListView) mContentView.findViewById(R.id.lv_device_list);
         mRlView = mContentView.findViewById(R.id.rl_list);
+        mAddDevView = mContentView.findViewById(R.id.tv_empty_func);
+        mBackgroundView = mContentView.findViewById(R.id.list_background_tip);
+        mAddDevView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDeviceListFragmentPresenter.addDemoDevice();
+            }
+        });
     }
 
     protected void initPresenter() {
@@ -134,6 +148,8 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
 //                        showNetWorkTipView(R.string.add);
 //                    }
                     mDeviceListFragmentPresenter.addDevice();
+//                    ActivityUtils.gotoActivity(getActivity(), CommonDebugActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
+
                 }
                 return false;
             }
@@ -158,6 +174,18 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
             AnimationUtil.translateView(mRlView, 0, 0, mNetWorkTip.getHeight(), 0, 300, false, null);
             mNetWorkTip.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void showBackgroundView() {
+        BaseActivity.setViewGone(mDevListView);
+        BaseActivity.setViewVisible(mBackgroundView);
+    }
+
+    @Override
+    public void hideBackgroundView() {
+        BaseActivity.setViewVisible(mDevListView);
+        BaseActivity.setViewGone(mBackgroundView);
     }
 
     @Override

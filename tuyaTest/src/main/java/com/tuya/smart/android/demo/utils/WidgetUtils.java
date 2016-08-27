@@ -43,11 +43,11 @@ public class WidgetUtils {
      * @param funcAttrId 功能按钮是否开启的 attr 风格配置id
      * @param funcBtTextId 功能按钮的文本id
      */
-    public static void checkNoneContentLayout(Context context, View contentView, int noneIconAttrId, String tipText,int funcAttrId,int funcBtTextId) {
+    public static void checkNoneContentLayout(Context context, View contentView, int noneIconAttrId, String tipText, int funcAttrId, int funcBtTextId) {
         checkNoneContentLayout(context,contentView,noneIconAttrId,tipText,false,funcAttrId,funcBtTextId);
     }
 
-    public static void checkNoneContentLayout(Context context, View contentView, int noneIconAttrId, String  tipText,boolean useFuncButton,int funcAttrId,int funcBtTextId) {
+    public static void checkNoneContentLayout(Context context, View contentView, int noneIconAttrId, String tipText, boolean useFuncButton, int funcAttrId, int funcBtTextId) {
         TypedArray a = context.obtainStyledAttributes(new int[]{
                 noneIconAttrId, R.attr.icon_none_content,funcAttrId});
         int noneId = -1;
@@ -83,7 +83,7 @@ public class WidgetUtils {
         checkNoneContentLayout(context,contentView,noneIconAttrId,tipText,-1,-1);
     }
 
-    private static void setNoneContentIcon(Context context, View contentView, int noneIconResId,String tipText) {
+    private static void setNoneContentIcon(Context context, View contentView, int noneIconResId, String tipText) {
         if (noneIconResId != -1) {
             ImageView tv = ((ImageView) contentView.findViewById(R.id.iv_none_data));
             if (tv == null) {

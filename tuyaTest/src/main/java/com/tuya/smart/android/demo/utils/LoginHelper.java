@@ -3,8 +3,8 @@ package com.tuya.smart.android.demo.utils;
 import android.app.Activity;
 import android.content.Context;
 
-import com.tuya.smart.android.demo.activity.LoginActivity;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.activity.LoginActivity;
 import com.tuya.smart.android.demo.app.Constant;
 
 /**

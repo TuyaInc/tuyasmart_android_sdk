@@ -7,21 +7,21 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
-import com.tuya.smart.android.demo.test.activity.DpTestSetUpActivity;
-import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.common.utils.L;
-import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.test.activity.DpTestSetUpActivity;
 import com.tuya.smart.android.demo.test.activity.EditDpTestActivity;
 import com.tuya.smart.android.demo.test.event.DpSendDataEvent;
 import com.tuya.smart.android.demo.test.event.DpSendDataModel;
 import com.tuya.smart.android.demo.test.model.DeviceTestModel;
 import com.tuya.smart.android.demo.test.model.IDeviceTestModel;
 import com.tuya.smart.android.demo.test.view.IDeviceTestView;
+import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.device.utils.PreferencesUtil;
 import com.tuya.smart.android.hardware.model.IControlCallback;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.sdk.TuyaDevice;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.sdk.api.IDevListener;
 import com.tuya.smart.sdk.api.ITuyaDevice;
 
@@ -37,7 +37,7 @@ public class DeviceTestPresenter extends BasePresenter implements DpSendDataEven
 
     public static final String INTENT_DEVICE_ID = "intent_device_id";
     private static final String TAG = "DeviceTestPresenter ggg";
-    public static final java.lang.String TIME_WAIT = "TIME_WAIT";
+    public static final String TIME_WAIT = "TIME_WAIT";
     private final Context mContext;
     private final IDeviceTestView mView;
     private final ITuyaDevice mDevice;

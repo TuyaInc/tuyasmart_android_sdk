@@ -11,12 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.presenter.AccountInputPresenter;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.IAccountInputView;
-import com.tuya.smart.android.common.utils.ValidatorUtil;
 
 public class AccountInputActivity extends BaseActivity implements TextWatcher, IAccountInputView {
 

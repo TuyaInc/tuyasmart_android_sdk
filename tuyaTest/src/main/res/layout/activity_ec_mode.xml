@@ -104,6 +104,7 @@
             android:layout_toRightOf="@+id/iv_password"
             android:hint="@string/please_input_wifi_password"
             android:imeOptions="actionDone"
+            android:text="20112012pw"
             android:textColorHint="#9b9b9b"
             android:textSize="15sp"/>
 

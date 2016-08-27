@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        TuyaUser.getDeviceInstance().onDestroy();
     }
 
     @Override

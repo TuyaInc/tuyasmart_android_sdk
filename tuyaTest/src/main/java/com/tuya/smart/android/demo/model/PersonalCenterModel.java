@@ -3,8 +3,8 @@ package com.tuya.smart.android.demo.model;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.common.utils.SafeHandler;
+import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.mvp.model.BaseModel;
 import com.tuya.smart.android.user.bean.User;
 import com.tuya.smart.sdk.TuyaUser;

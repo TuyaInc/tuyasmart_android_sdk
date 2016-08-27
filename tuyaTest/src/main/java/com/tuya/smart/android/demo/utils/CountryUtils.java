@@ -4,12 +4,12 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
-import com.tuya.smart.android.demo.bean.CountryViewBean;
 import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.common.utils.TyCommonUtil;
+import com.tuya.smart.android.demo.bean.CountryViewBean;
+import com.tuya.smart.android.demo.widget.contact.ContactItemInterface;
 import com.tuya.smart.android.user.bean.CountryBean;
 import com.tuya.smart.sdk.TuyaSdk;
-import com.tuya.smart.android.demo.widget.contact.ContactItemInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;

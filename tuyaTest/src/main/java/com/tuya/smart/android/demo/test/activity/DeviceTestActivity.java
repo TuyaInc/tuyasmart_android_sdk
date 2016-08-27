@@ -7,9 +7,9 @@ import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.tuya.smart.android.demo.activity.BaseActivity;
 import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.activity.BaseActivity;
 import com.tuya.smart.android.demo.test.presenter.DeviceTestPresenter;
 import com.tuya.smart.android.demo.test.view.IDeviceTestView;
 

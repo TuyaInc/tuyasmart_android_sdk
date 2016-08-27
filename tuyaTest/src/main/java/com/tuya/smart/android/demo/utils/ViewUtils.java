@@ -13,7 +13,7 @@ public class ViewUtils {
 
     public static void setTextViewDrawableLeft(Context context, TextView textView, int drawId) {
         Drawable drawable;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             drawable = context.getResources().getDrawable(drawId, null);
         } else {
             drawable = context.getResources().getDrawable(drawId);

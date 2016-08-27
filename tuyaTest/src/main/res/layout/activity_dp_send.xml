@@ -14,7 +14,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="@dimen/mg_15"
               android:layout_marginTop="@dimen/mg_15"
-              android:text="属性:"
+              android:text="@string/property"
     />
     <TextView android:id="@+id/tv_dp_des"
               style="@style/TextView.Normal"
@@ -156,7 +156,7 @@
               android:layout_height="wrap_content"
               android:layout_marginLeft="@dimen/mg_15"
               android:layout_marginTop="@dimen/mg_15"
-              android:text="调试窗口:"
+              android:text="@string/log_window"
     />
     <ScrollView
         android:id="@+id/test_scroll"
@@ -180,6 +180,6 @@
             android:layout_marginLeft="@dimen/mg_15"
             android:layout_marginRight="@dimen/mg_15"
             android:layout_marginTop="@dimen/mg_15"
-            android:text="发送"
+            android:text="@string/sendCommand"
             android:visibility="gone"/>
 </LinearLayout>

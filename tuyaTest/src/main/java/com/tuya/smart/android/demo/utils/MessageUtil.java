@@ -13,7 +13,7 @@ public class MessageUtil {
         return getCallFailMessage(msgWhat,businessResponse.getErrorCode(),businessResponse.getErrorMsg());
     }
 
-    public static Message getCallFailMessage(int msgWhat, String errorCode,String errorMsg){
+    public static Message getCallFailMessage(int msgWhat, String errorCode, String errorMsg){
         Message msg = new Message();
         msg.what = msgWhat;
         Result result = new Result();
@@ -23,7 +23,7 @@ public class MessageUtil {
         return msg;
     }
 
-    public static Message getCallFailMessage(int msgWhat, String errorCode,String errorMsg,Object resultObj){
+    public static Message getCallFailMessage(int msgWhat, String errorCode, String errorMsg, Object resultObj){
         Message msg = new Message();
         msg.what = msgWhat;
         Result result = new Result();
@@ -41,14 +41,14 @@ public class MessageUtil {
         return getCallFailMessage(msgWhat,businessResponse.getErrorCode(),businessResponse.getErrorMsg(),resultObj);
     }
 
-    public static Message getMessage(int msgWhat,Object msgObj){
+    public static Message getMessage(int msgWhat, Object msgObj){
         Message msg = new Message();
         msg.what = msgWhat;
         msg.obj = msgObj;
         return msg;
     }
 
-    public static Message getResultMessage(int msgWhat,Object msgObj){
+    public static Message getResultMessage(int msgWhat, Object msgObj){
         Message msg = new Message();
         msg.what = msgWhat;
         Result result = new Result();

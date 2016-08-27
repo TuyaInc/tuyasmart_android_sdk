@@ -5,11 +5,11 @@ import android.app.LauncherActivity;
 import android.content.Intent;
 import android.content.res.TypedArray;
 
+import com.tuya.smart.android.common.utils.TuyaUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.BrowserActivity;
 import com.tuya.smart.android.demo.activity.HomeActivity;
 import com.tuya.smart.android.demo.config.CommonConfig;
-import com.tuya.smart.android.common.utils.TuyaUtil;
 import com.tuya.smart.sdk.TuyaSdk;
 
 

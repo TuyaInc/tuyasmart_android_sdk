@@ -23,7 +23,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 import com.tuya.smart.android.demo.R;
 
 import java.util.Locale;

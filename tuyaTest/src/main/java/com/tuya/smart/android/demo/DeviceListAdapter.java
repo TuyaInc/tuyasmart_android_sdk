@@ -4,10 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-
-import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.base.BaseListArrayAdapter;
 import com.tuya.smart.android.base.ViewHolder;
+import com.tuya.smart.android.demo.R;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.List;

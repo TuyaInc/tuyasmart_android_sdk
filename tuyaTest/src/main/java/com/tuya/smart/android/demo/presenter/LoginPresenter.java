@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Message;
 import android.text.TextUtils;
 
+import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.demo.activity.CountryListActivity;
 import com.tuya.smart.android.demo.app.Constant;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
@@ -13,7 +14,6 @@ import com.tuya.smart.android.demo.utils.CountryUtils;
 import com.tuya.smart.android.demo.utils.LoginHelper;
 import com.tuya.smart.android.demo.utils.MessageUtil;
 import com.tuya.smart.android.demo.view.ILoginView;
-import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.android.user.api.ILoginCallback;

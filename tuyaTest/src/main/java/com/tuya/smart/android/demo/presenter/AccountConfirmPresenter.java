@@ -7,6 +7,7 @@ import android.os.Message;
 import android.text.Html;
 import android.text.TextUtils;
 
+import com.tuya.smart.android.common.utils.TyCommonUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.AccountConfirmActivity;
 import com.tuya.smart.android.demo.app.Constant;
@@ -15,7 +16,6 @@ import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.LoginHelper;
 import com.tuya.smart.android.demo.utils.MessageUtil;
 import com.tuya.smart.android.demo.view.IAccountConfirmView;
-import com.tuya.smart.android.common.utils.TyCommonUtil;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.android.user.api.ILoginCallback;

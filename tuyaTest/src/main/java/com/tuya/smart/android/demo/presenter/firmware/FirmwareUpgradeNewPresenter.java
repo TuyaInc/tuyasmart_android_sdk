@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 
+import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.bean.UpgradeInfoWrapperBean;
 import com.tuya.smart.android.demo.model.firmware.FirmwareUpgradeModel;
@@ -15,7 +16,6 @@ import com.tuya.smart.android.demo.test.utils.DialogUtil;
 import com.tuya.smart.android.demo.utils.FirmwareUtils;
 import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
-import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.device.bean.HardwareUpgradeBean;
 import com.tuya.smart.android.device.bean.UpgradeInfoBean;
 import com.tuya.smart.android.mvp.bean.Result;

@@ -566,5 +566,18 @@
     <string name="ty_dp_test">数据测试</string>
     <string name="edit_dp_test">编辑测试数据</string>
     <string name="ty_dp_test_title">数据测试设置</string>
-
+    <string name="ty_dp_test_set_interval">发送命令时间间隔(ms)：</string>
+    <string name="ty_dp_test_show_command_window">显示Log窗口</string>
+    <string name="ty_dp_test_needpool">轮询发送数据</string>
+    <string name="ty_dp_test_show_report">显示数据统计信息</string>
+    <string name="ty_dp_test_lan_send">局域网命令发送</string>
+    <string name="ty_dp_test_cloud_send">云端发送数据</string>
+    <string name="ty_dp_test_log_window">日志输出窗口</string>
+    <string name="ty_dp_test_log_report">测试结果输出</string>
+    <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
+    <string name="add_demo_device">添加演示设备</string>
+    <string name="group_device">群组设备</string>
+    <string name="property">属性：</string>
+    <string name="log_window">日志窗口</string>
+    <string name="sendCommand">发送命令</string>
 </resources>

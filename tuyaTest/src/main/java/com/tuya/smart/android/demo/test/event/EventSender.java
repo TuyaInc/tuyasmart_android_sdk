@@ -1,9 +1,9 @@
 package com.tuya.smart.android.demo.test.event;
 
+import com.tuya.smart.android.base.event.BaseEventSender;
 import com.tuya.smart.android.demo.event.DeviceListUpdateModel;
 import com.tuya.smart.android.demo.event.FriendEventModel;
 import com.tuya.smart.android.demo.event.PersonalInfoEventModel;
-import com.tuya.smart.android.base.event.BaseEventSender;
 import com.tuya.smart.android.demo.test.presenter.SendAndBackData;
 import com.tuya.smart.android.user.bean.PersonBean;
 

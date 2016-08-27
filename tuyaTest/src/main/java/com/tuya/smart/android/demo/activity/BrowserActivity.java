@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
+import com.tuya.smart.android.common.utils.L;
+import com.tuya.smart.android.common.utils.TyCommonUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.CommonUtil;
-import com.tuya.smart.android.common.utils.L;
-import com.tuya.smart.android.common.utils.TyCommonUtil;
 
 import java.util.HashMap;
 import java.util.Map;

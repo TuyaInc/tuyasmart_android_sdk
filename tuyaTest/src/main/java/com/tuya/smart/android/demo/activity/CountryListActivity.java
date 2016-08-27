@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 
-
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.adapter.CountryAdpater;
 import com.tuya.smart.android.demo.bean.CountryViewBean;

@@ -19,10 +19,10 @@ import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.FriendUpdateEvent;
 import com.tuya.smart.android.demo.view.ISharedSentView;
-import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.android.mvp.bean.Result;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.android.user.bean.PersonBean;
+import com.tuya.smart.sdk.TuyaSdk;
 
 import java.util.ArrayList;
 

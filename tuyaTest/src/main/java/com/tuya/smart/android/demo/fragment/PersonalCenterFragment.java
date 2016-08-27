@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.activity.GroupListActivity;
 import com.tuya.smart.android.demo.activity.SharedActivity;
 import com.tuya.smart.android.demo.presenter.PersonalCenterFragmentPresenter;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
@@ -74,6 +75,13 @@ public class PersonalCenterFragment extends BaseFragment implements IPersonalCen
             @Override
             public void onClick(View v) {
                 mPersonalCenterFragmentPresenter.gotoPersonalInfoActivity();
+            }
+        });
+
+        mContentView.findViewById(R.id.rl_group).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityUtils.gotoActivity(getActivity(), GroupListActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
             }
         });
         TypedArray a = getActivity().obtainStyledAttributes(new int[]{

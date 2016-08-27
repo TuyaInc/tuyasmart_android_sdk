@@ -70,6 +70,7 @@ public class HomePresenter extends BasePresenter {
 
     public void gotoAddDevice() {
         ActivityUtils.gotoActivity(mActivity, AddDeviceTipActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
+
     }
 
     public void showTab(int tab) {

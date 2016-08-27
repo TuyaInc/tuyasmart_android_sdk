@@ -1,7 +1,7 @@
 package com.tuya.smart.android.demo.bean;
 
-import com.tuya.smart.android.demo.widget.contact.ContactItemInterface;
 import com.tuya.smart.android.common.utils.TyCommonUtil;
+import com.tuya.smart.android.demo.widget.contact.ContactItemInterface;
 import com.tuya.smart.sdk.TuyaSdk;
 
 public class CountryViewBean implements ContactItemInterface {

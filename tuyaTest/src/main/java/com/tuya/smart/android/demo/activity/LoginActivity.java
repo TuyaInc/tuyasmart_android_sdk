@@ -13,12 +13,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.presenter.LoginPresenter;
 import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.ILoginView;
-import com.tuya.smart.android.common.utils.ValidatorUtil;
 import com.tuya.smart.android.mvp.bean.Result;
 
 import butterknife.Bind;

@@ -19,4 +19,7 @@ public interface IDeviceListFragmentView {
 
     void hideNetWorkTipView();
 
+    void showBackgroundView();
+
+    void hideBackgroundView();
 }

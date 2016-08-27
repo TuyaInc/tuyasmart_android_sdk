@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">TuyaSmart-android-sdk</string>
+    <string name="app_name">TuyaSmart-Sdk-Demo</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="appKey">47</string>
     <string name="processTrasfer">com.tuya.smart.transfer</string>
     <string name="ap_config">需要先连上设备的WiFi热点，才能进行对设备配置WiFi密码</string>
     <string name="device_list">Device list</string>
@@ -626,4 +625,9 @@
     <string name="ty_dp_test_log_window">日志输出窗口</string>
     <string name="ty_dp_test_log_report">测试结果输出</string>
     <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
+    <string name="add_demo_device">Add Demo Device</string>
+    <string name="group_device">Group Device</string>
+    <string name="property">Property:</string>
+    <string name="log_window">Log Window</string>
+    <string name="sendCommand">send Command</string>
 </resources>

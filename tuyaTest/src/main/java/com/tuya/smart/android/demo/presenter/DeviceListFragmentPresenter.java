@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 
+import com.tuya.smart.android.base.event.NetWorkStatusEvent;
+import com.tuya.smart.android.base.event.NetWorkStatusEventModel;
+import com.tuya.smart.android.common.utils.TuyaUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.AddDeviceTipActivity;
 import com.tuya.smart.android.demo.activity.BrowserActivity;
@@ -20,9 +23,6 @@ import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.IDeviceListFragmentView;
-import com.tuya.smart.sdk.TuyaSdk;
-import com.tuya.smart.android.base.event.NetWorkStatusEvent;
-import com.tuya.smart.android.base.event.NetWorkStatusEventModel;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
@@ -30,8 +30,12 @@ import com.tuya.smart.android.device.event.GwUpdateEventModel;
 import com.tuya.smart.android.hardware.model.IControlCallback;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.sdk.TuyaDevice;
+import com.tuya.smart.sdk.TuyaSdk;
+import com.tuya.smart.sdk.TuyaSmartRequest;
 import com.tuya.smart.sdk.TuyaUser;
+import com.tuya.smart.sdk.api.IRequestCallback;
 import com.tuya.smart.sdk.bean.DeviceBean;
+import com.tuya.smart.sdk.bean.GroupBean;
 
 import java.util.List;
 
@@ -193,8 +197,13 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     }
 
     private void updateDeviceData(List<DeviceBean> list) {
-        mView.updateDeviceData(list);
-        mView.loadFinish();
+        if (list.size() == 0) {
+            mView.showBackgroundView();
+        } else {
+            mView.hideBackgroundView();
+            mView.updateDeviceData(list);
+            mView.loadFinish();
+        }
     }
 
     @Override
@@ -236,5 +245,22 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
 
     public void onDestroy() {
         TuyaSdk.getEventBus().unregister(this);
+    }
+
+    public void addDemoDevice() {
+        ProgressUtil.showLoading(mActivity, null);
+        TuyaSmartRequest.getInstance().requestWithApiName("s.m.dev.sdk.demo.list", "1.0", null, new IRequestCallback() {
+            @Override
+            public void onSuccess(Object result) {
+                ProgressUtil.hideLoading();
+                getDataFromServer();
+            }
+
+            @Override
+            public void onFailure(String errorCode, String errorMsg) {
+                ProgressUtil.hideLoading();
+                ToastUtil.showToast(mActivity, errorMsg);
+            }
+        });
     }
 }

@@ -2,10 +2,10 @@ package com.tuya.smart.android.demo.model.firmware;
 
 import android.content.Context;
 
+import com.tuya.smart.android.common.utils.SafeHandler;
 import com.tuya.smart.android.demo.bean.UpgradeInfoWrapperBean;
 import com.tuya.smart.android.demo.enums.UpgradeStatusEnum;
 import com.tuya.smart.android.demo.utils.FirmwareUtils;
-import com.tuya.smart.android.common.utils.SafeHandler;
 import com.tuya.smart.android.device.api.IHardwareUpdateInfo;
 import com.tuya.smart.android.device.bean.HardwareUpgradeBean;
 import com.tuya.smart.android.device.bean.UpgradeInfoBean;
