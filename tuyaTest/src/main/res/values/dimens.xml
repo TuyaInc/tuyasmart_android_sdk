@@ -132,4 +132,12 @@
     <dimen name="verification_phone_button_margin_top">10dp</dimen>
     <dimen name="three_grid_unit">24dp</dimen>
     <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+    <dimen name="mg_38">38dp</dimen>
+    <dimen name="mg_37">37dp</dimen>
+    <dimen name="mg_17">17dp</dimen>
+    <dimen name="ts_17">17sp</dimen>
+    <dimen name="mg_62">62dp</dimen>
+    <dimen name="mg_120">120dp</dimen>
+    <dimen name="mg_19">19dp</dimen>
+    <dimen name="mg_32">32dp</dimen>
 </resources>

@@ -139,8 +139,20 @@ android {
 ```
 
 ###初始化SDK
+####(1) 配置appKey 和appSercet
+联系我们获取appKey 和 appSercet 设置到xml里。
 
-####(1) Application中初始化涂鸦智能sdk。
+```
+    <meta-data
+            android:name="TUYA_SMART_APPKEY"
+            android:value=""/>
+
+    <meta-data
+            android:name="TUYA_SMART_SECRET"
+            android:value=""/>
+```
+
+####(2) Application中初始化涂鸦智能sdk。
 #####【描述】
 
     主要用于初始化EventBus、通信服务等组件。
@@ -161,7 +173,7 @@ public class TuyaSmartApp extends Application {
 #####【注意事项】
 
     appId和appSecret需要配置AndroidManifest.xml文件里，或者在build环境里配置，也可以在代码里写入。
-####(2)  注销涂鸦智能云连接
+####(3)  注销涂鸦智能云连接
 在退出应用或者退出登陆的时候调用以下接口注销掉。
 
 ```
@@ -170,7 +182,7 @@ TuyaUser.getDeviceInstance().onDestroy();
 
 ```
 
-####(3)  注册session失效监听
+####(4)  注册session失效监听
 #####【描述】
     
     Session由于可能存在一些异常或者在一段时间不操作（45天）会失效掉，这时候需要退出应用，重新登陆获取Session。
@@ -202,6 +214,9 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 
 ---
 
+## 涂鸦SDK 演示程序
+
+[演示程序](http://fir.im/androidSDKDemo)
 
 ## 版本更新记录
 

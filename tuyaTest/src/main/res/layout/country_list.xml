@@ -40,7 +40,7 @@
         style="@style/line_long"
         android:layout_below="@id/searchBarContainer" />
 
-    <com.nextapp.tuyatest.widget.contact.CountryListView
+    <com.tuya.smart.android.demo.widget.contact.CountryListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

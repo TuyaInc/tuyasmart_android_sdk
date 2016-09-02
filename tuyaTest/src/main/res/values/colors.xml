@@ -103,4 +103,5 @@
     <color name="color_303030">#303030</color>
     <color name="switch_on_color">#2A87D6</color>
     <color name="switch_off_color">#303030</color>
+    <color name="color_dddddd">#dddddd</color>
 </resources>

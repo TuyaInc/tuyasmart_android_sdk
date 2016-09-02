@@ -104,7 +104,7 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <com.nextapp.tuyatest.widget.circleprogress.CircleProgressView
+        <com.tuya.smart.android.demo.widget.circleprogress.CircleProgressView
             android:id="@+id/circleView"
             android:layout_width="100dp"
             android:layout_height="100dp"

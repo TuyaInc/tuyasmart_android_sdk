@@ -1,4 +1,4 @@
-<manifest package="com.nextapp.tuyatest"
+<manifest package="com.tuya.smart.android.demo"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- sdcard -->
@@ -20,13 +20,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:name=".TuyaSmartApp"
+        android:name="com.tuya.smart.android.demo.TuyaSmartApp"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="TUYA_SMART_APPKEY"
             android:value=""/>
@@ -36,134 +35,172 @@
             android:value=""/>
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
+
         <activity
-            android:name=".MainActivity"
+            android:name="com.tuya.smart.android.demo.MainActivity"
             android:label="@string/app_name"/>
 
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name="com.tuya.smart.android.demo.Login2Activity"/>
 
-        <activity android:name=".activity.SplashActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.CountryListActivity"
+        <activity
+            android:name=".activity.CommonDeviceDebugActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.CountryListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.LoginWithPhoneActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.AccountInputActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.AccountConfirmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.SharedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.SharedEditReceivedMemberActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.SharedMemberAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.EditFriendActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.PersonalInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.ECBindActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.AddDeviceAPTipActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.SwitchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.ECFailedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.ECActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.AddDeviceTipActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.BrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash.Theme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.DeviceCommonActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.activity.DpSendActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.test.activity.DeviceTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.test.activity.EditDpTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity android:name=".activity.GroupActivity"
                   android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
+                  android:theme="@style/ToolrTheme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.GroupDpSendActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/ToolrTheme"
+                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.GroupListActivity"
+                  android:screenOrientation="portrait"
+                  android:theme="@style/ToolrTheme"
                   android:windowSoftInputMode="adjustPan|stateHidden"/>
 
-        <activity android:name=".activity.LoginActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden">
-        </activity>
-        <activity android:name=".activity.LoginWithPhoneActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-        />
-        <activity android:name=".activity.AccountInputActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.AccountConfirmActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.HomeActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-        />
-        <activity android:name=".activity.SharedActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.SharedEditReceivedMemberActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.SharedMemberAddActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.EditFriendActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.PersonalInfoActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.ECBindActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-        />
-        <activity android:name=".activity.AddDeviceAPTipActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-        />
-        <activity android:name=".activity.SwitchActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.ECFailedActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.ECActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.AddDeviceTipActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.BrowserActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Splash.Theme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.tuya.smart.android.demo.DeviceListActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.DevicePanelActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.APActivityTest"/>
+        <activity android:name="com.tuya.smart.android.demo.ShareActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.RegisterWithPhoneActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.RegisterWithEmailActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.LoginWithPhoneActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.LoginWithEmailActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.FindPasswordEmailActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.FindPasswordPhoneActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.RegisterWithUIDActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.FindPasswordUidActivity"/>
+        <activity android:name="com.tuya.smart.android.demo.LoginWithUidActivity"/>
+        <activity
+            android:name="com.tuya.smart.android.demo.test.activity.DpTestSetUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
 
-        <activity android:name=".activity.DeviceCommonActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/ToolrTheme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".activity.DpSendActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/ToolrTheme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".test.activity.DeviceTestActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/ToolrTheme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".test.activity.EditDpTestActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/ToolrTheme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"/>
-        <activity android:name=".DeviceListActivity"/>
-        <activity android:name=".DevicePanelActivity"/>
-        <activity android:name=".APActivityTest"/>
-        <activity android:name=".ShareActivity"/>
-        <activity android:name=".RegisterWithPhoneActivity"/>
-        <activity android:name=".RegisterWithEmailActivity"/>
-        <activity android:name=".LoginWithPhoneActivity"/>
-        <activity android:name=".LoginWithEmailActivity"/>
-        <activity android:name=".FindPasswordEmailActivity"/>
-        <activity android:name=".FindPasswordPhoneActivity"/>
-        <activity android:name=".RegisterWithUIDActivity"/>
-        <activity android:name=".FindPasswordUidActivity"/>
-        <activity android:name=".LoginWithUidActivity"/>
-        <activity android:name=".test.activity.DpTestSetUpActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/ToolrTheme"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-        />
         <receiver android:name="com.tuya.smart.android.base.broadcast.NetworkBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>

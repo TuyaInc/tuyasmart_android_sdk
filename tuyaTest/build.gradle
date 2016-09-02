@@ -11,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
-
+        generatedDensities = []
 //        ndk {
 //            abiFilters "armeabi-v7a","x86"
 //        }

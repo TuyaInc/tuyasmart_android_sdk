@@ -22,7 +22,7 @@
         android:layout_toRightOf="@+id/progress_dialog_bar"
         android:gravity="center"
         android:text="@string/ty_loading"
-        android:textColor="@color/white"
+        android:textColor="@color/color_626262"
         android:textSize="@dimen/ts_15"/>
 
 </RelativeLayout>

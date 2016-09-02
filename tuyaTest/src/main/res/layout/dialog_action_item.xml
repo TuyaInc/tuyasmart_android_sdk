@@ -30,7 +30,7 @@
             android:layout_centerHorizontal="true">
 
             <!--android:layout_toRightOf="@id/np_hour"-->
-            <com.nextapp.tuyatest.test.widget.NumberPicker
+            <com.tuya.smart.android.demo.test.widget.NumberPicker
                 android:id="@+id/np_choose"
                 internalLayout="@layout/number_picker_with_selector_wheel"
                 android:layout_width="200dp"
