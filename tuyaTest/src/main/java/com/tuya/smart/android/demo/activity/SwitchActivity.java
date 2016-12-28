@@ -17,6 +17,7 @@ import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.utils.ViewUtils;
 import com.tuya.smart.android.demo.view.ISwitchView;
+import com.tuya.smart.sdk.TuyaTimerManager;
 
 import java.text.BreakIterator;
 

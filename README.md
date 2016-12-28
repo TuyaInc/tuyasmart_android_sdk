@@ -220,13 +220,19 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 
 ## 版本更新记录
 
+###1.4.1
+* IAddMemberCallback    void onSuccess(Integer shareId)  Integer 需要替换成Long。
+* modifyMemberName(int **) 、removeMember(int **) int 需要替换成long 类型。
+* Volley 去除。
+* apache http server 替换成OKHttp3.0。
+* 局域网通信优化。
+* 退出接口崩溃bug 修复。
 ###1.3.4
 * 局域网通信不稳定问题修复
 * 设备网络监听状态变化，导致设备显示离线。问题修复 IDevListener onNetworkStatusChanged();
 
 ###1.3.2
 * 修复只读dp无法上报问题 
-
 
 ## 开发文档
 请参考:[涂鸦文档中心 - Android SDK使用说明](http://docs.tuya.com/develop/app-development/android-sdk/)

@@ -72,7 +72,7 @@ public class ShareActivity extends Activity {
 
         mTuyaMember.addMember("86", "18888888888", "Xiao Lin", "Father", new IAddMemberCallback() {
             @Override
-            public void onSuccess(Integer shareId) {
+            public void onSuccess(Long shareId) {
                 Toast.makeText(mActivity, R.string.add_share_success, Toast.LENGTH_SHORT).show();
             }
 
@@ -81,7 +81,7 @@ public class ShareActivity extends Activity {
                 Toast.makeText(mActivity, R.string.add_share_failure, Toast.LENGTH_SHORT).show();
             }
         });
-        mTuyaMember.modifyMemberName(123, "小张", new IModifyMemberNameCallback() {
+        mTuyaMember.modifyMemberName(123L, "小张", new IModifyMemberNameCallback() {
             @Override
             public void onSuccess() {
                 Toast.makeText(mActivity, "修改分享名称成功", Toast.LENGTH_SHORT).show();
@@ -98,7 +98,7 @@ public class ShareActivity extends Activity {
     public void addUidMember() {
         mTuyaMember.addUidMember("1111", "name", "Friend", new IAddShareCallback() {
             @Override
-            public void onSuccess(Integer shareId) {
+            public void onSuccess(Long shareId) {
                 Toast.makeText(mActivity, R.string.add_share_success, Toast.LENGTH_SHORT).show();
             }
 
@@ -110,7 +110,7 @@ public class ShareActivity extends Activity {
 
     }
 
-    public void removeShare(int id) {
+    public void removeShare(long id) {
         mTuyaMember.removeMember(id, new IRemoveMemberCallback() {
             @Override
             public void onSuccess() {
@@ -124,7 +124,7 @@ public class ShareActivity extends Activity {
         });
     }
 
-    public void modifyShare(int id) {
+    public void modifyShare(long id) {
         mTuyaMember.modifyReceiveMemberName(id, "Xiao Zhang", new IModifyMemberNameCallback() {
             @Override
             public void onSuccess() {

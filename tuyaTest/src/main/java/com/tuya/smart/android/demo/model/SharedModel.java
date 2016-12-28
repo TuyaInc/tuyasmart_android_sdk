@@ -40,9 +40,10 @@ public class SharedModel extends BaseModel implements ISharedModel {
     @Override
     public void addMember(String mobile, String name, String countryCode, String relation) {
         mITuyaSmartMember.addMember(countryCode, mobile, name, relation, new IAddMemberCallback() {
+
             @Override
-            public void onSuccess(Integer shareId) {
-                resultSuccess(WHAT_ADD_SENT_SUCCESS,shareId);
+            public void onSuccess(Long aLong) {
+                resultSuccess(WHAT_ADD_SENT_SUCCESS, aLong);
             }
 
             @Override
@@ -54,7 +55,7 @@ public class SharedModel extends BaseModel implements ISharedModel {
 
     @Override
     public void removeMember(String id) {
-        int intId = Integer.parseInt(id);
+        long intId = Long.parseLong(id);
         mITuyaSmartMember.removeMember(intId, new IRemoveMemberCallback() {
             @Override
             public void onSuccess() {
@@ -99,7 +100,7 @@ public class SharedModel extends BaseModel implements ISharedModel {
     }
 
     @Override
-    public void updateMName(int id, String mname) {
+    public void updateMName(long id, String mname) {
         mITuyaSmartMember.modifyReceiveMemberName(id, mname, new IModifyMemberNameCallback() {
             @Override
             public void onSuccess() {

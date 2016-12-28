@@ -11,8 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.kyleduo.switchbutton.SwitchButton;
-import com.tuya.smart.android.base.BaseListArrayAdapter;
-import com.tuya.smart.android.base.ViewHolder;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.BaseActivity;
 import com.tuya.smart.android.demo.activity.BrowserActivity;

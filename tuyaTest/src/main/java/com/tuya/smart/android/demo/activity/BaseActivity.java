@@ -28,7 +28,9 @@ import com.tuya.smart.android.demo.app.Constant;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.demo.utils.LoginHelper;
+import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
+import com.tuya.smart.android.demo.utils.ViewUtils;
 import com.tuya.smart.sdk.TuyaUser;
 
 import java.util.Timer;
@@ -374,5 +376,29 @@ public class BaseActivity extends AppCompatActivity {
 
     public void initSystemBarColor() {
         CommonUtil.initSystemBarColor(this);
+    }
+
+    public void showToast(int resId) {
+        ToastUtil.showToast(this, resId);
+    }
+
+    public void showToast(String tip) {
+        ToastUtil.showToast(this, tip);
+    }
+
+    public void showLoading(int resId) {
+        ProgressUtil.showLoading(this, resId);
+    }
+
+    public void showLoading() {
+        ProgressUtil.showLoading(this, R.string.loading);
+    }
+
+    public void hideLoading() {
+        ProgressUtil.hideLoading();
+    }
+
+    public void finishActivity() {
+        onBackPressed();
     }
 }

@@ -87,7 +87,7 @@ public class SharedMemberAddPresenter extends BasePresenter {
         switch (msg.what) {
             case SharedModel.WHAT_ADD_SENT_SUCCESS:
                 ProgressUtil.hideLoading();
-                mPerson.setId((Integer) ((Result) msg.obj).getObj());
+                mPerson.setId((Long) ((Result) msg.obj).getObj());
                 EventSender.friendUpdate(null, FriendEventModel.OP_QUERY);
                 mActivity.finish();
                 break;

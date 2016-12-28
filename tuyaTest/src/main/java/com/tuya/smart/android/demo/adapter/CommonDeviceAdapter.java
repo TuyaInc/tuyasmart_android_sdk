@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.tuya.smart.android.base.ViewHolder;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.sdk.bean.DeviceBean;
