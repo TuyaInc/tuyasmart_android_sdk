@@ -36,6 +36,7 @@ public class TuyaApiUrlProvider extends ApiUrlProvider {
             "}";
 
     private int mEnv;
+
     public TuyaApiUrlProvider(Context cxt, int env) {
         super(cxt);
         mEnv = env;
@@ -44,9 +45,9 @@ public class TuyaApiUrlProvider extends ApiUrlProvider {
                 break;
             case DAILY:
             default:
-                TuyaSmartNetWork.RegionConfig mRegion  = TyCommonUtil.getDefaultRegion(cxt);
+                TuyaSmartNetWork.RegionConfig mRegion = TyCommonUtil.getDefaultRegion(cxt);
                 JSONObject previewDomains = JSONObject.parseObject(PRIVIEW_DOMAIN);
-                Domain mDefaultDomain = previewDomains.getObject(mRegion.getId(),Domain.class);
+                Domain mDefaultDomain = previewDomains.getObject(mRegion.name(), Domain.class);
                 setDefaultDomain(mDefaultDomain);
                 setDomainJson(PRIVIEW_DOMAIN);
                 break;
@@ -67,18 +68,18 @@ public class TuyaApiUrlProvider extends ApiUrlProvider {
 
     @Override
     protected String[] getOldMqttUrl() {
-        if(mEnv == ONLINE){
+        if (mEnv == ONLINE) {
             return super.getOldMqttUrl();
-        }else{
+        } else {
             return mRegion == TuyaSmartNetWork.RegionConfig.AY ? new String[]{"mq.mb.cn.wgine.com", "mq.mb.cn.wgine.com"} : new String[]{"mq.mb.us.wgine.com", "mq.mb.us.wgine.com"};
         }
     }
 
     @Override
     protected String getOldGwApiUrl() {
-        if(mEnv == ONLINE){
+        if (mEnv == ONLINE) {
             return super.getOldGwApiUrl();
-        }else{
+        } else {
             return mRegion == TuyaSmartNetWork.RegionConfig.AY ? "http://a.gw.cn.wgine.com/gw.json" : "http://a.gw.us.wgine.com/gw.json";
         }
     }
@@ -87,8 +88,7 @@ public class TuyaApiUrlProvider extends ApiUrlProvider {
     protected String[] getOldGwMqttUrl() {
         if (mEnv == ONLINE) {
             return super.getOldGwMqttUrl();
-        }
-        else{
+        } else {
             return mRegion == TuyaSmartNetWork.RegionConfig.AY ? new String[]{"mq.gw.cn.wgine.com", "mq.gw.cn.wgine.com"} : new String[]{"mq.gw.us.wgine.com", "mq.gw.us.wgine.com"};
         }
     }
