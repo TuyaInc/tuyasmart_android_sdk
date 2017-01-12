@@ -220,6 +220,9 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 
 ## 版本更新记录
 
+###1.4.2
+* 发布第三方登陆接口。
+
 ###1.4.1
 * IAddMemberCallback    void onSuccess(Integer shareId)  Integer 需要替换成Long。
 * modifyMemberName(int **) 、removeMember(int **) int 需要替换成long 类型。
