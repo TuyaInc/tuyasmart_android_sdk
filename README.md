@@ -220,6 +220,9 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 
 ## 版本更新记录
 
+###1.4.4
+* 发布局域网搜索设备接口。
+
 ###1.4.2
 * 发布第三方登陆接口。
 
