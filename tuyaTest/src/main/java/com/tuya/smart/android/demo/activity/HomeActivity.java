@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,9 @@ import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.presenter.HomePresenter;
 import com.tuya.smart.android.demo.view.IHomeView;
 import com.tuya.smart.sdk.TuyaSdk;
+import com.tuya.smart.sdk.TuyaUser;
+import com.tuya.smart.sdk.api.ITuyaSearchDeviceListener;
+import com.tuya.smart.sdk.enums.DeviceActiveEnum;
 import com.wnafee.vector.compat.VectorDrawable;
 
 /**
@@ -45,6 +49,12 @@ public class HomeActivity extends BaseActivity implements IHomeView {
         initTab();
         mHomePresenter.showTab(HomePresenter.TAB_MY_DEVICE);
         initViewPager();
+        TuyaUser.getDeviceInstance().discoveredLanDevice(new ITuyaSearchDeviceListener() {
+            @Override
+            public void onDeviceFind(String s, DeviceActiveEnum deviceActiveEnum) {
+                Log.d(TAG, "s" + deviceActiveEnum);
+            }
+        });
     }
 
     private void initViewPager() {
