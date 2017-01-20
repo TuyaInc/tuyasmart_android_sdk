@@ -26,13 +26,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="TUYA_SMART_APPKEY"
-            android:value=""/>
+            android:value="4cg88dvptkcas7ec9f5f"/>
 
         <meta-data
             android:name="TUYA_SMART_SECRET"
-            android:value=""/>
+            android:value="gh8as8ctaqe8553cum44mcxkqqusg4kh"/>
+
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
 
