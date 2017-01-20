@@ -29,11 +29,11 @@
 
         <meta-data
             android:name="TUYA_SMART_APPKEY"
-            android:value="4cg88dvptkcas7ec9f5f"/>
+            android:value=""/>
 
         <meta-data
             android:name="TUYA_SMART_SECRET"
-            android:value="gh8as8ctaqe8553cum44mcxkqqusg4kh"/>
+            android:value=""/>
 
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
