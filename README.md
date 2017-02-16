@@ -219,6 +219,10 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 [演示程序](http://fir.im/androidSDKDemo)
 
 ## 版本更新记录
+###1.4.6
+* 修复个别设备出现非法请求的情况
+* 修复异常若干
+
 ###1.4.5
 * 修复局域网连接问题
 
