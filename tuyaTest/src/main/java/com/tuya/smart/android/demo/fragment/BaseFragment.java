@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.utils.ProgressUtil;
+import com.tuya.smart.android.demo.utils.ToastUtil;
 
 
 /**
@@ -21,7 +23,7 @@ public abstract class BaseFragment extends Fragment {
         if (mToolBar == null) {
             mToolBar = (Toolbar) contentView.findViewById(R.id.toolbar_top_view);
             if (mToolBar == null) {
-            }else{
+            } else {
                 TypedArray a = getActivity().obtainStyledAttributes(new int[]{
                         R.attr.status_font_color});
                 int titleColor = a.getInt(0, Color.WHITE);
@@ -110,5 +112,29 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mToolBar = null;
+    }
+
+    public void showToast(int resId) {
+        ToastUtil.showToast(getActivity(), resId);
+    }
+
+    public void showToast(String tip) {
+        ToastUtil.showToast(getActivity(), tip);
+    }
+
+    public void showLoading(int resId) {
+        ProgressUtil.showLoading(getActivity(), resId);
+    }
+
+    public void showLoading() {
+        ProgressUtil.showLoading(getActivity(), R.string.loading);
+    }
+
+    public void hideLoading() {
+        ProgressUtil.hideLoading();
+    }
+
+    public void finishActivity() {
+        getActivity().finish();
     }
 }

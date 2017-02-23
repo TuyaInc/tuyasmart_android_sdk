@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,7 +28,9 @@ import com.tuya.smart.android.demo.app.Constant;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.CommonUtil;
 import com.tuya.smart.android.demo.utils.LoginHelper;
+import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
+import com.tuya.smart.android.demo.utils.ViewUtils;
 import com.tuya.smart.sdk.TuyaUser;
 
 import java.util.Timer;
@@ -62,6 +65,13 @@ public class BaseActivity extends AppCompatActivity {
         }
         Constant.attachActivity(this);
         checkLogin();
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectActivityLeaks()
+                .detectLeakedSqlLiteObjects()
+                .detectLeakedClosableObjects()
+                .detectAll()
+                .penaltyLog()
+                .build());
     }
 
     public void closeDefaultAni() {
@@ -158,11 +168,11 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void setDisplayHomeAsUpEnabled() {
-        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back, null);
+        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back_white, null);
     }
 
     protected void setDisplayHomeAsUpEnabled(final View.OnClickListener listener) {
-        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back, listener);
+        setDisplayHomeAsUpEnabled(R.drawable.tysmart_back_white, listener);
     }
 
     protected void hideToolBarView() {
@@ -366,5 +376,29 @@ public class BaseActivity extends AppCompatActivity {
 
     public void initSystemBarColor() {
         CommonUtil.initSystemBarColor(this);
+    }
+
+    public void showToast(int resId) {
+        ToastUtil.showToast(this, resId);
+    }
+
+    public void showToast(String tip) {
+        ToastUtil.showToast(this, tip);
+    }
+
+    public void showLoading(int resId) {
+        ProgressUtil.showLoading(this, resId);
+    }
+
+    public void showLoading() {
+        ProgressUtil.showLoading(this, R.string.loading);
+    }
+
+    public void hideLoading() {
+        ProgressUtil.hideLoading();
+    }
+
+    public void finishActivity() {
+        onBackPressed();
     }
 }

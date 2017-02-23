@@ -37,7 +37,7 @@ public class DeviceTestPresenter extends BasePresenter implements DpSendDataEven
 
     public static final String INTENT_DEVICE_ID = "intent_device_id";
     private static final String TAG = "DeviceTestPresenter ggg";
-    public static final String TIME_WAIT = "TIME_WAIT";
+    public static final java.lang.String TIME_WAIT = "TIME_WAIT";
     private final Context mContext;
     private final IDeviceTestView mView;
     private final ITuyaDevice mDevice;

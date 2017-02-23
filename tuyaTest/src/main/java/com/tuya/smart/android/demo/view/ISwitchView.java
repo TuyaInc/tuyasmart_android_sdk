@@ -18,4 +18,6 @@ public interface ISwitchView {
     void statusChangedTip(boolean status);
 
     void devInfoUpdateView();
+
+    void updateTitle(String titleName);
 }

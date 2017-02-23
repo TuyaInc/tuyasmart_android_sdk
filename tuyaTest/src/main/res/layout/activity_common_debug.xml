@@ -1,380 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/background_home"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background_home"
+                android:orientation="vertical">
 
     <include
         android:id="@+id/action_bar_layout"
         layout="@layout/toolbar_top_view"/>
 
     <RelativeLayout
+        android:id="@+id/rl_dp_operation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ScrollView
-            android:id="@+id/operation_scroll"
+        android:layout_height="match_parent"
+        android:layout_below="@id/action_bar_layout">
+
+        <ListView
+            android:id="@+id/lv_dp_list"
+            style="@style/TY_List_Normal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/ll_log">
-            <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:orientation="vertical">
-                <FrameLayout
-                    android:id="@+id/rl_open_off"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/mg_10"
-                    android:background="@color/white">
+            android:layout_above="@+id/ll_log"
+            android:layout_alignParentTop="true"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_37"
-                        android:layout_marginTop="@dimen/mg_16"
-                        android:text="开关"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_16"/>
+        <LinearLayout
+            android:id="@+id/ll_log"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/mg_22"
+            android:background="@color/white"
+            android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="@dimen/mg_17"
-                        android:layout_marginTop="@dimen/mg_19"
-                        android:background="@drawable/bg_circle"
-                        android:gravity="center"
-                        android:text="1"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/ts_10"/>
+            <FrameLayout
+                android:id="@+id/fl_opertion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mg_44"
+                android:layout_alignParentBottom="true"
+                android:background="@null">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_15"
-                        android:layout_marginTop="@dimen/mg_38"
-                        android:text="数值型|可下发可上报"
-                        android:textColor="#9b9b9b"
-                        android:textSize="@dimen/ts_10"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/mg_15"
+                    android:layout_marginTop="@dimen/mg_15"
+                    android:text="操作日志"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/ts_14"/>
 
-                    <com.kyleduo.switchbutton.SwitchButton
-                        android:id="@+id/sb_open_off"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="15dp"/>
+                <TextView
+                    android:layout_width="54dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="84dp"
+                    android:background="@drawable/bg_btn_code"
+                    android:gravity="center"
+                    android:text="CODE"
+                    android:textColor="@color/white"/>
 
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/rl_temper"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/mg_10"
-                    android:background="@color/white">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_37"
-                        android:layout_marginTop="@dimen/mg_16"
-                        android:text="温度"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_16"/>
-
-                    <TextView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="@dimen/mg_17"
-                        android:layout_marginTop="@dimen/mg_19"
-                        android:background="@drawable/bg_circle"
-                        android:gravity="center"
-                        android:text="2"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_15"
-                        android:layout_marginTop="@dimen/mg_38"
-                        android:text="数值型|可下发可上报"
-                        android:textColor="#9b9b9b"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <TextView
-                        android:id="@+id/tv_temp_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="81dp"
-                        android:text="10"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_18"/>
-
-                    <ImageView
-                        android:id="@+id/iv_add"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginLeft="@dimen/mg_22"
-                        android:layout_marginRight="@dimen/mg_25"
-                        android:background="@drawable/add"/>
-
-                    <ImageView
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginBottom="@dimen/mg_14"
-                        android:layout_marginRight="@dimen/mg_62"
-                        android:layout_marginTop="@dimen/mg_14"
-                        android:background="@color/color_dddddd"/>
-
-                    <ImageView
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginBottom="@dimen/mg_14"
-                        android:layout_marginRight="@dimen/mg_120"
-                        android:layout_marginTop="@dimen/mg_14"
-                        android:background="@color/color_dddddd"/>
-
-                    <ImageView
-                        android:id="@+id/iv_sub"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="144dp"
-                        android:background="@drawable/sub"/>
-
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/fl_dangwei"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/mg_10"
-                    android:background="@color/white">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_37"
-                        android:layout_marginTop="@dimen/mg_16"
-                        android:text="档位"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_16"/>
-
-                    <TextView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="@dimen/mg_17"
-                        android:layout_marginTop="@dimen/mg_19"
-                        android:background="@drawable/bg_circle"
-                        android:gravity="center"
-                        android:text="3"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_15"
-                        android:layout_marginTop="@dimen/mg_38"
-                        android:text="数值型|可下发可上报"
-                        android:textColor="#9b9b9b"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <Spinner
-                        android:id="@+id/sp_dangwei"
-                        style="@style/Platform.Widget.AppCompat.Spinner"
-                        android:layout_width="150dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="@dimen/mg_15"
-                        android:background="@color/white"/>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/fl_rgb"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/mg_10"
-                    android:background="@color/white">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_37"
-                        android:layout_marginTop="@dimen/mg_16"
-                        android:text="RGB"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_16"/>
-
-                    <TextView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="@dimen/mg_17"
-                        android:layout_marginTop="@dimen/mg_19"
-                        android:background="@drawable/bg_circle"
-                        android:gravity="center"
-                        android:text="4"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/ts_10"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_15"
-                        android:layout_marginTop="@dimen/mg_38"
-                        android:text="数值型|可下发可上报"
-                        android:textColor="#9b9b9b"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <EditText
-                        android:id="@+id/et_rgb"
-                        android:layout_width="117dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_marginRight="48dp"
-                        android:background="@drawable/bg_line"
-                        android:hint="输入"
-                        android:paddingLeft="2dp"
-                        android:singleLine="true"
-                        android:textColor="@color/color_303030"
-                        android:textColorHint="#C7C7CD"
-                        android:textSize="@dimen/ts_14"/>
-
-                    <TextView
-                        android:id="@+id/tv_send_rgb"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="@dimen/mg_14"
-                        android:background="@color/color_ff5800"
-                        android:gravity="center"
-                        android:text=">"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/fl_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="@dimen/mg_10"
-                    android:background="@color/white">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_37"
-                        android:layout_marginTop="@dimen/mg_16"
-                        android:text="红外数据"
-                        android:textColor="@color/color_303030"
-                        android:textSize="@dimen/ts_16"/>
-
-                    <TextView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="@dimen/mg_17"
-                        android:layout_marginTop="@dimen/mg_19"
-                        android:background="@drawable/bg_circle"
-                        android:gravity="center"
-                        android:text="5"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/ts_10"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/mg_15"
-                        android:layout_marginTop="@dimen/mg_38"
-                        android:text="数值型|可下发可上报"
-                        android:textColor="#9b9b9b"
-                        android:textSize="@dimen/ts_10"/>
-
-                    <EditText
-                        android:id="@+id/et_hongwai"
-                        android:layout_width="117dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_marginRight="48dp"
-                        android:background="@drawable/bg_line"
-                        android:hint="输入"
-                        android:paddingLeft="2dp"
-                        android:singleLine="true"
-                        android:textColor="@color/color_303030"
-                        android:textColorHint="#C7C7CD"
-                        android:textSize="@dimen/ts_14"/>
-
-                    <TextView
-                        android:id="@+id/tv_hongwai"
-                        android:layout_width="34dp"
-                        android:layout_height="34dp"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="@dimen/mg_14"
-                        android:background="@color/color_ff5800"
-                        android:gravity="center"
-                        android:text=">"
-                        android:textColor="@color/white"/>
-                </FrameLayout>
-            </LinearLayout>
-
-        </ScrollView>
-
-        <LinearLayout android:id="@+id/ll_log"
-                      android:layout_width="match_parent"
-                      android:layout_height="210dp"
-                      android:layout_alignParentBottom="true"
-                      android:layout_marginTop="@dimen/mg_22"
-                      android:background="@color/white"
-                      android:orientation="vertical">
-            <FrameLayout android:id="@+id/fl_opertion"
-                         android:layout_width="match_parent"
-                         android:layout_height="@dimen/mg_44"
-                         android:layout_alignParentBottom="true"
-                         android:background="@null">
-                <TextView android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_marginLeft="@dimen/mg_15"
-                          android:layout_marginTop="@dimen/mg_15"
-                          android:text="操作日志"
-                          android:textColor="@color/color_303030"
-                          android:textSize="@dimen/ts_14"
-                />
-                <TextView android:layout_width="54dp"
-                          android:layout_height="28dp"
-                          android:layout_gravity="center_vertical|right"
-                          android:layout_marginRight="84dp"
-                          android:background="@drawable/bg_btn_code"
-                          android:gravity="center"
-                          android:text="CODE"
-                          android:textColor="@color/white"/>
-
-                <TextView android:layout_width="54dp"
-                          android:layout_height="28dp"
-                          android:layout_gravity="center_vertical|right"
-                          android:layout_marginRight="@dimen/mg_15"
-                          android:background="@drawable/bg_btn_clear"
-                          android:gravity="center"
-                          android:text="CLEAR"
-                          android:textColor="@color/color_ff5800"
+                <TextView
+                    android:id="@+id/tv_clear"
+                    android:layout_width="54dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="@dimen/mg_15"
+                    android:background="@drawable/bg_btn_clear"
+                    android:gravity="center"
+                    android:text="CLEAR"
+                    android:textColor="@color/color_ff5800"
 
                 />
             </FrameLayout>
 
-            <ScrollView android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+            <ScrollView
+                android:id="@+id/test_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/test_log"
                     style="@style/TextView.Normal"
                     android:layout_width="match_parent"
-                    android:layout_height="166dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/fl_opertion"
                     android:layout_marginLeft="@dimen/mg_15"
                     android:background="@null"
-                />
+                    android:lineSpacingExtra="@dimen/mg_4"
+                    android:textSize="@dimen/ts_12"/>
             </ScrollView>
 
         </LinearLayout>
 
     </RelativeLayout>
-</LinearLayout>
+    <FrameLayout android:id="@+id/v_off_line"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_below="@+id/action_bar_layout"
+                 android:background="#30000000"
+                 android:clickable="false"
+                 android:visibility="gone">
+        <TextView android:id="@+id/network_tip"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/mg_32"
+                  android:background="#FEE7B5"
+                  android:gravity="center"
+                  android:textColor="@color/color_626262"
+                  android:textSize="@dimen/ts_14"
+        />
+    </FrameLayout>
+</RelativeLayout>

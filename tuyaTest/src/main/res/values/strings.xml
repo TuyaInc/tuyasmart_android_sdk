@@ -1,10 +1,7 @@
 <resources>
-    <string name="app_name">TuyaSmart-Sdk-Demo</string>
+    <string name="app_name">TuyaSDKDemo</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="processTrasfer">com.tuya.smart.transfer</string>
-    <string name="ap_config">需要先连上设备的WiFi热点，才能进行对设备配置WiFi密码</string>
     <string name="device_list">Device list</string>
     <string name="share_list">Share list</string>
     <string name="reNickName">ReNickName</string>
@@ -616,18 +613,65 @@
     <string name="ty_dp_test">Dp Test</string>
     <string name="edit_dp_test">Edit Dp Test</string>
     <string name="ty_dp_test_title">Setup</string>
-    <string name="ty_dp_test_set_interval">发送命令时间间隔(ms)：</string>
-    <string name="ty_dp_test_show_command_window">显示Log窗口</string>
-    <string name="ty_dp_test_needpool">轮询发送数据</string>
-    <string name="ty_dp_test_show_report">显示数据统计信息</string>
-    <string name="ty_dp_test_lan_send">局域网命令发送</string>
-    <string name="ty_dp_test_cloud_send">云端发送数据</string>
-    <string name="ty_dp_test_log_window">日志输出窗口</string>
-    <string name="ty_dp_test_log_report">测试结果输出</string>
-    <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
+    <string name="ty_dp_test_set_interval">Send Interval(ms)：</string>
+    <string name="ty_dp_test_show_command_window">Show log window</string>
+    <string name="ty_dp_test_needpool">NeedPool</string>
+    <string name="ty_dp_test_show_report">Show Result window</string>
+    <string name="ty_dp_test_lan_send">Send by Lan</string>
+    <string name="ty_dp_test_cloud_send">Send by Cloud</string>
+    <string name="ty_dp_test_log_window">Log window</string>
+    <string name="ty_dp_test_log_report">Result Window</string>
     <string name="add_demo_device">Add Demo Device</string>
     <string name="group_device">Group Device</string>
     <string name="property">Property:</string>
     <string name="log_window">Log Window</string>
     <string name="sendCommand">send Command</string>
+    <string name="mode_only_read">Only report</string>
+    <string name="mode_read_write">Send and Report</string>
+    <string name="mode_only_write">Only send</string>
+    <string name="stringType">String</string>
+    <string name="valueType">Value</string>
+    <string name="bitmapType">Bitmap</string>
+    <string name="rawType">Raw</string>
+    <string name="booleanType">Bool</string>
+    <string name="enumType">Enum</string>
+    <string name="ty_add_device_ap_btn_info">Indicator light is slowly flashing</string>
+    <string name="send_failure">Send failure</string>
+    <string name="send_time_out">Time out</string>
+    <string name="data_report">Data report: </string>
+    <string name="message_request">Message send: </string>
+    <string name="time_dp_start">Start time: </string>
+    <string name="time_dp_end">End time: </string>
+    <string name="time_dp_spend">Time spend: </string>
+    <string name="message_receive">Dp receive: </string>
+    <string name="failure_reason">Reason of failure: </string>
+    <string name="device_offLine">Device offline</string>
+    <string name="device_network_error">Network Error</string>
+    <string name="edit_dp_value">Edit Test Value</string>
+
+    <string name="activity_ec_cancel_config">取消配置</string>
+    <string name="cannot_set_no_cloud_and_no_lan">局域网模式或者云模式必须选择其中之一</string>
+    <string name="device_state">设备状态：</string>
+    <string name="firmware_upgrad_tips0">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s</string>
+    <string name="firmware_upgrad_tips1">固件信息。新版本: %1$s,当前版本: %2$s,升级信息: %3$s,升级状态: %4$d,升级类型:
+        %5$d
+    </string>
+
+    <string name="device_name">设备名称</string>
+
+    <string name="get_history_data">获取历史数据</string>
+    <string name="get_device_status">获取状态</string>
+    <string name="get_all_timer">获取所有定时</string>
+    <string name="get_task_timer">获取任务定时</string>
+    <string name="update_timer">更新定时器</string>
+    <string name="delete_timer">删除定时器</string>
+    <string name="open_close_timer">开关定时器</string>
+    <string name="open_close_timer_task">开关定时任务</string>
+    <string name="get_device_timer_status_null">获取设备定时状态为空</string>
+    <string name="get_device_timer_status_failure">获取设备的定时状态</string>
+    <string name="control_timer_switch_status">控制定时器的开关状态</string>
+    <string name="control_timer_task_switch_status">控制定时任务中所有定时器的开关状态</string>
+    <string name="switch_demo">SwitchDemo</string>
+    <string name="operation_failure">Operation failure</string>
+
 </resources>

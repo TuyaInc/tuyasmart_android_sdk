@@ -150,7 +150,7 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
     @Override
     public void showBooleanView(Boolean value) {
         setViewVisible(mBoolView);
-        mBoolSBView.setCheckedNoEvent(value);
+        mBoolSBView.setCheckedImmediatelyNoEvent(value);
         mBoolTVView.setText(mPresenter.getName());
     }
 

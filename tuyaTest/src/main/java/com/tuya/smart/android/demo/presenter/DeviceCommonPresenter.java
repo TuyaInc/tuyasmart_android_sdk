@@ -65,7 +65,7 @@ public class DeviceCommonPresenter extends BasePresenter {
     }
 
 
-    public List<SchemaBean> getSchemaList() {
+    private List<SchemaBean> getSchemaList() {
         DeviceBean dev = TuyaUser.getDeviceInstance().getDev(mDevId);
         if (dev == null) return new ArrayList<>();
         Map<String, SchemaBean> schemaMap = dev.getSchemaMap();

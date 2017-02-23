@@ -10,6 +10,7 @@
         <item name="colorAccent">@color/color_accent</item>
 
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowBackground">@drawable/ty_pre</item>
 
 
         <item name="android:windowContentOverlay">@android:color/transparent</item>
@@ -27,7 +28,7 @@
         <item name="android:windowAnimationStyle">@style/noAnimation</item>
 
         <item name="android:actionMenuTextColor">@color/white</item>
-        <item name="actionMenuTextAppearance">@style/toolbar_action_text</item>
+        <item name="android:actionMenuTextAppearance">@style/toolbar_action_text</item>
         <item name="actionModeBackground">@color/color_primary</item>
 
         <item name="colorSwitchThumbNormal">@color/gray</item>
@@ -64,11 +65,18 @@
 
     </style>
 
-    <style name="toolbar_action_text" parent="android:TextAppearance.Holo.Widget.ActionBar.Menu">
+    <style name="toolbar_action_text" parent="@android:style/Theme.Holo.Light">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/white</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="titleTextAppearance">@style/myActionTitleTextAppearance</item>
+    </style>
+
+    <style name="MyMenuTextAppearance" parent="android:TextAppearance.Holo.Widget.ActionBar.Menu">
+        <!-- 此处需要 android-14 -->
+        <item name="android:textAllCaps">false</item>
     </style>
     <style name="AppTheme" parent="AppTheme.Base"></style>
 
@@ -85,6 +93,7 @@
         <item name="android:maxWidth">23dp</item>
         <item name="android:minHeight">23dp</item>
         <item name="android:maxHeight">23dp</item>
+        <item name="android:textColor">@color/color_626262</item>
     </style>
     <!-- 普通的文本按钮 -->
     <style name="Button.Normal" parent="android:Widget.Button">
@@ -235,11 +244,12 @@
     </style>
 
     <style name="Default_Public_Theme" parent="AppTheme">
-        <item name="status_font_color">@color/status_font_color</item>
-        <item name="status_bg_color">@color/status_bg_color</item>
+        <!-- 菜单标题文字颜色 -->
+        <item name="status_font_color">@color/app_bg_color</item>
+        <item name="status_bg_color">@color/navbar_font_color</item>
         <item name="status_system_bg_color">@color/status_system_bg_color</item>
         <item name="navbar_font_color">@color/navbar_font_color</item>
-        <item name="navbar_bg_color">@color/navbar_bg_color</item>
+        <item name="navbar_bg_color">@color/navbar_font_color</item>
         <item name="app_bg_color">@color/app_bg_color</item>
         <item name="fragment_bg_color">@color/app_bg_color</item>
 
@@ -285,4 +295,6 @@
     </style>
 
     <color name="color_ff5800">#ff5800</color>
+
+
 </resources>

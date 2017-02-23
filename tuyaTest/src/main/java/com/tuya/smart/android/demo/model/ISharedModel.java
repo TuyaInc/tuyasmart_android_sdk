@@ -14,5 +14,5 @@ public interface ISharedModel {
 
     void getReceivedList();
 
-    void updateMName(int id, String mname);
+    void updateMName(long id, String mname);
 }

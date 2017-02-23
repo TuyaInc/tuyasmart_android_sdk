@@ -47,6 +47,7 @@ public class WidgetUtils {
         checkNoneContentLayout(context,contentView,noneIconAttrId,tipText,false,funcAttrId,funcBtTextId);
     }
 
+    @SuppressWarnings("ResourceType")
     public static void checkNoneContentLayout(Context context, View contentView, int noneIconAttrId, String tipText, boolean useFuncButton, int funcAttrId, int funcBtTextId) {
         TypedArray a = context.obtainStyledAttributes(new int[]{
                 noneIconAttrId, R.attr.icon_none_content,funcAttrId});

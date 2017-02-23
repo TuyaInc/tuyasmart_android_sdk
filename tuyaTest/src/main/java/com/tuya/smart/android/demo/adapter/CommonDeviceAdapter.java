@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.tuya.smart.android.base.ViewHolder;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;
@@ -69,12 +69,12 @@ public class CommonDeviceAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public class DeviceViewHolder extends ViewHolder<DeviceBean> {
-        public ImageView connect;
-        public ImageView deviceIcon;
-        public TextView device;
+    private static class DeviceViewHolder extends ViewHolder<DeviceBean> {
+        ImageView connect;
+        ImageView deviceIcon;
+        TextView device;
 
-        public DeviceViewHolder(View contentView) {
+        DeviceViewHolder(View contentView) {
             super(contentView);
             connect = (ImageView) contentView.findViewById(R.id.iv_device_list_dot);
             deviceIcon = (ImageView) contentView.findViewById(R.id.iv_device_icon);
@@ -83,7 +83,7 @@ public class CommonDeviceAdapter extends BaseAdapter {
 
         @Override
         public void initData(DeviceBean deviceBean) {
-            Picasso.with(mContext).load(deviceBean.getIconUrl()).into(deviceIcon);
+            Picasso.with(TuyaSdk.getApplication()).load(deviceBean.getIconUrl()).into(deviceIcon);
             final int resId;
             if (deviceBean.getIsOnline()) {
                 if (deviceBean.getIsShare() != null && deviceBean.getIsShare()) {

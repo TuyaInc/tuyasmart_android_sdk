@@ -12,6 +12,7 @@
     <string name="IntranetControl">局域网在线</string>
     <string name="OnlineControl">在线</string>
     <string name="device_state">设备状态：</string>
+    <string name="action_settings">设置</string>
 
     <!-- 通用 -->
     <string name="Confirm">确认</string>
@@ -188,7 +189,7 @@
     <string name="add_new_user_tip">添加新成员使用智能设备</string>
     <string name="add_next_device">再添加一个</string>
     <string name="ap_mode">热点模式</string>
-    <string name="app_name">涂鸦测试</string>
+    <string name="app_name">涂鸦演示程序</string>
     <string name="bind_device_cancel">否</string>
     <string name="bind_device_confirm">是</string>
     <string name="bind_device_failure"><![CDATA[<font color="#FF5800">查看可能失败的原因</font>]]></string>
@@ -210,8 +211,6 @@
     <string name="close_device">关闭设备</string>
     <string name="config_device">配置Wi-Fi中</string>
     <string name="config_wifi">设备激活中</string>
-    <string name="active_device_success">设备激活成功</string>
-    <string name="active_device_failure">设备激活失败</string>
     <string name="config_wifi_error">网关没有初始化</string>
     <string name="config_wifi_failure">请选择Wi-Fi热点</string>
     <string name="confirm">确定</string>
@@ -580,4 +579,30 @@
     <string name="property">属性：</string>
     <string name="log_window">日志窗口</string>
     <string name="sendCommand">发送命令</string>
+    <string name="mode_only_read">只上报</string>
+    <string name="mode_read_write">可下发可上报</string>
+    <string name="mode_only_write">只下发</string>
+    <string name="stringType">字符串型</string>
+    <string name="valueType">数值型</string>
+    <string name="bitmapType">故障型</string>
+    <string name="rawType">透传类型</string>
+    <string name="booleanType">布尔型</string>
+    <string name="enumType">枚举型</string>
+    <string name="send_failure">命令发送失败</string>
+    <string name="send_time_out">请求超时</string>
+    <string name="data_report">数据上报: </string>
+    <string name="message_request">数据请求: </string>
+    <string name="time_dp_start">开始时间: </string>
+    <string name="time_dp_end">结束时间: </string>
+    <string name="time_dp_spend">发送耗时: </string>
+    <string name="message_receive">返回结果: </string>
+    <string name="failure_reason">失败原因: </string>
+    <string name="device_offLine">设备已离线，不可操作，请检查网络或重启设备</string>
+    <string name="device_network_error">网络错误，请检查网络设置</string>
+    <string name="edit_dp_value">编辑Dp值</string>
+
+
+    <string name="switch_demo">插座演示</string>
+    <string name="operation_failure">操作失败</string>
+    <string name="btn_test_add">添加dp值</string>
 </resources>

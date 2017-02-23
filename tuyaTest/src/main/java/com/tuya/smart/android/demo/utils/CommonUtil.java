@@ -420,6 +420,7 @@ public class CommonUtil {
         return language;
     }
 
+    @SuppressWarnings("ResourceType")
     public static void initSystemBarColor(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(activity, true);

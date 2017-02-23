@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.tuya.smart.android.base.ViewHolder;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.device.bean.SchemaBean;
 

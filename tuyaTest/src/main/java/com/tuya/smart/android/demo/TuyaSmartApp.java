@@ -1,5 +1,6 @@
 package com.tuya.smart.android.demo;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,9 @@ public class TuyaSmartApp extends Application {
             @Override
             public void onNeedLogin(Context context) {
                 Intent intent = new Intent(context, LoginActivity.class);
+                if(!(context instanceof Activity)){
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
                 startActivity(intent);
             }
         });

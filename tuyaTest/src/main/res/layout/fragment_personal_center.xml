@@ -157,6 +157,7 @@
         android:id="@+id/rl_group"
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:visibility="gone"
         android:background="@color/white">
 
         <LinearLayout
@@ -192,5 +193,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
+        android:visibility="gone"
         android:background="?attr/list_line_color"/>
 </LinearLayout>

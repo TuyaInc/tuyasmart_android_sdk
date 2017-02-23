@@ -16,11 +16,8 @@ import android.widget.TextView;
 import com.tuya.smart.android.common.utils.NetworkUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.BaseActivity;
-import com.tuya.smart.android.demo.activity.CommonDebugActivity;
-import com.tuya.smart.android.demo.activity.GroupListActivity;
 import com.tuya.smart.android.demo.adapter.CommonDeviceAdapter;
 import com.tuya.smart.android.demo.presenter.DeviceListFragmentPresenter;
-import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.AnimationUtil;
 import com.tuya.smart.android.demo.view.IDeviceListFragmentView;
 import com.tuya.smart.sdk.bean.DeviceBean;
@@ -69,6 +66,7 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initPresenter();
+        mDeviceListFragmentPresenter.getDataFromServer();
     }
 
     private void initSwipeRefreshLayout() {
@@ -142,14 +140,7 @@ public class DeviceListFragment extends BaseFragment implements IDeviceListFragm
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_add_device) {
-//                    if (mNetWorkTip.getVisibility() == View.VISIBLE) {
-//                        hideNetWorkTipView();
-//                    } else {
-//                        showNetWorkTipView(R.string.add);
-//                    }
                     mDeviceListFragmentPresenter.addDevice();
-//                    ActivityUtils.gotoActivity(getActivity(), CommonDebugActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
-
                 }
                 return false;
             }

@@ -139,4 +139,5 @@
     <dimen name="mg_62">62dp</dimen>
     <dimen name="mg_120">120dp</dimen>
     <dimen name="mg_19">19dp</dimen>
+    <dimen name="mg_32">32dp</dimen>
 </resources>

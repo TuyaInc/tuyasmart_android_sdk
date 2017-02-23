@@ -8,12 +8,12 @@ import android.net.wifi.WifiManager;
 
 import com.tuya.smart.android.base.event.NetWorkStatusEvent;
 import com.tuya.smart.android.base.event.NetWorkStatusEventModel;
-import com.tuya.smart.android.common.utils.TuyaUtil;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.AddDeviceTipActivity;
 import com.tuya.smart.android.demo.activity.BrowserActivity;
-import com.tuya.smart.android.demo.activity.DeviceCommonActivity;
+import com.tuya.smart.android.demo.activity.CommonDeviceDebugActivity;
 import com.tuya.smart.android.demo.activity.SharedActivity;
+import com.tuya.smart.android.demo.activity.SwitchActivity;
 import com.tuya.smart.android.demo.config.CommonConfig;
 import com.tuya.smart.android.demo.event.DeviceListUpdateModel;
 import com.tuya.smart.android.demo.event.DeviceUpdateEvent;
@@ -35,7 +35,6 @@ import com.tuya.smart.sdk.TuyaSmartRequest;
 import com.tuya.smart.sdk.TuyaUser;
 import com.tuya.smart.sdk.api.IRequestCallback;
 import com.tuya.smart.sdk.bean.DeviceBean;
-import com.tuya.smart.sdk.bean.GroupBean;
 
 import java.util.List;
 
@@ -113,12 +112,23 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
             ToastUtil.showToast(mActivity, R.string.no_device_found);
             return;
         }
-        gotoDeviceCommonActivity(devBean);
+        if (devBean.getProductId().equals("4eAeY1i5sUPJ8m8d")) {
+            Intent intent = new Intent(mActivity, SwitchActivity.class);
+            intent.putExtra(SwitchActivity.INTENT_DEVID, devBean.getDevId());
+            mActivity.startActivity(intent);
+        } else {
+            gotoDeviceCommonActivity(devBean);
+        }
+
     }
 
     private void gotoDeviceCommonActivity(DeviceBean devBean) {
-        Intent intent = new Intent(mActivity, DeviceCommonActivity.class);
-        intent.putExtra(DeviceCommonPresenter.INTENT_DEVID, devBean.getDevId());
+//        Intent intent = new Intent(mActivity, DeviceCommonActivity.class);
+//        intent.putExtra(DeviceCommonPresenter.INTENT_DEVID, devBean.getDevId());
+//        mActivity.startActivity(intent);
+
+        Intent intent = new Intent(mActivity, CommonDeviceDebugActivity.class);
+        intent.putExtra(CommonDeviceDebugPresenter.INTENT_DEVID, devBean.getDevId());
         mActivity.startActivity(intent);
     }
 
@@ -128,7 +138,6 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
 
     public void gotoAddDevice() {
         ActivityUtils.gotoActivity(mActivity, AddDeviceTipActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
-//        ActivityUtils.gotoActivity(mActivity, SwitchActivity.class, ActivityUtils.ANIMATE_SLIDE_TOP_FROM_BOTTOM, false);
     }
 
     //添加设备

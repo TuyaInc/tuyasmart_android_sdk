@@ -26,13 +26,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="TUYA_SMART_APPKEY"
-            android:value="d756fb5805591c7add3f"/>
+            android:value=""/>
 
         <meta-data
             android:name="TUYA_SMART_SECRET"
-            android:value="ggvrcbnfa6grg8ogoruyl0bjoj1qetbv"/>
+            android:value=""/>
+
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
 
@@ -52,7 +54,7 @@
         </activity>
 
         <activity
-            android:name=".activity.CommonDebugActivity"
+            android:name=".activity.CommonDeviceDebugActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Splash.Theme"
             android:windowSoftInputMode="adjustPan|stateHidden"/>
