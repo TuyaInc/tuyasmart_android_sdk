@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tuya.smart.android.common.utils.StringUtils;
+import com.tuya.smart.android.demo.activity.BaseActivity;
 import com.tuya.smart.sdk.TuyaDevice;
 import com.tuya.smart.sdk.TuyaTimerManager;
 import com.tuya.smart.sdk.api.IGetAllTimerWithDevIdCallback;
@@ -30,9 +31,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by mikeshou on 15/12/8.
- *
  */
-public class DeviceTimerActivity extends Activity {
+public class DeviceTimerActivity extends BaseActivity {
     private static final int MSG_UPDATE_TV_INFO = 99;
     private static final String INFO_KEY = "info_key";
     private TuyaTimerManager mTuyaTimerManager;
@@ -53,11 +53,15 @@ public class DeviceTimerActivity extends Activity {
         }
     });
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_timer);
         ButterKnife.bind(this);
+        initToolbar();
+        setDisplayHomeAsUpEnabled();
+        setTitle(R.string.add_alarm_timer);
         mDevId = mGwId = getIntent().getStringExtra("gwId");
         mTuyaTimerManager = new TuyaTimerManager();
         mTuyaDevice = new TuyaDevice(mDevId);
