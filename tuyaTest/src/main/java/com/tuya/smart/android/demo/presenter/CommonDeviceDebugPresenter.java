@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tuya.smart.android.demo.R;
+import com.tuya.smart.android.demo.activity.GroupEditDeviceActivity;
 import com.tuya.smart.android.demo.bean.DpLogBean;
 import com.tuya.smart.android.demo.model.firmware.FirmwareUpgradeModel;
 import com.tuya.smart.android.demo.presenter.firmware.FirmwareUpgradePresenter;
@@ -279,6 +280,18 @@ public class CommonDeviceDebugPresenter extends BasePresenter implements IDevLis
         return jsonObject;
     }
 
+    public boolean isSupportGroup() {
+        DeviceBean dev = TuyaUser.getDeviceInstance().getDev(mDevId);
+        return dev != null && dev.isSupportGroup();
+    }
+
+    public void gotoAddGroup() {
+        DeviceBean dev = TuyaUser.getDeviceInstance().getDev(mDevId);
+        if (dev != null) {
+            String productId = dev.getProductId();
+            GroupEditDeviceActivity.startAdd(mContext, productId, mDevId);
+        }
+    }
 
     public static class LogCountDownLatch extends CountDownLatch {
         private int status = STATUS_TIME_OUT;

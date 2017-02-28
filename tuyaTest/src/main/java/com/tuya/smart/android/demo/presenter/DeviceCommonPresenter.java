@@ -199,4 +199,9 @@ public class DeviceCommonPresenter extends BasePresenter {
         intent.putExtra(DeviceTestPresenter.INTENT_DEVICE_ID, mDevId);
         ActivityUtils.startActivity((Activity) mContext, intent, ActivityUtils.ANIMATE_FORWARD, true);
     }
+
+    public boolean isSupportGroup() {
+        DeviceBean dev = TuyaUser.getDeviceInstance().getDev(mDevId);
+        return dev != null && dev.isSupportGroup();
+    }
 }

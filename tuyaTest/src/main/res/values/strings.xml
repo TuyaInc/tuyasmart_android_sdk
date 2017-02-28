@@ -673,5 +673,13 @@
     <string name="control_timer_task_switch_status">控制定时任务中所有定时器的开关状态</string>
     <string name="switch_demo">SwitchDemo</string>
     <string name="operation_failure">Operation failure</string>
+    <string name="group_title_select_device">Select Device</string>
+    <string name="group_group_list_empty">No device in the group</string>
+    <string name="group_rename_dialog_title">Enter group name</string>
+    <string name="ty_smart_scene_save">Save</string>
+    <string name="group_add_name_empty">Group name can\'t be empty</string>
+    <string name="group_add_no_devices_selected">Please select one device at least</string>
+    <string name="group_add_default_name">%s Group</string>
+    <string name="group_create">Create Group</string>
 
 </resources>

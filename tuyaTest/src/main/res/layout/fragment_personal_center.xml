@@ -157,7 +157,6 @@
         android:id="@+id/rl_group"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:visibility="gone"
         android:background="@color/white">
 
         <LinearLayout

@@ -104,4 +104,6 @@
     <color name="switch_on_color">#2A87D6</color>
     <color name="switch_off_color">#303030</color>
     <color name="color_dddddd">#dddddd</color>
+    <color name="tuya_red">#ff4800</color>
+
 </resources>

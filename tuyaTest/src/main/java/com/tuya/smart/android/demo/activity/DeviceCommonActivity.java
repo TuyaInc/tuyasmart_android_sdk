@@ -57,33 +57,39 @@ public class DeviceCommonActivity extends BaseActivity implements IDeviceCommonV
 
     private void initMenu() {
         setDisplayHomeAsUpEnabled();
-        setMenu(R.menu.toolbar_top_smart_device, new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
+        if (mPresenter.isSupportGroup()) {
+            setMenu(R.menu.toolbar_top_smart_device_support_group, menuItemClickListener);
+        } else {
+            setMenu(R.menu.toolbar_top_smart_device, menuItemClickListener);
+        }
+    }
+
+    private final Toolbar.OnMenuItemClickListener menuItemClickListener = new Toolbar.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
 //                    case R.id.action_test_mode:
 //                        mPresenter.testMode();
 //                        break;
-                    case R.id.action_rename:
-                        mPresenter.renameDevice();
-                        break;
-                    case R.id.action_close:
-                        finish();
-                        break;
-                    case R.id.action_check_update:
-                        mPresenter.checkUpdate();
-                        break;
-                    case R.id.action_resume_factory_reset:
-                        mPresenter.resetFactory();
-                        break;
-                    case R.id.action_unconnect:
-                        mPresenter.removeDevice();
-                        break;
-                }
-                return false;
+                case R.id.action_rename:
+                    mPresenter.renameDevice();
+                    break;
+                case R.id.action_close:
+                    finish();
+                    break;
+                case R.id.action_check_update:
+                    mPresenter.checkUpdate();
+                    break;
+                case R.id.action_resume_factory_reset:
+                    mPresenter.resetFactory();
+                    break;
+                case R.id.action_unconnect:
+                    mPresenter.removeDevice();
+                    break;
             }
-        });
-    }
+            return false;
+        }
+    };
 
     private void initPresenter() {
         mPresenter = new DeviceCommonPresenter(this, this);
