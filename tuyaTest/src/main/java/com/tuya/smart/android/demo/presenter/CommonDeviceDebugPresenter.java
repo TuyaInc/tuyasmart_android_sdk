@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.tuya.smart.android.demo.DeviceTimerActivity;
 import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.activity.GroupEditDeviceActivity;
 import com.tuya.smart.android.demo.bean.DpLogBean;
@@ -291,6 +292,12 @@ public class CommonDeviceDebugPresenter extends BasePresenter implements IDevLis
             String productId = dev.getProductId();
             GroupEditDeviceActivity.startAdd(mContext, productId, mDevId);
         }
+    }
+
+    public void addTimer() {
+        Intent intent = new Intent(mContext, DeviceTimerActivity.class);
+        intent.putExtra("gwId", mDevId);
+        ActivityUtils.startActivity((Activity) mContext, intent, ActivityUtils.ANIMATE_FORWARD, false);
     }
 
     public static class LogCountDownLatch extends CountDownLatch {

@@ -106,6 +106,8 @@ public class CommonDeviceDebugActivity extends BaseActivity implements ICommonDe
                 case R.id.action_unconnect:
                     mPresenter.removeDevice();
                     break;
+                case R.id.action_timer:
+                    mPresenter.addTimer();
             }
             return false;
         }

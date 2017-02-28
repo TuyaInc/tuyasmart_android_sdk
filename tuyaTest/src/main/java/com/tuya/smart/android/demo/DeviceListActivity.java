@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.device.event.GwRelationEvent;
 import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
 import com.tuya.smart.android.device.event.GwUpdateEvent;
@@ -79,7 +78,7 @@ public class DeviceListActivity extends Activity implements GwRelationEvent, GwU
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DeviceBean deviceBean = (DeviceBean) parent.getAdapter().getItem(position);
                 if (deviceBean != null) {
-                    Intent intent = new Intent(DeviceListActivity.this, DevicePanelActivity.class);
+                    Intent intent = new Intent(DeviceListActivity.this, DeviceTimerActivity.class);
                     intent.putExtra("gwId", deviceBean.getDevId());
 
 //                    Intent intent = new Intent(DeviceListActivity.this, DeviceTestActivity.class);

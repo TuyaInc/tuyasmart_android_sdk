@@ -193,7 +193,11 @@
             android:theme="@style/ToolrTheme"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <activity android:name="com.tuya.smart.android.demo.DevicePanelActivity" />
+        <activity
+            android:name="com.tuya.smart.android.demo.DeviceTimerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ToolrTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name="com.tuya.smart.android.demo.test.activity.DpTestSetUpActivity"
             android:screenOrientation="portrait"
