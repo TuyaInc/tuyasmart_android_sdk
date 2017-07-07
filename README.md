@@ -11,6 +11,45 @@
 *  涂鸦云HTTP API接口封装
 
 ---
+
+## 版本更新记录
+
+### 1.5.9
+* 修复安卓6.0、7.0个别手机兼容性问题。
+* 修复一些空指针问题。
+* 增强通信安全
+* 第三方类库拆分出来，升级时注意添加相关依赖，可参考demo build.gradle配置。
+
+### 1.4.6
+* 修复个别设备出现非法请求的情况
+* 修复异常若干
+
+### 1.4.5
+* 修复局域网连接问题
+
+### 1.4.4
+* 发布局域网搜索设备接口。
+
+### 1.4.2
+* 发布第三方登陆接口。
+
+### 1.4.1
+* IAddMemberCallback    void onSuccess(Integer shareId)  Integer 需要替换成Long。
+* modifyMemberName(int **) 、removeMember(int **) int 需要替换成long 类型。
+* Volley 去除。
+* apache http server 替换成OKHttp3.0。
+* 局域网通信优化。
+* 退出接口崩溃bug 修复。
+
+### 1.3.4
+* 局域网通信不稳定问题修复
+* 设备网络监听状态变化，导致设备显示离线。问题修复 IDevListener onNetworkStatusChanged();
+
+### 1.3.2
+* 修复只读dp无法上报问题
+
+---
+
 ## 集成SDK
 ### 集成准备
 #### （1）创建工程
@@ -217,41 +256,7 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 
 [演示程序](http://fir.im/androidSDKDemo)
 
-## 版本更新记录
 
-### 1.5.9
-* 修复安卓6.0、7.0个别手机兼容性问题。
-* 修复一些空指针问题。
-* 增强通信安全
-* 第三方类库拆分出来，升级时注意添加相关依赖，可参考demo build.gradle配置。
-
-### 1.4.6
-* 修复个别设备出现非法请求的情况
-* 修复异常若干
-
-### 1.4.5
-* 修复局域网连接问题
-
-### 1.4.4
-* 发布局域网搜索设备接口。
-
-### 1.4.2
-* 发布第三方登陆接口。
-
-### 1.4.1
-* IAddMemberCallback    void onSuccess(Integer shareId)  Integer 需要替换成Long。
-* modifyMemberName(int **) 、removeMember(int **) int 需要替换成long 类型。
-* Volley 去除。
-* apache http server 替换成OKHttp3.0。
-* 局域网通信优化。
-* 退出接口崩溃bug 修复。
-
-### 1.3.4
-* 局域网通信不稳定问题修复
-* 设备网络监听状态变化，导致设备显示离线。问题修复 IDevListener onNetworkStatusChanged();
-
-### 1.3.2
-* 修复只读dp无法上报问题
 
 ## 开发文档
 请参考:[涂鸦文档中心 - Android SDK使用说明](http://docs.tuya.com/develop/app-development/android-sdk/)
