@@ -227,6 +227,7 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 * 修复安卓6.0、7.0个别手机兼容性问题。
 * 修复一些空指针问题。
 * 增强通信安全
+* 第三方类库拆分出来，升级时注意添加相关依赖，可参考demo build.gradle配置。
 
 ###1.4.6
 * 修复个别设备出现非法请求的情况
