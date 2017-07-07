@@ -59,9 +59,6 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
         getDataFromServer();
     }
 
-    private void initEventBus() {
-        TuyaSdk.getEventBus().register(this);
-    }
 
     private void showDevIsNotOnlineTip(final DeviceBean deviceBean) {
         final boolean isShared = deviceBean.isShare;

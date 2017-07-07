@@ -14,9 +14,9 @@
 ## 集成SDK
 ### 集成准备
 #### （1）创建工程
-	
+
 	 在Android Studio中建立你的工程。
-	
+
 ####（2）引入aar包
 
 在工程中新建一个libs目录，将下载好的tuyasmart-xxxx.aar复制到该目录中（如下图所示，建立了一个名为tuyaTest的工程，并把aar包复制到libs目录下）。请前往[GitHub](https://github.com/TuyaInc/tuyasmart_android_sdk/tree/master/tuyaTest/libs)获取涂鸦智能Android SDK
@@ -44,7 +44,10 @@ repositories {
 }
 dependencies {
       compile(name: ‘tuyasmart-xxx’, ext: ‘aar')
+      compile 'com.alibaba:fastjson:1.1.45.android'
       compile 'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'
+      compile 'de.greenrobot:eventbus:2.4.0'
+      compile 'io.reactivex:rxandroid:1.2.1'
 
 }
 
@@ -184,9 +187,9 @@ TuyaUser.getDeviceInstance().onDestroy();
 
 ####(4)  注册session失效监听
 #####【描述】
-    
+
     Session由于可能存在一些异常或者在一段时间不操作（45天）会失效掉，这时候需要退出应用，重新登陆获取Session。
-    
+
 #####【方法调用】
 
 ```
@@ -204,7 +207,7 @@ needLoginListener.onNeedLogin(Context context);
 TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
      @Override
      public void onNeedLogin(Context context) {
-     
+
      }
 });
 ```
@@ -219,6 +222,12 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 [演示程序](http://fir.im/androidSDKDemo)
 
 ## 版本更新记录
+
+###1.5.9
+* 修复安卓6.0、7.0个别手机兼容性问题。
+* 修复一些空指针问题。
+* 增强通信安全
+
 ###1.4.6
 * 修复个别设备出现非法请求的情况
 * 修复异常若干
@@ -244,7 +253,7 @@ TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
 * 设备网络监听状态变化，导致设备显示离线。问题修复 IDevListener onNetworkStatusChanged();
 
 ###1.3.2
-* 修复只读dp无法上报问题 
+* 修复只读dp无法上报问题
 
 ## 开发文档
 请参考:[涂鸦文档中心 - Android SDK使用说明](http://docs.tuya.com/develop/app-development/android-sdk/)

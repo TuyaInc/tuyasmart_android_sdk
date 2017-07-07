@@ -64,10 +64,6 @@ public class DeviceTestPresenter extends BasePresenter implements DpSendDataEven
 
     }
 
-    private void initEventBus() {
-        TuyaSdk.getEventBus().register(this);
-    }
-
     private void initDevicePanel() {
         mDevice.registerDevListener(new IDevListener() {
             @Override

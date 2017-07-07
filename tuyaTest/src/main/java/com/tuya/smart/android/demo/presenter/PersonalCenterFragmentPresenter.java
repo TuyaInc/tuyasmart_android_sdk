@@ -31,10 +31,6 @@ public class PersonalCenterFragmentPresenter extends BasePresenter implements Pe
         initEventBus();
     }
 
-    private void initEventBus() {
-        TuyaSdk.getEventBus().register(this);
-    }
-
     public void setPersonalInfo() {
         mView.setNickName(mModel.getNickName());
         mView.setUserName(mModel.getUserName());
