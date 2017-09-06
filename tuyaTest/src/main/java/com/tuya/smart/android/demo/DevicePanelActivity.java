@@ -367,7 +367,7 @@ public class DevicePanelActivity extends Activity {
                 break;
 
             case R.id.bt_update_timer:
-                mTuyaTimerManager.updateTimerStatus(taskName, mDevId, timeId, "0011001", "11:11", false, new IResultStatusCallback() {
+                mTuyaTimerManager.updateTimerStatus(taskName, mDevId, timeId, "2", "0011001", "11:11", false, new IResultStatusCallback() {
                     @Override
                     public void onSuccess() {
                         Toast.makeText(DevicePanelActivity.this, R.string.update_timer + R.string.unit_success, Toast.LENGTH_LONG).show();
