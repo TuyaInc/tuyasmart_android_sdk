@@ -128,7 +128,12 @@ android {
 
 涂鸦智能sdk默认只支持armeabi-v7a和x86架构的平台，如有其他平台需要可前往[GitHub](https://github.com/TuyaInc/tuyasmart_android_sdk/tree/master/library)获取
 
-####（4）AndroidManifest.xml 设置
+#### (4) SDK支持
+
+  minSdkVersion 16
+  targetSdkVersion 25
+
+####（5）AndroidManifest.xml 设置
 
 在AndroidManifest.xml文件里配置appkey和appSecret，在配置相应的权限等
 
