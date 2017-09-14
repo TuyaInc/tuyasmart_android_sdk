@@ -227,7 +227,8 @@ public class TuyaSmartApp extends Application {
 ##### 【注意事项】
 
     appId和appSecret需要配置AndroidManifest.xml文件里，或者在build环境里配置，也可以在代码里写入。
-####(3)  注销涂鸦智能云连接
+
+####  (3)  注销涂鸦智能云连接
 在退出应用或者退出登陆的时候调用以下接口注销掉。
 
 ```
@@ -237,6 +238,7 @@ TuyaUser.getDeviceInstance().onDestroy();
 ```
 
 ####  (4)  注册session失效监听
+
 ##### 【描述】
 
     Session由于可能存在一些异常或者在一段时间不操作（45天）会失效掉，这时候需要退出应用，重新登陆获取Session。
