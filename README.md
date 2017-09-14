@@ -124,7 +124,7 @@ android {
 
 ```
 
-##### 【注意事项】
+#####  【注意事项】
 
 涂鸦智能sdk默认只支持armeabi-v7a和x86架构的平台，如有其他平台需要可前往[GitHub](https://github.com/TuyaInc/tuyasmart_android_sdk/tree/master/library)获取
 
@@ -133,7 +133,7 @@ android {
   minSdkVersion 16
   targetSdkVersion 25
 
-####（5）AndroidManifest.xml 设置
+#### （5）AndroidManifest.xml 设置
 
 在AndroidManifest.xml文件里配置appkey和appSecret，在配置相应的权限等
 
@@ -192,8 +192,8 @@ android {
 
 ```
 
-###初始化SDK
-####(1) 配置appKey 和appSercet
+###  初始化SDK
+####  (1) 配置appKey 和appSercet
 联系我们获取appKey 和 appSercet 设置到xml里。
 
 ```
@@ -206,12 +206,12 @@ android {
             android:value=""/>
 ```
 
-####(2) Application中初始化涂鸦智能sdk。
-#####【描述】
+####  (2) Application中初始化涂鸦智能sdk。
+##### 【描述】
 
     主要用于初始化EventBus、通信服务等组件。
 
-#####【代码范例】
+##### 【代码范例】
 
 ```
 public class TuyaSmartApp extends Application {
@@ -224,7 +224,7 @@ public class TuyaSmartApp extends Application {
 }
 ```
 
-#####【注意事项】
+##### 【注意事项】
 
     appId和appSecret需要配置AndroidManifest.xml文件里，或者在build环境里配置，也可以在代码里写入。
 ####(3)  注销涂鸦智能云连接
@@ -236,23 +236,23 @@ TuyaUser.getDeviceInstance().onDestroy();
 
 ```
 
-####(4)  注册session失效监听
-#####【描述】
+####  (4)  注册session失效监听
+##### 【描述】
 
     Session由于可能存在一些异常或者在一段时间不操作（45天）会失效掉，这时候需要退出应用，重新登陆获取Session。
 
-#####【方法调用】
+##### 【方法调用】
 
 ```
 //session失效监听
 TuyaSdk.setOnNeedLoginListener(INeedLoginListener needLoginListener);
 ```
-##### 【实现回调】
+#####  【实现回调】
 
 ```
 needLoginListener.onNeedLogin(Context context);
 ```
-##### 【代码范例】
+#####  【代码范例】
 
 ```
 TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
