@@ -67,7 +67,7 @@
 
 	 在Android Studio中建立你的工程。
 
-####（2）引入aar包
+#### （2）引入aar包
 
 在工程中新建一个libs目录，将下载好的tuyasmart-xxxx.aar复制到该目录中（如下图所示，建立了一个名为tuyaTest的工程，并把aar包复制到libs目录下）。请前往[GitHub](https://github.com/TuyaInc/tuyasmart_android_sdk/tree/master/tuyaTest/libs)获取涂鸦智能Android SDK
 
@@ -76,7 +76,7 @@
 
 
 
-####（3）build.gradle 配置
+#### （3）build.gradle 配置
 
 build.gradle 文件里添加如下配置
 
@@ -124,7 +124,7 @@ android {
 
 ```
 
-#####【注意事项】
+##### 【注意事项】
 
 涂鸦智能sdk默认只支持armeabi-v7a和x86架构的平台，如有其他平台需要可前往[GitHub](https://github.com/TuyaInc/tuyasmart_android_sdk/tree/master/library)获取
 
@@ -247,12 +247,12 @@ TuyaUser.getDeviceInstance().onDestroy();
 //session失效监听
 TuyaSdk.setOnNeedLoginListener(INeedLoginListener needLoginListener);
 ```
-#####【实现回调】
+##### 【实现回调】
 
 ```
 needLoginListener.onNeedLogin(Context context);
 ```
-#####【代码范例】
+##### 【代码范例】
 
 ```
 TuyaSdk.setOnNeedLoginListener(new INeedLoginListener() {
