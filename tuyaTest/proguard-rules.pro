@@ -173,6 +173,8 @@
 
 -dontwarn okio.**
 -dontwarn rx.**
+-keep class rx.**{ *; }
+
 -dontwarn javax.annotation.**
 -keep class com.squareup.okhttp.** { *; }
 -keep interface com.squareup.okhttp.** { *; }
