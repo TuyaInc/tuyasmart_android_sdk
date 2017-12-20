@@ -37,12 +37,7 @@
 
 
         <service android:name="org.eclipse.paho.android.service.MqttService"/>
-
-        <activity
-            android:name="com.tuya.smart.android.demo.MainActivity"
-            android:label="@string/app_name"/>
-
-        <activity android:name="com.tuya.smart.android.demo.Login2Activity"/>
+        <service android:name="com.tuya.smart.android.hardware.service.DevTransferService" />
 
         <activity
             android:name="com.tuya.smart.android.demo.activity.SplashActivity"
@@ -184,19 +179,6 @@
                   android:theme="@style/ToolrTheme"
                   android:windowSoftInputMode="adjustPan|stateHidden"/>
 
-        <activity android:name="com.tuya.smart.android.demo.DeviceListActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.DevicePanelActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.APActivityTest"/>
-        <activity android:name="com.tuya.smart.android.demo.ShareActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.RegisterWithPhoneActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.RegisterWithEmailActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.LoginWithPhoneActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.LoginWithEmailActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.FindPasswordEmailActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.FindPasswordPhoneActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.RegisterWithUIDActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.FindPasswordUidActivity"/>
-        <activity android:name="com.tuya.smart.android.demo.LoginWithUidActivity"/>
         <activity
             android:name="com.tuya.smart.android.demo.test.activity.DpTestSetUpActivity"
             android:screenOrientation="portrait"
@@ -220,17 +202,7 @@
                 <category android:name="tuya"/>
             </intent-filter>
         </service>
-        <service
-            android:name="com.tuya.smart.android.hardware.service.GwTransferService"
-            android:exported="true"
-            android:label="TCPService"
-            android:process=":transfer">
-            <intent-filter>
-                <action android:name="tuya.intent.action.tcp"/>
 
-                <category android:name="tuya"/>
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

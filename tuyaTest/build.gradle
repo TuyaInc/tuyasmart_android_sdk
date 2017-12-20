@@ -75,7 +75,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
     compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-    compile(name: 'tuyasmart-1.7.6', ext: 'aar')
+    compile(name: 'tuyasmart-1.12.0', ext: 'aar')
     //=====依赖库====//
 
     compile 'com.android.support:appcompat-v7:25.3.0@aar'

@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.tuya.smart.android.base.TuyaSmartSdk;
+import com.tuya.smart.android.demo.activity.LoginActivity;
 import com.tuya.smart.android.demo.test.utils.DialogUtil;
 import com.tuya.smart.android.demo.utils.ApplicationInfoUtil;
 import com.tuya.smart.sdk.TuyaSdk;

@@ -4,7 +4,8 @@ import android.content.Context;
 
 import com.tuya.smart.android.common.utils.SafeHandler;
 import com.tuya.smart.android.device.api.response.GwDevResp;
-import com.tuya.smart.android.device.config.ConfigDeviceErrorCode;
+import com.tuya.smart.sdk.bean.DeviceBean;
+import com.tuya.smart.sdk.constant.ErrorCode;
 import com.tuya.smart.android.mvp.model.BaseModel;
 import com.tuya.smart.sdk.TuyaActivator;
 import com.tuya.smart.sdk.api.ITuyaActivator;
@@ -63,7 +64,7 @@ public class DeviceBindModel extends BaseModel implements IDeviceBindModel {
                     @Override
                     public void onError(String s, String s1) {
                         switch (s) {
-                            case ConfigDeviceErrorCode.STATUS_FAILURE_WITH_GET_TOKEN:
+                            case ErrorCode.STATUS_FAILURE_WITH_GET_TOKEN:
                                 resultError(WHAT_EC_GET_TOKEN_ERROR, "wifiError", s1);
                                 return;
                         }
@@ -71,8 +72,8 @@ public class DeviceBindModel extends BaseModel implements IDeviceBindModel {
                     }
 
                     @Override
-                    public void onActiveSuccess(GwDevResp gwDevResp) {
-                        resultSuccess(WHAT_EC_ACTIVE_SUCCESS, gwDevResp);
+                    public void onActiveSuccess(DeviceBean deviceBean) {
+                        resultSuccess(WHAT_EC_ACTIVE_SUCCESS, deviceBean);
                     }
 
                     @Override
@@ -105,8 +106,8 @@ public class DeviceBindModel extends BaseModel implements IDeviceBindModel {
                     }
 
                     @Override
-                    public void onActiveSuccess(GwDevResp gwDevResp) {
-                        resultSuccess(WHAT_AP_ACTIVE_SUCCESS, gwDevResp);
+                    public void onActiveSuccess(DeviceBean deviceBean) {
+                        resultSuccess(WHAT_AP_ACTIVE_SUCCESS, deviceBean);
                     }
 
                     @Override

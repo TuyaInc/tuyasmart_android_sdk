@@ -14,6 +14,14 @@
 
 ## 版本更新记录
 
+### 1.12.0
+
+* 增加了场景、头像上传、意见反馈等功能
+* 增加了局域网通信的稳定性，修复了部分ANR问题。
+* AndroidManifest.xml 有变更，请参考下面文档。
+* GwDevResp 被DeviceBean替代，请及时修正。涉及到配网。
+* ConfigDeviceErrorCode 被 ErrorCode 替代
+
 ### 1.7.6
 
 *  fix crash in some language.
@@ -187,6 +195,7 @@ android {
                 <category android:name="tuya" />
             </intent-filter>
         </service>
+        <!-- 在1.12.0中被废弃了
         <service
             android:name="com.tuya.smart.android.hardware.service.GwTransferService"
             android:exported="true"
@@ -198,6 +207,10 @@ android {
                 <category android:name="tuya" />
             </intent-filter>
         </service>
+        --!>
+        //新增了Service配置
+        <service android:name="com.tuya.smart.android.hardware.service.DevTransferService" />
+
 
 ```
 
