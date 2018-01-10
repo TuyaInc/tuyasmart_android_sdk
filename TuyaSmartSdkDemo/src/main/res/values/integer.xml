@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="slide_in">250</integer>
+    <integer name="slide_out">250</integer>
+    <integer name="change_device_name_limit">25</integer>
+    <integer name="change_group_name_limit">25</integer>
+    <integer name="feedback_limit">240</integer>
+</resources>

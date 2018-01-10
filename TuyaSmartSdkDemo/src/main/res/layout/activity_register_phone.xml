@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="@string/user_phonenumber"/>
+
+    <Button
+        android:id="@+id/do_get_validate_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="@string/get_validate_code"/>
+
+    <EditText
+        android:id="@+id/et_validate_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="@string/input_validate_code"/>
+
+    <EditText
+        android:id="@+id/et_password_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="@string/input_password"/>
+
+    <EditText
+        android:id="@+id/et_country_code"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:hint="@string/default_country_code"/>
+
+    <Button
+        android:id="@+id/do_register"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="@string/ty_login_register"/>
+
+
+</LinearLayout>

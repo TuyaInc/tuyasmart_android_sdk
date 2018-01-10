@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/device_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/device_state"/>
+
+        <LinearLayout
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user">
+
+            <Button
+                android:id="@+id/check_updage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/firmware_upgrade"/>
+
+
+            <Button
+                android:id="@+id/update_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/upgrade_now"/>
+
+            <Button
+                android:id="@+id/update_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/upgrade_cancel"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/command"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/update">
+
+            <EditText
+                android:id="@+id/command_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""/>
+
+            <Button
+                android:id="@+id/command_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="@string/send_command"/>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/delete_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_device"/>
+
+        <Button
+            android:id="@+id/get_history_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/get_history_data"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <Button
+                android:id="@+id/bt_add_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/add_alarm_timer"/>
+            <Button
+                android:id="@+id/bt_get_status_dev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/get_device_status"/>
+            <Button
+                android:id="@+id/bt_update_task_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/open_close_timer_task"/>
+            <Button
+                android:id="@+id/bt_update_timer_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/open_close_timer"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/bt_del_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/delete_timer"/>
+            <Button
+                android:id="@+id/bt_update_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/update_timer"/>
+            <Button
+                android:id="@+id/bt_get_timer_4_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/get_task_timer"/>
+            <Button
+                android:id="@+id/bt_get_timer_4_dev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onTimerClick"
+                android:text="@string/get_all_timer"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"/>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/lv_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"
+    />
+</FrameLayout>

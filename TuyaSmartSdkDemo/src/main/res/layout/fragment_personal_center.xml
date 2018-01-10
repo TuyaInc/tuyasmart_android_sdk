@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="?attr/fragment_bg_color"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+
+    <!--<View-->
+    <!--android:id="@id/line_long"-->
+    <!--style="@style/line_long"-->
+    <!--android:layout_marginTop="20dp"></View>-->
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_person"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_marginTop="@dimen/mg_20"
+        android:background="?attr/list_bg_color">
+
+        <ImageView
+            android:id="@+id/iv_head_photo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/ty_user_icon_default"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_head_photo"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/list_primary_color"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="?attr/list_secondary_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/arrow_more"/>
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/menu_list_divider_start"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="?attr/list_line_color"/>
+    <RelativeLayout
+        android:id="@+id/rl_share"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="@dimen/mg_30"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mg_16"
+            android:layout_marginStart="@dimen/mg_16"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/mg_6"
+                android:background="@drawable/tysmart_about_adduser"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tv_share_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/menu_title_share"
+                android:textColor="?attr/list_primary_color"
+                android:textSize="@dimen/ts_16"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/menu_list_divider_mid"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="16dp"
+        android:background="?attr/list_line_color"/>
+    <RelativeLayout
+        android:id="@+id/rl_question"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mg_16"
+            android:layout_marginStart="@dimen/mg_16"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_question"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/mg_6"
+                android:background="@drawable/tysmart_about_help"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tv_question_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/feedback_faq"
+                android:textColor="?attr/list_primary_color"
+                android:textSize="@dimen/ts_16"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/menu_list_divider_end"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="?attr/list_line_color"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_group"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mg_16"
+            android:layout_marginStart="@dimen/mg_16"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_group"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/mg_6"
+                android:background="@drawable/tysmart_about_help"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/tv_group_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/group_device"
+                android:textColor="?attr/list_primary_color"
+                android:textSize="@dimen/ts_16"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:visibility="gone"
+        android:background="?attr/list_line_color"/>
+</LinearLayout>

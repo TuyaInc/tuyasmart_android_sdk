@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_home"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+
+    <TextView style="@style/TextView.Normal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/mg_15"
+              android:layout_marginTop="@dimen/mg_15"
+              android:text="@string/property"
+    />
+    <TextView android:id="@+id/tv_dp_des"
+              style="@style/TextView.Normal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/mg_15"
+              android:layout_marginLeft="@dimen/mg_60"
+              android:layout_marginRight="@dimen/mg_15"
+              android:layout_marginTop="@dimen/mg_15"
+              android:textColor="@color/color_979797"
+    />
+    <FrameLayout android:id="@+id/fl_boolean"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/mg_48"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_bool_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+                  android:gravity="center"
+        />
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/sb_boolean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"
+        />
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/fl_string"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/mg_48"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_str_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <EditText
+            android:id="@+id/et_str"
+            style="@style/EditText.Normal"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/mg_48"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/fl_raw"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/mg_48"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_raw_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <EditText
+            android:id="@+id/et_raw"
+            style="@style/EditText.Normal"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/mg_48"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"/>
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/fl_value"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/mg_48"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_value_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <EditText
+            android:id="@+id/et_value"
+            style="@style/EditText.Normal"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/mg_48"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"
+            android:inputType="number"/>
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/fl_enum"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_enum_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="@dimen/mg_48"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <Spinner
+            android:id="@+id/sp_enum"
+            style="@style/Platform.Widget.AppCompat.Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"
+            android:background="@color/color_979797"/>
+    </FrameLayout>
+    <FrameLayout android:id="@+id/fl_bitmap"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:visibility="gone">
+        <TextView android:id="@+id/tv_bitmap_name"
+                  style="@style/TextView.Normal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="@dimen/mg_48"
+                  android:layout_gravity="center_vertical"
+                  android:layout_marginLeft="@dimen/mg_15"
+        />
+        <EditText
+            android:id="@+id/et_bitmap_value"
+            style="@style/EditText.Normal"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/mg_48"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/mg_15"
+            android:inputType="number"/>
+    </FrameLayout>
+    <View style="@style/line_long"/>
+
+    <TextView style="@style/TextView.Normal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/mg_15"
+              android:layout_marginTop="@dimen/mg_15"
+              android:text="@string/log_window"
+    />
+    <ScrollView
+        android:id="@+id/test_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginRight="@dimen/mg_15"
+        android:layout_marginTop="@dimen/mg_15">
+
+        <TextView
+            android:id="@+id/test_log"
+            style="@style/TextView.Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+    </ScrollView>
+    <Button android:id="@+id/btn_send"
+            style="@style/Button.Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mg_15"
+            android:layout_marginRight="@dimen/mg_15"
+            android:layout_marginTop="@dimen/mg_15"
+            android:text="@string/sendCommand"
+            android:visibility="gone"/>
+</LinearLayout>

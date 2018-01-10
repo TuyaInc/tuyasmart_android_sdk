@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/fragment_bg_color">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+    <TextView
+        android:id="@+id/network_tip"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/action_bar_layout"
+        android:background="?attr/notice_bg_color"
+        android:gravity="center"
+        android:padding="@dimen/mg_3"
+        android:text="@string/network_time_out"
+        android:textColor="?attr/notice_font_color"
+        android:textSize="@dimen/ts_14"
+        android:visibility="gone"/>
+    <RelativeLayout
+        android:id="@+id/rl_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/network_tip"
+    >
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- 因为SwipeRefreshLayout 会强行把它的子view拉成满屏的高度 这里使用item的背景色实现列表背景色 listview直接设置透明-->
+            <ListView
+                android:id="@+id/lv_device_list"
+                style="@style/list_view"
+                android:background="@color/transparent"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/list_background_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_none_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ty_nolist_logo"/>
+
+        <TextView
+            android:id="@+id/tv_none_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_none_data"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/ty_no_data"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/ts_16"/>
+
+        <TextView
+            android:id="@+id/tv_empty_func"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_none_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_add_share_none_bg"
+            android:gravity="center"
+            android:text="@string/add_demo_device"
+            android:textColor="@color/text_color2"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+
+

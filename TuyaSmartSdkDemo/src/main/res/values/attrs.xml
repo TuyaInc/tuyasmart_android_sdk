@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleProgressView">
+        <!-- Text-->
+        <attr name="cpv_text" format="string"/>
+        <attr name="cpv_unit" format="string"/>
+        <attr name="cpv_textColor" format="color"/>
+        <attr name="cpv_unitColor" format="color"/>
+        <attr name="cpv_showUnit" format="boolean"/>
+        <attr name="cpv_autoTextColor" format="boolean"/>
+        <attr name="cpv_textTypeface" format="string"/>
+        <attr name="cpv_unitTypeface" format="string"/>
+        <attr name="cpv_decimalFormat" format="string"/>
+
+        <!-- Text sizes-->
+        <attr name="cpv_textSize" format="dimension"/>
+        <attr name="cpv_unitSize" format="dimension"/>
+        <attr name="cpv_textScale" format="float"/>
+        <attr name="cpv_unitScale" format="float"/>
+        <attr name="cpv_unitToTextScale" format="float"/>
+        <attr name="cpv_autoTextSize" format="boolean"/>
+
+
+        <!-- Progress Bar -->
+        <attr name="cpv_value" format="float"/>
+        <attr name="cpv_maxValue" format="float"/>
+        <attr name="cpv_barWidth" format="dimension"/>
+        <attr name="cpv_barColor" format="color"/>
+        <attr name="cpv_barColor1" format="color"/>
+        <attr name="cpv_barColor2" format="color"/>
+        <attr name="cpv_barColor3" format="color"/>
+        <attr name="cpv_startAngle" format="integer"/>
+
+        <!-- Spinner-->
+        <attr name="cpv_spinColor" format="color"/>
+        <attr name="cpv_spinSpeed" format="float"/>
+        <attr name="cpv_spinBarLength" format="float"/>
+        <attr name="cpv_showTextInSpinningMode" format="boolean"/>
+
+        <!-- Rim-->
+        <attr name="cpv_rimColor" format="color"/>
+        <attr name="cpv_rimWidth" format="dimension"/>
+
+        <!-- Contour-->
+        <attr name="cpv_contourColor" format="color"/>
+        <attr name="cpv_contourSize" format="dimension"/>
+
+        <!-- Background color-->
+        <attr name="cpv_fillColor" format="color"/>
+
+        <!-- Seek mode-->
+        <attr name="cpv_seekMode" format="boolean"/>
+
+        <!-- Block -->
+        <attr name="cpv_blockCount" format="integer"/>
+        <attr name="cpv_blockScale" format="float"/>
+
+        <attr name="cpv_textMode" format="enum">
+            <enum name="Text" value="0"/>
+            <enum name="Percent" value="1"/>
+            <enum name="Value" value="2"/>
+        </attr>
+
+        <attr name="cpv_unitPosition" format="enum">
+            <enum name="top" value="0"/>
+            <enum name="bottom" value="1"/>
+            <enum name="left_top" value="2"/>
+            <enum name="right_top" value="3"/>
+            <enum name="left_bottom" value="2"/>
+            <enum name="right_bottom" value="3"/>
+        </attr>
+
+    </declare-styleable>
+    <declare-styleable name="FixedSizedImageView">
+        <attr name="maskImage" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="NetworkImageView">
+        <attr name="default_image" format="reference"/>
+        <attr name="error_image" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="AnimateImageView">
+        <attr name="animate_changes" format="boolean"/>
+        <attr name="in_animation" format="reference"/>
+        <attr name="out_animation" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension"/>
+        <attr name="riv_border_width" format="dimension"/>
+        <attr name="riv_border_color" format="color"/>
+        <attr name="riv_mutate_background" format="boolean"/>
+        <attr name="riv_oval" format="boolean"/>
+        <attr name="android:scaleType"/>
+    </declare-styleable>
+    <declare-styleable name="SubsamplingScaleImageView">
+        <attr name="src" format="reference"/>
+        <attr name="assetName" format="string"/>
+        <attr name="panEnabled" format="boolean"/>
+        <attr name="zoomEnabled" format="boolean"/>
+        <attr name="tileBackgroundColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color"/>
+        <attr name="pstsUnderlineColor" format="color"/>
+        <attr name="pstsDividerColor" format="color"/>
+        <attr name="pstsIndicatorHeight" format="dimension"/>
+        <attr name="pstsUnderlineHeight" format="dimension"/>
+        <attr name="pstsDividerPadding" format="dimension"/>
+        <attr name="pstsTabPaddingLeftRight" format="dimension"/>
+        <attr name="pstsScrollOffset" format="dimension"/>
+        <attr name="pstsTabBackground" format="reference"/>
+        <attr name="pstsShouldExpand" format="boolean"/>
+        <attr name="pstsTextAllCaps" format="boolean"/>
+    </declare-styleable>
+
+    <attr name="numberPickerStyle" format="reference"/>
+    <declare-styleable name="NumberPicker">
+        <!-- @hide Color for the solid color background if such for optimized rendering. -->
+        <attr name="solidColor" format="color|reference"/>
+        <!-- @hide The divider for making the selection area. -->
+        <attr name="selectionDivider" format="reference"/>
+        <!-- @hide The height of the selection divider. -->
+        <attr name="selectionDividerHeight" format="dimension"/>
+        <!-- @hide The distance between the two selection dividers. -->
+        <attr name="selectionDividersDistance" format="dimension"/>
+        <!-- @hide The min height of the NumberPicker. -->
+        <attr name="internalMinHeight" format="dimension"/>
+        <!-- @hide The max height of the NumberPicker. -->
+        <attr name="internalMaxHeight" format="dimension"/>
+        <!-- @hide The min width of the NumberPicker. -->
+        <attr name="internalMinWidth" format="dimension"/>
+        <!-- @hide The max width of the NumberPicker. -->
+        <attr name="internalMaxWidth" format="dimension"/>
+        <!-- @hide The layout of the number picker. -->
+        <attr name="internalLayout" format="reference"/>
+        <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
+        <attr name="virtualButtonPressedDrawable" format="reference"/>
+        <attr name="selectorMiddleItemIndex" format="integer"/>
+    </declare-styleable>
+
+    <!-- Defines the custom XML attributes supported for a HorizontalListView -->
+    <declare-styleable name="HorizontalListView">
+        <attr name="dividerWidth" format="dimension"/>
+        <attr name="android:divider"/>
+        <attr name="android:requiresFadingEdge"/>
+        <attr name="android:fadingEdgeLength"/>
+    </declare-styleable>
+    <declare-styleable name="DrawSector">
+        <attr name="sectorFirstColor" format="color"/>
+        <attr name="sectorSecondColor" format="color"/>
+        <attr name="sectorLineColor" format="color"/>
+        <attr name="sectorThickness" format="dimension"/>
+        <attr name="sectorWidth" format="dimension"/>
+        <attr name="sectorBackground" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressView">
+        <attr name="progressFirstColor" format="color"/>
+        <attr name="progressSecondColor" format="color"/>
+        <attr name="progressWidth" format="dimension"/>
+        <attr name="progressPercent" format="dimension"/>
+        <attr name="progressThickness" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="PageControl">
+        <attr name="column_num" format="integer"/>
+        <attr name="select_color" format="color"/>
+        <attr name="bg_color" format="color"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="TouchImageView">
+        <attr name="offsetTranslateX" format="dimension"/>
+        <attr name="offsetTranslateY" format="dimension"/>
+        <attr name="offsetTranslateTop" format="dimension"/>
+    </declare-styleable>
+
+    <!-- 可配置项 主题\登陆模式\语言模式 -->
+    <attr name="status_font_color" format="color"/>
+    <attr name="status_bg_color" format="color"/>
+    <attr name="status_system_bg_color" format="color"/>
+    <attr name="navbar_font_color" format="color"/>
+    <attr name="navbar_bg_color" format="color"/>
+    <attr name="app_bg_color" format="color"/>
+    <attr name="fragment_bg_color" format="color"/>
+
+    <attr name="list_primary_color" format="color"/>
+    <attr name="list_sub_color" format="color"/>
+    <attr name="list_secondary_color" format="color"/>
+    <attr name="list_line_color" format="color"/>
+    <attr name="list_bg_color" format="color"/>
+    <attr name="notice_font_color" format="color"/>
+    <attr name="notice_bg_color" format="color"/>
+
+    <attr name="primary_button_font_color" format="color"/>
+    <attr name="primary_button_bg_color" format="color"/>
+    <attr name="primary_button_press_color" format="color"/>
+    <attr name="secondary_button_font_color" format="color"/>
+    <attr name="secondary_button_bg_color" format="color"/>
+    <!-- 文本按钮风格背景引用 -->
+    <attr name="bg_normal_text_bt" format="reference"/>
+    <attr name="app_name" format="string"/>
+    <attr name="about_company_name" format="string"/>
+    <!-- 切换热点模式文案 -->
+    <attr name="wifi_switch_tip" format="reference"/>
+    <!-- ap配网模式的默认ssid -->
+    <attr name="ap_default_ssid" format="string"/>
+
+    <!-- 登陆模式 已经废弃 -->
+    <attr name="login_flow" format="integer"/>
+    <!-- 社交平台使能标志 -->
+    <attr name="is_wechat_useful" format="boolean"/>
+    <attr name="is_weibo_useful" format="boolean"/>
+    <attr name="is_qq_useful" format="boolean"/>
+    <attr name="is_facebook_useful" format="boolean"/>
+    <attr name="is_twitter_useful" format="boolean"/>
+    <attr name="is_instagram_useful" format="boolean"/>
+
+    <!-- 语言模式 0 普通多语言;1 仅中文;2 仅英文-->
+    <attr name="language_mode" format="integer"/>
+
+    <!-- 非必须配置项 主页背景图 默认用户头像 无内容图标-->
+    <attr name="bg_home" format="reference"/>
+    <attr name="user_default_portrait" format="reference"/>
+    <attr name="icon_none_content" format="reference"/>
+    <attr name="icon_none_content4device_list" format="reference"/>
+    <!-- 关于菜单 获取来源 0:服务端获取 1:本地获取-->
+    <attr name="about_menu_get_from" format="integer"/>
+    <attr name="is_about_menu_faq_need" format="boolean"/>
+    <attr name="is_about_menu_private_need" format="boolean"/>
+    <attr name="is_faq_private_get_from_native" format="boolean"/>
+    <!-- 引导页面 是否显示 -->
+    <attr name="is_splash_used" format="boolean"/>
+    <!-- 语言切换 是否显示 -->
+    <attr name="is_language_switch_used" format="boolean"/>
+    <!-- 社交账号登陆key -->
+    <attr name="wechat_app_key" format="reference"/>
+    <attr name="qq_app_key" format="reference"/>
+    <attr name="weibo_app_key" format="reference"/>
+
+    <attr name="twitter_consumer_key" format="reference"/>
+    <attr name="twitter_consumer_secret" format="reference"/>
+
+    <attr name="instagram_client_id" format="reference"/>
+    <attr name="instagram_client_secret" format="reference"/>
+    <attr name="instagram_redirect_uri" format="reference"/>
+
+    <!-- 分享 -->
+    <attr name="is_weibo_share_useful" format="boolean"/>
+    <!-- webview loading -->
+    <attr name="is_webview_need_loading_ui" format="boolean"/>
+    <!-- 安装包模式 0 正式版 1演示版 -->
+    <attr name="package_mode" format="integer"/>
+    <attr name="app_scheme" format="reference"/>
+
+    <attr name="add_device_tip_icon" format="reference"/>
+    <attr name="is_add_device_help_get_from_native" format="boolean"/>
+    <attr name="is_scene_support" format="boolean"/>
+
+    <declare-styleable name="ColorPicker">
+        <attr name="color_wheel_radius" format="dimension"/>
+        <attr name="color_wheel_thickness" format="dimension"/>
+        <attr name="color_center_radius" format="dimension"/>
+        <attr name="color_center_halo_radius" format="dimension"/>
+        <attr name="color_pointer_radius" format="dimension"/>
+        <attr name="color_pointer_halo_radius" format="dimension"/>
+        <attr name="color_circle_halo_thickness" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ColorBars">
+        <attr name="bar_thickness" format="dimension"/>
+        <attr name="bar_length" format="dimension"/>
+        <attr name="bar_pointer_radius" format="dimension"/>
+        <attr name="bar_pointer_halo_radius" format="dimension"/>
+        <attr name="bar_orientation_horizontal" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="NiceSpinner">
+        <attr name="arrowTint" format="color" />
+        <attr name="hideArrow" format="boolean" />
+        <attr name="backgroundSelector" format="integer"/>
+        <attr name="textTint" format="color"/>
+    </declare-styleable>
+</resources>

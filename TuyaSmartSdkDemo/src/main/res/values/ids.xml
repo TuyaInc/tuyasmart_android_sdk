@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="np__increment" type="id"/>
+    <item name="np__decrement" type="id"/>
+    <item name="schemaId" type="id">10210</item>
+    <item name="schemaView" type="id">102023</item>
+</resources>

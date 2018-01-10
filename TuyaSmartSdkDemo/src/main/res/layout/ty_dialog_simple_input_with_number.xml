@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText android:id="@+id/dialog_simple_input"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/mg_24"
+          android:hint="?attr/app_name"
+          android:inputType="number"
+          android:paddingLeft="@dimen/mg_24"
+          android:paddingRight="@dimen/mg_24"
+          android:paddingTop="@dimen/mg_18"
+          android:textColor="@color/black"/>

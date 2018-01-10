@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/app_bg_color"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view" />
+
+    <LinearLayout
+        android:id="@+id/rl_country"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mg_50"
+        android:layout_marginBottom="@dimen/mg_10"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginRight="@dimen/mg_15"
+        android:layout_marginTop="@dimen/mg_20"
+        android:layout_below="@id/action_bar_layout"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_white_round">
+
+        <TextView
+            android:id="@+id/country_name_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:padding="@dimen/mg_15"
+            android:text="@string/login_choose_country"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/ts_15" />
+
+        <TextView
+            android:id="@+id/country_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="@dimen/mg_10"
+            android:drawableRight="@drawable/arrow_more"
+            android:gravity="center_vertical|right"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:paddingRight="@dimen/mg_15"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/ts_15" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/phone_button_height"
+        android:layout_below="@id/rl_country"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/phone_button_margin_right"
+        android:layout_marginRight="@dimen/phone_button_margin_left"
+        android:background="@drawable/bg_white_round"
+        android:gravity="left|center"
+        android:hint="@string/phone_email"
+        android:inputType="none"
+        android:paddingLeft="@dimen/phone_button_padding_left"
+        android:singleLine="true"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_hint_color"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/phone_button_text_size" />
+
+    <Button
+        android:id="@+id/bt_next"
+        android:layout_below="@id/et_account"
+        style="@style/Button.Normal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/phone_button_height"
+        android:layout_marginLeft="@dimen/phone_button_margin_left"
+        android:layout_marginRight="@dimen/phone_button_margin_right"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/go_next" />
+
+</RelativeLayout>

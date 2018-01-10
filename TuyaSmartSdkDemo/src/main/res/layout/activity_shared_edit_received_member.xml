@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/app_bg_color"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view" />
+
+    <include
+        android:id="@+id/mode_shared_member_edit"
+        layout="@layout/mode_shared_member_edit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/ty_common_margin"
+        android:layout_marginStart="@dimen/ty_common_margin"
+        android:layout_marginTop="40dp"
+        android:text="@string/ty_add_share_tab2"
+        android:textColor="#B0B0B0"
+        android:textSize="@dimen/ts_14" />
+
+    <View
+        style="@style/line_long"
+        android:layout_marginTop="8dp" />
+
+    <ListView
+        android:id="@+id/lv_device_list"
+        style="@style/list_view" />
+
+</LinearLayout>
+
+

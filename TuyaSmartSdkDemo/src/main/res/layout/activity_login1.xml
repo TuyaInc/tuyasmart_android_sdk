@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:hint="@string/user_phonenumber"
+            android:text="18888888888"/>
+
+        <EditText
+            android:id="@+id/et_validate_code"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:hint="@string/input_validate_code"
+            android:text="8888"/>
+
+        <EditText
+            android:id="@+id/et_country_code"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:hint="@string/default_country_code"
+            android:text="86"/>
+
+        <Button
+            android:id="@+id/do_get_validate_code"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/get_validate_code"/>
+
+
+        <Button
+            android:id="@+id/do_reset"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/login"/>
+
+
+        <Button
+            android:id="@+id/do_register"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/register_phonenumber"/>
+
+        <Button
+            android:id="@+id/do_email_register"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/register_email"/>
+
+        <Button
+            android:id="@+id/do_uid_register"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/register_uid"/>
+
+        <Button
+            android:id="@+id/do_phone_login"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/login_phonenumber"/>
+
+        <Button
+            android:id="@+id/do_email_login"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/login_email"/>
+
+        <Button
+            android:id="@+id/do_uid_login"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/login_uid"/>
+
+        <Button
+            android:id="@+id/do_phone_forget"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/find_pwd_phonenumber"/>
+
+        <Button
+            android:id="@+id/do_email_forget"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/find_pwd_email"/>
+
+
+        <Button
+            android:id="@+id/do_uid_forget"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/find_pwd_uid"/>
+
+    </LinearLayout>
+</ScrollView>

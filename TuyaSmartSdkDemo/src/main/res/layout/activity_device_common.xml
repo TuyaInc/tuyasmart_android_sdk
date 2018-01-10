@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/background_home"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/action_bar_layout"
+        layout="@layout/toolbar_top_view"/>
+
+    <ListView android:id="@+id/lv_dp_list"
+              style="@style/TY_List_Normal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    </ListView>
+
+</LinearLayout>

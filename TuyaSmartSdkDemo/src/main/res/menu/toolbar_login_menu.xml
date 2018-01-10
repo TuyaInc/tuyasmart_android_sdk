@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:actionMenuTextColor="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/action_login_reg_onclick"
+        android:title="@string/login_register"
+        app:showAsAction="always" />
+</menu>
