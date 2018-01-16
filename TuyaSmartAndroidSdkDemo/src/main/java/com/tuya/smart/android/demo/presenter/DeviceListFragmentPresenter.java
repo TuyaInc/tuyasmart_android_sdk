@@ -15,33 +15,28 @@ import com.tuya.smart.android.demo.activity.CommonDeviceDebugActivity;
 import com.tuya.smart.android.demo.activity.SharedActivity;
 import com.tuya.smart.android.demo.activity.SwitchActivity;
 import com.tuya.smart.android.demo.config.CommonConfig;
-import com.tuya.smart.android.demo.event.DeviceListUpdateModel;
-import com.tuya.smart.android.demo.event.DeviceUpdateEvent;
 import com.tuya.smart.android.demo.fragment.DeviceListFragment;
 import com.tuya.smart.android.demo.test.utils.DialogUtil;
 import com.tuya.smart.android.demo.utils.ActivityUtils;
 import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.IDeviceListFragmentView;
-import com.tuya.smart.android.device.event.GwRelationEvent;
-import com.tuya.smart.android.device.event.GwRelationUpdateEventModel;
-import com.tuya.smart.android.device.event.GwUpdateEvent;
-import com.tuya.smart.android.device.event.GwUpdateEventModel;
 import com.tuya.smart.android.hardware.model.IControlCallback;
 import com.tuya.smart.android.mvp.presenter.BasePresenter;
 import com.tuya.smart.sdk.TuyaDevice;
-import com.tuya.smart.sdk.TuyaSdk;
 import com.tuya.smart.sdk.TuyaSmartRequest;
 import com.tuya.smart.sdk.TuyaUser;
 import com.tuya.smart.sdk.api.IRequestCallback;
+import com.tuya.smart.sdk.api.ITuyaListChangedListener;
 import com.tuya.smart.sdk.bean.DeviceBean;
+import com.tuya.smart.sdk.bean.TuyaListBean;
 
 import java.util.List;
 
 /**
  * Created by letian on 15/6/1.
  */
-public class DeviceListFragmentPresenter extends BasePresenter implements GwRelationEvent, GwUpdateEvent, NetWorkStatusEvent, DeviceUpdateEvent {
+public class DeviceListFragmentPresenter extends BasePresenter implements NetWorkStatusEvent, ITuyaListChangedListener {
 
     private static final String TAG = "DeviceListFragmentPresenter";
     private static final int WHAT_JUMP_GROUP_PAGE = 10212;
@@ -51,6 +46,7 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     public DeviceListFragmentPresenter(DeviceListFragment fragment, IDeviceListFragmentView view) {
         mActivity = fragment.getActivity();
         mView = view;
+        TuyaUser.getDeviceInstance().registerTuyaListChangedListener(this);
         initEventBus();
     }
 
@@ -212,24 +208,11 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
         }
     }
 
-    @Override
-    public void onEventMainThread(GwRelationUpdateEventModel event) {
-        updateLocalData();
-    }
-
-    @Override
-    public void onEventMainThread(GwUpdateEventModel event) {
-        updateLocalData();
-    }
 
     private void updateLocalData() {
         updateDeviceData(TuyaUser.getDeviceInstance().getDevList());
     }
 
-    @Override
-    public void onEventMainThread(DeviceListUpdateModel event) {
-        getData();
-    }
 
     @Override
     public void onEvent(NetWorkStatusEventModel eventModel) {
@@ -250,7 +233,8 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
     }
 
     public void onDestroy() {
-        TuyaSdk.getEventBus().unregister(this);
+        super.onDestroy();
+        TuyaUser.getDeviceInstance().unRegisterTuyaListChangedListener(this);
     }
 
     public void addDemoDevice() {
@@ -268,5 +252,10 @@ public class DeviceListFragmentPresenter extends BasePresenter implements GwRela
                 ToastUtil.showToast(mActivity, errorMsg);
             }
         });
+    }
+
+    @Override
+    public void onDeviceChanged(TuyaListBean tuyaListBean) {
+        updateLocalData();
     }
 }
