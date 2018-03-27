@@ -22,6 +22,7 @@
 * GwDevResp 被DeviceBean替代，请及时修正。涉及到配网。
 * ConfigDeviceErrorCode 被 ErrorCode 替代
 
+
 ### 1.7.6
 
 *  fix crash in some language.
