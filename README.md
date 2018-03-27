@@ -14,6 +14,11 @@
 
 ## 版本更新记录
 
+### 1.13.2
+
+* Fixed some OOM
+* New feature of the group dp timer
+
 ### 1.12.0
 
 * 增加了场景、头像上传、意见反馈等功能
