@@ -18,7 +18,7 @@ Tuya Smart APP SDK provides the interface package for the communication with har
 
 ## Updated Log
 
-[Updated Log](doc/record.md)
+[Updated Log](TuyaSmartAndroidSdkDemo/doc/record.md)
 
 ## Doc
 
