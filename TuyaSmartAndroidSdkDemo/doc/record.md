@@ -1,8 +1,13 @@
+### 1.13.5 （2018-05-22）
+* Discarded the interface resetUidPassword
+* Fix some bugs about new firmware
+* Fix add timer error with the api 'addTimerWithTask'
+
 ### 1.13.3 (2018-04-13)
 
-* support the group timer
-* optimize the timer interface
-* fix some bugs
+* Support the group timer
+* Optimize the timer interface
+* Fix some bugs
 
 ### 1.13.2
 
@@ -19,10 +24,10 @@
 
 ### 1.7.6
 
-*  fix crash in some language.
+* Fix crash in some language.
 
 ### 1.7.5
-*  4.1兼容问题修复
+* Fix some bugs on the Android Jelly Bean
 
 ### 1.7.4
 * 三方Mqtt库迁移出来，底层库稳定性增加,升级时注意添加相关依赖，可参考demo build.gradle配置。
@@ -35,12 +40,12 @@
 * 修复定时接口传参有误的问题
 
 ### 1.5.10
-* 修复安卓在低版本系统上崩溃的问题
+* Fix some bugs on the Android Jelly Bean
 
 ### 1.5.9
 * 修复安卓6.0、7.0个别手机兼容性问题。
-* 修复一些空指针问题。
-* 增强通信安全
+* Fix some bugs
+* Upgrade Transfer Security
 * 第三方类库拆分出来，升级时注意添加相关依赖，可参考demo build.gradle配置。
 
 ### 1.4.6
@@ -48,7 +53,7 @@
 * 修复异常若干
 
 ### 1.4.5
-* 修复局域网连接问题
+* Fix some bugs about controlling device on the LAN
 
 ### 1.4.4
 * 发布局域网搜索设备接口。
@@ -65,7 +70,7 @@
 * 退出接口崩溃bug 修复。
 
 ### 1.3.4
-* 局域网通信不稳定问题修复
+* Fix some bugs about controlling device on the LAN
 * 设备网络监听状态变化，导致设备显示离线。问题修复 IDevListener onNetworkStatusChanged();
 
 ### 1.3.2
