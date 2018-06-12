@@ -1,7 +1,10 @@
-### 1.13.6  (2018-05-23)
-* fix method getAllTimerWithDeviceId error
+### 1.13.8 （2018-06-12）
+* fix some bug
 * add new api of get email verification code  
 * add new api of register by email
+
+### 1.13.6  (2018-05-23)
+* fix method getAllTimerWithDeviceId error
 
 ### 1.13.5 （2018-05-22）
 * Discarded the interface resetUidPassword
