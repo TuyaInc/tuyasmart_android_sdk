@@ -22,7 +22,7 @@ Tuya Smart APP SDK provides the interface package for the communication with har
 
 ## Doc
 
-Refer to details: [Tuya Smart Doc - Android SDK](http://docs.tuya.com/develop/app-development/android-sdk/)
+Refer to details: [Tuya Smart Doc - Android SDK](https://docs.tuya.com/cn/app/app-sdk/android-sdk.html)
 
 
 
