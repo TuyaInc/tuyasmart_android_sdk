@@ -1,3 +1,6 @@
+### 1.13.9 （2018-06-13）
+* fix some bug of register by email
+
 ### 1.13.8 （2018-06-12）
 * fix some bug
 * add new api of get email verification code  
