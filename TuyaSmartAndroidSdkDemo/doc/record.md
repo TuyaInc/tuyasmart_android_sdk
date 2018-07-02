@@ -1,3 +1,6 @@
+### 1.13.10（2018-07-02）
+* add interface for get max message time
+
 ### 1.13.9 （2018-06-13）
 * fix some bug of register by email
 
