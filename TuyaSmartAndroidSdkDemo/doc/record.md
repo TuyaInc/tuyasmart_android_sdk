@@ -1,3 +1,6 @@
+### 1.13.11（2018-07-16）
+* fix app  can't receive dps message in some situation
+
 ### 1.13.10（2018-07-02）
 * add interface for get max message time
 
@@ -24,7 +27,7 @@
 * Fix some bugs
 
 ### 1.13.2
-
+****
 * Fixed some OOM
 * New feature of the group dp timer
 
