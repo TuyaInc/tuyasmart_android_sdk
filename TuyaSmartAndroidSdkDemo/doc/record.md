@@ -1,3 +1,6 @@
+### 1.13.12 (2018-07-25)
+* reduce some unnecessary library
+
 ### 1.13.11（2018-07-16）
 * fix app  can't receive dps message in some situation
 
