@@ -35,8 +35,8 @@
             android:name="TUYA_SMART_SECRET"
             android:value=""/>
 
+        <service android:name="com.tuya.smart.mqtt.MqttService" />
 
-        <service android:name="org.eclipse.paho.android.service.MqttService"/>
         <service android:name="com.tuya.smart.android.hardware.service.DevTransferService" />
 
         <activity

@@ -69,13 +69,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     //=====依赖库 必要 ====//
-    compile 'com.alibaba:fastjson:1.1.45.android'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'
+    compile 'com.alibaba:fastjson:1.1.67.android'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
-    compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-    compile(name: 'tuyasmart-1.13.12', ext: 'aar')
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    compile(name: 'tuyasmart-1.13.13', ext: 'aar')
     //=====依赖库====//
 
     compile 'com.android.support:appcompat-v7:25.3.0@aar'
