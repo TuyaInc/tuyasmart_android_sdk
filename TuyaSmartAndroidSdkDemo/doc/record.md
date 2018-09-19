@@ -1,3 +1,9 @@
+### 1.13.14 (2018-09-19)
+* fix DataPointEnum values
+
+### 1.13.13 (2018-09-11)
+* fix android O ANR 
+
 ### 1.13.12 (2018-07-25)
 * reduce some unnecessary library
 
