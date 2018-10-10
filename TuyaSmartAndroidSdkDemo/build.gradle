@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.tuya.smart.sdk.demo"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled false
