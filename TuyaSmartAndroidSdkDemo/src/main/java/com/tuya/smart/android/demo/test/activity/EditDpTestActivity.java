@@ -11,7 +11,7 @@ import com.tuya.smart.android.demo.R;
 import com.tuya.smart.android.demo.test.presenter.EditDpTestPresenter;
 import com.tuya.smart.android.demo.test.view.IEditDpTestView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,10 +21,10 @@ import butterknife.OnClick;
 public class EditDpTestActivity extends Activity implements IEditDpTestView {
     public static final String TAG = "EditDpTestActivity ggg";
     private EditDpTestPresenter mPresenter;
-    @Bind(R.id.test_log)
+    @BindView(R.id.test_log)
     public TextView testLog;
 
-    @Bind(R.id.test_scroll)
+    @BindView(R.id.test_scroll)
     public ScrollView testScroll;
 
     @Override

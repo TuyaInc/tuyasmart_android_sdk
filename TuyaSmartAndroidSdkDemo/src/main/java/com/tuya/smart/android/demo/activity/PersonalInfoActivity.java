@@ -11,7 +11,7 @@ import com.tuya.smart.android.demo.utils.LoginHelper;
 import com.tuya.smart.android.demo.utils.ProgressUtil;
 import com.tuya.smart.android.demo.view.IPersonalInfoView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -21,10 +21,10 @@ import butterknife.OnClick;
 public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoView {
     private PersonalInfoPresenter mPersonalInfoPresenter;
 
-    @Bind(R.id.tv_renickname)
+    @BindView(R.id.tv_renickname)
     public TextView mNickName;
 
-    @Bind(R.id.tv_phone)
+    @BindView(R.id.tv_phone)
     public TextView mPhoneView;
 
     @Override
@@ -92,7 +92,6 @@ public class PersonalInfoActivity extends BaseActivity implements IPersonalInfoV
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
         mPersonalInfoPresenter.onDestroy();
     }
 }

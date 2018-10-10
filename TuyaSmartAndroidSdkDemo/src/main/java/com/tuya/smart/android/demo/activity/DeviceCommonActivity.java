@@ -15,7 +15,7 @@ import com.tuya.smart.android.device.bean.SchemaBean;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  */
 public class DeviceCommonActivity extends BaseActivity implements IDeviceCommonView {
 
-    @Bind(R.id.lv_dp_list)
+    @BindView(R.id.lv_dp_list)
     public ListView mListView;
     private SchemaListAdapter mAdapter;
     private DeviceCommonPresenter mPresenter;
@@ -114,7 +114,6 @@ public class DeviceCommonActivity extends BaseActivity implements IDeviceCommonV
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
-        ButterKnife.unbind(this);
     }
 
 }

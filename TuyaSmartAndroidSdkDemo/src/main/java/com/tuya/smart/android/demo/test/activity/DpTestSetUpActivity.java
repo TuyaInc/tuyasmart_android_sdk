@@ -15,7 +15,7 @@ import com.tuya.smart.android.demo.test.presenter.DpTestSetUpPresenter;
 import com.tuya.smart.android.demo.test.view.IDpTestSetUpView;
 import com.tuya.smart.android.demo.utils.ToastUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -26,18 +26,18 @@ public class DpTestSetUpActivity extends BaseActivity implements IDpTestSetUpVie
     public static final String DP_TEST_SETUP_VALUE = "dp_test_setup_value";
     private DpTestSetUpPresenter mPresenter;
 
-    @Bind(R.id.sb_show_log_window)
+    @BindView(R.id.sb_show_log_window)
     public SwitchButton mShowLogSBView;
-    @Bind(R.id.sb_needpool)
+    @BindView(R.id.sb_needpool)
     public SwitchButton mNeedPoolSBView;
-    @Bind(R.id.sb_show_report)
+    @BindView(R.id.sb_show_report)
     public SwitchButton mShowTestReportSBView;
-    @Bind(R.id.sb_lan_send)
+    @BindView(R.id.sb_lan_send)
     public SwitchButton mLanSendSBView;
-    @Bind(R.id.sb_cloud_send)
+    @BindView(R.id.sb_cloud_send)
     public SwitchButton mCloudSendSBView;
     private DpTestSetUpBean mBean;
-    @Bind(R.id.et_time_interval)
+    @BindView(R.id.et_time_interval)
     public EditText mTimeInterval;
 
     @Override

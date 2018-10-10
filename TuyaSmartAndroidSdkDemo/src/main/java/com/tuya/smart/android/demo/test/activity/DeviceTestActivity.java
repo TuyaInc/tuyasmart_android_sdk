@@ -13,7 +13,7 @@ import com.tuya.smart.android.demo.activity.BaseActivity;
 import com.tuya.smart.android.demo.test.presenter.DeviceTestPresenter;
 import com.tuya.smart.android.demo.test.view.IDeviceTestView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -23,10 +23,10 @@ import butterknife.OnClick;
 public class DeviceTestActivity extends BaseActivity implements IDeviceTestView {
     private static final String TAG = "DeviceTestActivity ggg";
     private DeviceTestPresenter mPresenter;
-    @Bind(R.id.test_log)
+    @BindView(R.id.test_log)
     public TextView testLog;
 
-    @Bind(R.id.test_scroll)
+    @BindView(R.id.test_scroll)
     public ScrollView testScroll;
 
 

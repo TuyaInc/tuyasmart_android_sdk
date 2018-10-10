@@ -20,7 +20,7 @@ import com.tuya.smart.android.demo.view.IDpSendView;
 
 import java.util.Set;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -31,65 +31,65 @@ public class DpSendActivity extends BaseActivity implements IDpSendView {
     private static final String TAG = "DpSendActivity ggg";
     private DpSendPresenter mPresenter;
 
-    @Bind(R.id.fl_boolean)
+    @BindView(R.id.fl_boolean)
     public View mBoolView;
-    @Bind(R.id.fl_raw)
+    @BindView(R.id.fl_raw)
     public View mRawView;
-    @Bind(R.id.fl_string)
+    @BindView(R.id.fl_string)
     public View mStrView;
-    @Bind(R.id.fl_value)
+    @BindView(R.id.fl_value)
     public View mValueView;
-    @Bind(R.id.fl_enum)
+    @BindView(R.id.fl_enum)
     public View mEnumView;
-    @Bind(R.id.fl_bitmap)
+    @BindView(R.id.fl_bitmap)
     public View mBitmapView;
 
-    @Bind(R.id.sb_boolean)
+    @BindView(R.id.sb_boolean)
     public SwitchButton mBoolSBView;
 
-    @Bind(R.id.et_str)
+    @BindView(R.id.et_str)
     public EditText mStrETView;
 
-    @Bind(R.id.et_value)
+    @BindView(R.id.et_value)
     public EditText mValueETView;
 
-    @Bind(R.id.et_raw)
+    @BindView(R.id.et_raw)
     public EditText mRawETView;
 
-    @Bind(R.id.tv_bool_name)
+    @BindView(R.id.tv_bool_name)
     public TextView mBoolTVView;
 
-    @Bind(R.id.tv_raw_name)
+    @BindView(R.id.tv_raw_name)
     public TextView mRawTVView;
 
-    @Bind(R.id.tv_str_name)
+    @BindView(R.id.tv_str_name)
     public TextView mStrTVView;
 
-    @Bind(R.id.tv_value_name)
+    @BindView(R.id.tv_value_name)
     public TextView mValueTVView;
 
-    @Bind(R.id.tv_dp_des)
+    @BindView(R.id.tv_dp_des)
     public TextView mDpDesView;
 
-    @Bind(R.id.test_scroll)
+    @BindView(R.id.test_scroll)
     public ScrollView testScroll;
 
-    @Bind(R.id.test_log)
+    @BindView(R.id.test_log)
     public TextView testLog;
 
-    @Bind(R.id.btn_send)
+    @BindView(R.id.btn_send)
     public TextView mSendView;
 
-    @Bind(R.id.sp_enum)
+    @BindView(R.id.sp_enum)
     public Spinner mNiceSpinner;
 
-    @Bind(R.id.tv_enum_name)
+    @BindView(R.id.tv_enum_name)
     public TextView mEnumTVView;
 
-    @Bind(R.id.tv_bitmap_name)
+    @BindView(R.id.tv_bitmap_name)
     public TextView mBitmapTVView;
 
-    @Bind(R.id.et_bitmap_value)
+    @BindView(R.id.et_bitmap_value)
     public EditText mBitampETView;
 
     @Override

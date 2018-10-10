@@ -279,7 +279,6 @@ public class ECBindActivity extends BaseActivity implements IECBindView {
 
     @Override
     protected void onDestroy() {
-        ButterKnife.unbind(this);
         mECBindPresenter.onDestroy();
         unRegisterWifiReceiver();
         super.onDestroy();

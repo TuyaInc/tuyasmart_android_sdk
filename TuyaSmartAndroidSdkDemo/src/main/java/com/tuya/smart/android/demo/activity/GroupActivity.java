@@ -15,14 +15,14 @@ import com.tuya.smart.android.device.bean.SchemaBean;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by letian on 16/8/27.
  */
 public class GroupActivity extends BaseActivity implements IDeviceCommonView {
-    @Bind(R.id.lv_dp_list)
+    @BindView(R.id.lv_dp_list)
     public ListView mListView;
     private SchemaListAdapter mAdapter;
     private GroupCommonPresenter mPresenter;
@@ -105,6 +105,5 @@ public class GroupActivity extends BaseActivity implements IDeviceCommonView {
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
-        ButterKnife.unbind(this);
     }
 }

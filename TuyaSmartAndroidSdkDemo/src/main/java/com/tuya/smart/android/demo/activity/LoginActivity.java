@@ -21,7 +21,7 @@ import com.tuya.smart.android.demo.utils.ToastUtil;
 import com.tuya.smart.android.demo.view.ILoginView;
 import com.tuya.smart.android.mvp.bean.Result;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -30,18 +30,18 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends BaseActivity implements ILoginView, TextWatcher {
 
-    @Bind(R.id.login_submit)
+    @BindView(R.id.login_submit)
     public Button mLoginSubmit;
 
-    @Bind(R.id.country_name)
+    @BindView(R.id.country_name)
     public TextView mCountryName;
 
-    @Bind(R.id.password)
+    @BindView(R.id.password)
     public EditText mPassword;
 
-    @Bind(R.id.password_switch)
+    @BindView(R.id.password_switch)
     public ImageButton mPasswordSwitch;
-    @Bind(R.id.user_name)
+    @BindView(R.id.user_name)
     public TextView mUserName;
 
 
@@ -217,6 +217,5 @@ public class LoginActivity extends BaseActivity implements ILoginView, TextWatch
     protected void onDestroy() {
         super.onDestroy();
         mLoginPresenter.onDestroy();
-        ButterKnife.unbind(this);
     }
 }

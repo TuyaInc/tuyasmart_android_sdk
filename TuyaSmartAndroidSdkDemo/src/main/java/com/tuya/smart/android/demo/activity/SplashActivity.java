@@ -21,7 +21,7 @@ import com.tuya.smart.sdk.TuyaUser;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**

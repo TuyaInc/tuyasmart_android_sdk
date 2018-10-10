@@ -32,7 +32,7 @@ import com.tuya.smart.android.device.bean.SchemaBean;
 import java.util.ArrayList;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -42,20 +42,20 @@ import butterknife.OnClick;
 public class CommonDeviceDebugActivity extends BaseActivity implements ICommonDeviceDebugView {
 
     private CommonDebugDeviceAdapter mCommonDebugDeviceAdapter;
-    @Bind(R.id.lv_dp_list)
+    @BindView(R.id.lv_dp_list)
     public ListView mDpListView;
     private CommonDeviceDebugPresenter mPresenter;
 
-    @Bind(R.id.test_log)
+    @BindView(R.id.test_log)
     public TextView mLogView;
 
-    @Bind(R.id.test_scroll)
+    @BindView(R.id.test_scroll)
     public ScrollView testScroll;
 
-    @Bind(R.id.v_off_line)
+    @BindView(R.id.v_off_line)
     public View mOffLineView;
 
-    @Bind(R.id.network_tip)
+    @BindView(R.id.network_tip)
     public TextView mOffLineTip;
 
 
@@ -304,6 +304,5 @@ public class CommonDeviceDebugActivity extends BaseActivity implements ICommonDe
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
-        ButterKnife.unbind(this);
     }
 }
