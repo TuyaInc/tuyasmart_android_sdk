@@ -73,7 +73,7 @@ dependencies {
     api 'de.greenrobot:eventbus:2.4.0'
     api 'io.reactivex:rxandroid:1.2.1'
     api 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
-    api(name: 'tuyasmart-1.13.14', ext: 'aar')
+    api(name: 'tuyasmart-1.13.15', ext: 'aar')
     //=====依赖库====//
 
     api 'com.android.support:appcompat-v7:27.1.1@aar'

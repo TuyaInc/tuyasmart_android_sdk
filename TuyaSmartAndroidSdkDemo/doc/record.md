@@ -1,3 +1,6 @@
+### 1.13.15 (2018-10-15)
+* add  time for MessageBean
+
 ### 1.13.14 (2018-09-19)
 * fix DataPointEnum values
 
