@@ -257,7 +257,7 @@ TuyaUser.getDeviceInstance().onDestroy();
 #### (3)  注册session失效监听
 ##### 【描述】
 
-Session由于可能存在一些异常或者在一段时间不操作（45天）会失效掉，这时候需要退出应用，重新登陆获取Session。
+Session由于可能存在用户修改密码、在长时间不操作（45天）等操作的情况下会失效掉，这时候需要退出应用，重新登陆获取Session。
 
 ##### 【方法调用】
 
